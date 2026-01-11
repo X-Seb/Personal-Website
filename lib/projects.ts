@@ -1,113 +1,42 @@
-export type ProjectSize = "1x1" | "2x1" | "1x2" | "2x2"
+import fs from "fs";
+import path from "path";
+import { compileMDX } from "next-mdx-remote/rsc";
 
-export interface Project {
-    id: string; // slug
-    title: string;
-    description: string;
-    tags: string[];
-    image: string; // path of image
-    link: string; // page with more info
-    size: ProjectSize;
+export interface ProjectMetadata {
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  image: string;
+  size: "1x1" | "1x2" | "2x1" | "2x2";
+  visible: boolean;
+  slug: string;
 }
 
-export const PROJECTS: Project[] = [
-    {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x2",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x1",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "2x2",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "2x1",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "2x1",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x2",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x2",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x1",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "2x2",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x1",
-  },
-  {
-    id: "robot-arm",
-    title: "6-DOF Robot Arm",
-    description: "Inverse kinematics engine written in C++.",
-    tags: ["Robotics", "C++", "ROS2"],
-    image: "/images/arm.jpg",
-    link: "/projects/robot-arm",
-    size: "1x1",
+export async function getAllProjects(): Promise<ProjectMetadata[]> {
+  const root = path.join(process.cwd(), "content", "projects");
+  
+  const files = fs.readdirSync(root).filter((file) => file.endsWith(".mdx"));
+  const projects: ProjectMetadata[] = [];
+
+  for (const file of files) {
+    const slug = file.replace(".mdx", "");
+    const filePath = path.join(root, file);
+    const fileContent = fs.readFileSync(filePath, "utf8");
+
+    const { frontmatter } = await compileMDX<ProjectMetadata>({
+      source: fileContent,
+      options: { parseFrontmatter: true },
+    });
+
+    if (frontmatter.visible !== false) {
+      projects.push({
+        ...frontmatter,
+        slug: slug,
+      });
+    }
   }
-]
+
+  // Optional: Sort by date (Newest first)
+  return projects.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
+}

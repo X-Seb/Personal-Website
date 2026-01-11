@@ -6,8 +6,8 @@ export default function NotFound() {
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center bg-black text-white p-4">
       <motion.h1
-        className="text-9xl font-bold text-rpg-main opacity-50"
-        animate={{ x: [-2, 2, -2] }}
+        className="text-9xl font-bold text-rpg-main opacity-90"
+        animate={{ x: [-3, 2, -3] }}
         transition={{ repeat: Infinity, duration: 0.1 }}
       >
         404
