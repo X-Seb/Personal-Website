@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+  --color-rarity-common: #9ca3af;    /* Gray-400 */
+  --color-rarity-uncommon: #22c55e;  /* Green-500 */
+  --color-rarity-rare: #3b82f6;      /* Blue-500 */
+  --color-rarity-epic: #a855f7;      /* Purple-500 */
+  --color-rarity-legendary: #f59e0b; /* Amber-500 */
+
+  --color-rpg-gold: #ffd700;
+  --color-rpg-dark: #0f0518;
+  --color-rpg-main: #7c3aed;
+  --color-rpg-light: #e879f9;
+}
+
+body {
+  cursor: url("/cursor_sword.png"), auto;
+}
+
+html, body {
+  background-color: whitesmoke;
+  overscroll-behavior-y: none;
+}
