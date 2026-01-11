@@ -19,7 +19,6 @@ export default function NavBar(){
                     SEB<span className="text-purple-500 font-light">.DEV</span>
                 </Link>
 
-
                 <div className="hidden md:flex gap-8">
                     {NAV_LINKS.map((link) => (
                         <Link
