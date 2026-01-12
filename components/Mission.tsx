@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, MapPin, Radio, Zap, Github, Linkedin, Twitter, Instagram, Youtube } from "lucide-react";
+import { ArrowRight, MapPin, Radio, Zap } from "lucide-react";
 import FadeUp from "./animations/FadeUp";
-import Typewriter from "@/components/Typewriter";
+import Socials from "@/components/general/Socials";
 
 export default function Mission() {
   return (
@@ -76,37 +76,19 @@ export default function Mission() {
                   Read Lore
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-
                 <Link
                   href="mailto:sebastien.therriault1@gmail.com"
                   className="px-8 py-3.5 rounded-xl border-2 border-neutral-700 text-neutral-300 hover:text-white hover:border-white hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
                 >
-                  Establish Comms
+                  Contact Me
                 </Link>
 
-                <div className="flex gap-3 bg-neutral-900/50 p-1.5 rounded-xl border border-white/5">
-                  <SocialLink href="https://youtube.com/@SebMakesGames" icon={<Youtube size={18} />} />
-                  <SocialLink href="https://x.com/SebMakesGames" icon={<Twitter size={18} />} />
-                  <SocialLink href="https://github.com/X-Seb" icon={<Github size={18} />} />
-                  <SocialLink href="https://www.linkedin.com/in/sebastientherriault/" icon={<Linkedin size={18} />} />
-                </div>
+                <Socials />
               </div>
             </div>
           </div>
         </FadeUp>
       </div>
     </section>
-  );
-}
-
-function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      className="p-2.5 rounded-lg bg-neutral-800 text-neutral-400 hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
-    >
-      {icon}
-    </Link>
   );
 }
