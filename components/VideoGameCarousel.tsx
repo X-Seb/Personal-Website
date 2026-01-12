@@ -23,33 +23,29 @@ export default function Games() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <FadeUp>
-            <h2 className="text-4xl md:text-5xl font-extrabold uppercase mb-4 text-white">
-              Indie <span className="text-rpg-light">Archives</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold uppercase mb-4 text-white font-pixel">
+              Game <span className="text-rpg-light">Development</span>
             </h2>
-            <h3 className="text-neutral-600 text-xl">A collection of my games. Click on any game to play it!</h3>
+            <h3 className="text-neutral-600 font-bold text-xl">A collection of my games. Click on any game to play it!</h3>
           </FadeUp>
 
           {/* ARROW BUTTONS */}
           <div className="flex gap-4">
             <button
               onClick={() => scroll("left")}
-              className="p-3 rounded-full border border-white/40 bg-black/40 hover:bg-black/70 hover:border-rpg-main transition text-white"
+              className="p-3 rounded-full border border-white/40 bg-black/40 hover:bg-rpg-main transition text-white"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="p-3 rounded-full border border-white/40 bg-black/40 hover:bg-black/70 hover:border-rpg-main transition text-white"
+              className="p-3 rounded-full border border-white/40 bg-black/40 hover:bg-rpg-main transition text-white"
             >
               <ChevronRight size={24} />
             </button>
           </div>
         </div>
 
-        {/* CAROUSEL CONTAINER */}
-        {/* overflow-x-auto = allows scrolling
-            no-scrollbar = hide the ugly bar (needs custom CSS or plugin) 
-            snap-x = snap to elements */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory scroll-smooth no-scrollbar"
