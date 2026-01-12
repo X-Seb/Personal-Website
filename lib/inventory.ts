@@ -5,29 +5,30 @@ export interface InventoryItem {
   name: string;
   image: string;
   description: string;
-  type: string; // e.g., "Weapon", "Gear", "Consumable", "Software"
+  type: string;
   rarity: Rarity;
   level: number;
-  effects: string[]; // e.g., ["+10 Coding Speed", "+5 Charisma"]
+  effects: string[];
+  visible: boolean;
 }
 
 export const INVENTORY: InventoryItem[] = [
-  // --- WEAPONS (Main Tech) ---
   {
     id: "macbook",
-    name: "M3 MacBook Pro",
-    image: "/images/inventory/macbook.png",
+    name: "MacBook Pro",
+    image: "/images/inventory/laptop-open-on-desk.webp",
     description: "The main weapon of choice. High durability, critical hit rate increased at night.",
     type: "Weapon",
     rarity: "Legendary",
-    level: 99,
+    level: 81,
     effects: [
       "+50 Productivity",
       "10% Chance to overheat",
       "Grants 'Flow State' ability",
-      "Wallet damage: Critical",
-      "Deploy time: Instant"
+      "+80 Knowledge",
+      "5% Chance to spawn money"
     ],
+    visible: true,
   },
   {
     id: "iphone",
@@ -39,239 +40,234 @@ export const INVENTORY: InventoryItem[] = [
     level: 85,
     effects: [
       "+100 Connectivity",
-      "-20 Focus (when notifications on)",
       "Camera Quality: 4K",
       "Summons 'Uber' mount",
-      "Battery drain: High"
+      "10% Chance to dissapear"
     ],
+    visible: false,
   },
   {
     id: "jetson",
     name: "Nvidia Jetson Orin Nano",
-    image: "/images/inventory/jetson.png",
+    image: "/images/inventory/nvidia-jetson.webp",
     description: "A pocket-sized supercomputer for edge AI. Runs hot, runs fast.",
     type: "Weapon",
     rarity: "Epic",
-    level: 70,
+    level: 6,
     effects: [
       "+30 Machine Learning",
-      "Requires 'Linux Driver' skill",
       "Passive: Fan Noise",
       "Grants 'Computer Vision' sight",
-      "Power consumption: Low"
+      "+1 AI Girlfriend"
     ],
+    visible: true,
   },
   {
     id: "arduino",
     name: "Arduino Mega 2560",
-    image: "/images/inventory/arduino.png",
+    image: "/images/inventory/arduino-mega.webp",
     description: "The reliable workhorse of embedded systems. Tons of pins, zero operating system.",
     type: "Weapon",
-    rarity: "Rare",
+    rarity: "Uncommon",
     level: 45,
     effects: [
       "+15 Prototyping Speed",
-      "Invulnerable to OS crashes",
       "Memory: 256KB (Tiny)",
-      "Grants 'C++' proficiency",
       "Pinout: Massive"
     ],
+    visible: true,
   },
   {
     id: "esp32",
     name: "ESP32 Module",
-    image: "/images/inventory/esp32.png",
+    image: "/images/inventory/esp32.webp",
     description: "A tiny microcontroller with Wi-Fi and Bluetooth. Cheap, powerful, and slightly chaotic.",
     type: "Weapon",
-    rarity: "Uncommon",
-    level: 30,
+    rarity: "Rare",
+    level: 25,
     effects: [
       "+20 Wireless Range",
-      "Cost to deploy: $5",
       "Dual Core processing",
       "Grants 'IoT' ability",
       "Boot time: Instant"
     ],
+    visible: true,
   },
-
-  // --- GEAR (Tools & Wearables) ---
   {
     id: "airpods-fake",
     name: "Knock-off AirPods",
-    image: "/images/inventory/airpods.png",
+    image: "/images/inventory/airpods.webp",
     description: "Looks like the real thing from 5 feet away. Case magnetism is questionable.",
     type: "Gear",
-    rarity: "Uncommon",
+    rarity: "Common",
     level: 12,
     effects: [
       "+10 Style (Fake)",
-      "Audio Quality: Mid",
-      "Connection Drop Chance: 15%",
-      "Cost efficiency: Maximum",
+      "Audio Quality: Decent",
+      "Connection Drop Chance: 2%",
       "Battery life: Unpredictable"
     ],
+    visible: true,
   },
   {
     id: "stopwatch",
     name: "Digital Stopwatch",
-    image: "/images/inventory/stopwatch.png",
+    image: "/images/inventory/stopwatch.webp",
     description: "A relic of simple timekeeping. No apps, no distractions, just pure pressure.",
-    type: "Gear",
+    type: "Tool",
     rarity: "Common",
-    level: 5,
+    level: 43,
     effects: [
       "+10 Urgency",
-      "Grants 'Timeboxing' skill",
-      "Battery life: 2 years",
+      "Grants 'Timeblocking' skill",
       "-5 Procrastination",
-      "Simple UI buff"
+      "-10 Distractions"
     ],
+    visible: true,
   },
   {
     id: "circuit-pack",
     name: "Component Scrapyard",
-    image: "/images/inventory/wires.png",
-    description: "A chaotic box of jumper wires, sensors, and breadboards. 50% chance to find what you need.",
+    image: "/images/inventory/hardware-pile.webp",
+    description: "A chaotic collection of jumper wires, sensors, and breadboards. 50% chance to find what you need.",
     type: "Gear",
-    rarity: "Rare",
-    level: 25,
+    rarity: "Epic",
+    level: 27,
     effects: [
       "+50 Versatility",
-      "Inventory Clutter: High",
-      "Grants 'MacGyver' perk",
       "Includes: Sensors, LEDs, Resistors",
       "Tangle risk: 100%"
     ],
+    visible: true,
   },
   {
     id: "notebook",
     name: "Analog Notebook",
-    image: "/images/inventory/notebook.png",
+    image: "/images/inventory/notebook-and-pencil.webp",
     description: "Non-volatile memory storage. Immune to hackers and battery failure.",
-    type: "Gear",
+    type: "Tool",
     rarity: "Common",
-    level: 1,
+    level: 67,
     effects: [
-      "+10 Idea Retention",
-      "No Auto-Correct debuff",
+      "+30 Idea Retention",
+      "-5 Distraction",
       "Latency: 0ms",
       "Texture: Paper",
       "Requires 'Pencil' ammo"
     ],
+    visible: true,
   },
   {
     id: "whiteboard",
-    name: "Wall Whiteboard",
-    image: "/images/inventory/whiteboard.png",
-    description: "A massive canvas for brainstorming. Makes you look like a mad scientist.",
-    type: "Gear",
-    rarity: "Rare",
-    level: 10,
+    name: "Simple Whiteboard",
+    image: "/images/inventory/whiteboard.webp",
+    description: "A massive canvas for brainstorming. Boosts Creativity.",
+    type: "Tool",
+    rarity: "Uncommon",
+    level: 45,
     effects: [
       "+25 Planning",
-      "+10 Intelligence (Visual)",
-      "Erasable History",
-      "Grants 'Teacher' aura",
+      "+10 Coolness",
       "Smell: Marker Fumes"
     ],
+    visible: true,
   },
   {
     id: "tripod",
-    name: "Phone Tripod",
-    image: "/images/inventory/tripod.png",
+    name: "Versatile Tripod",
+    image: "/images/inventory/tripod.webp",
     description: "Three legs are better than two. Essential for stable content creation.",
-    type: "Gear",
-    rarity: "Common",
-    level: 8,
+    type: "Weapon",
+    rarity: "Rare",
+    level: 36,
     effects: [
       "+50 Stability",
       "Hands-free mode",
       "Setup time: 30s",
-      "Grants 'Vlogger' status",
       "Durability: Low"
     ],
+    visible: true,
   },
   {
     id: "mic",
     name: "Desktop Mic",
-    image: "/images/inventory/mic.png",
-    description: "Captures voice data with high fidelity. Filters out background chaos.",
-    type: "Gear",
-    rarity: "Uncommon",
+    image: "/images/inventory/microphone-with-stand.webp",
+    description: "Captures sound with high fidelity. Filters out background chaos.",
+    type: "Tool",
+    rarity: "Rare",
     level: 15,
     effects: [
       "+20 Audio Clarity",
       "+5 Charisma",
       "Range: Short",
-      "Grants 'Podcaster' voice",
-      "Requires 'Silence' environment"
+      "Grants 'Podcaster' aura",
     ],
+    visible: true,
   },
   {
     id: "sleep-mask",
     name: "Blackout Sleep Mask",
-    image: "/images/inventory/mask.png",
-    description: "Forces the user into shutdown mode. Blocks all visual input.",
+    image: "/images/inventory/sleep-eyepatch.webp",
+    description: "Forces the wearer into shutdown mode. Blocks all visual input.",
     type: "Gear",
     rarity: "Common",
-    level: 1,
+    level: 54,
     effects: [
       "+100 Darkness",
       "+15 Sleep Quality",
-      "Disables 'Vision'",
+      "Disables 'Vision' ability",
       "Grants 'Deep REM' buff",
       "Comfort: Medium"
     ],
+    visible: true,
   },
   {
     id: "earplugs",
     name: "Industrial Earplugs",
-    image: "/images/inventory/earplugs.png",
-    description: "A jar of orange foam cylinders. Blocks out the haters and the construction noise.",
+    image: "/images/inventory/earplugs.webp",
+    description: "Small green cylinders that can blocks out the haters and the ambient noise.",
     type: "Gear",
-    rarity: "Uncommon",
-    level: 1,
+    rarity: "Common",
+    level: 29,
     effects: [
       "+40 Silence",
       "+10 Focus",
-      "Disables 'Hearing'",
       "Cost: Cheap",
-      "Reusability: Low"
+      "+12 Sleep Quality"
     ],
+    visible: true,
   },
   {
     id: "mouth-tape",
     name: "Sleep Tape",
-    image: "/images/inventory/tape.png",
+    image: "/images/inventory/mouth-tape.webp",
     description: "Prevents mouth-breathing during sleep mode. Looks weird, works wonders.",
     type: "Consumable",
-    rarity: "Rare",
-    level: 1,
+    rarity: "Uncommon",
+    level: 24,
     effects: [
       "+20 Oxygen Efficiency",
-      "+10 Jaw Structure",
       "Prevents 'Snoring' debuff",
       "Social Weirdness: High",
       "Stamina Regen: +5%"
     ],
+    visible: true,
   },
-
-  // --- CONSUMABLES (Food & Fuel) ---
   {
     id: "water-bottle",
     name: "Hydration Vessel",
-    image: "/images/inventory/water.png",
-    description: "H2O container. Essential for biological function upkeep.",
+    image: "/images/inventory/water-bottle.webp",
+    description: "Highly secure H2O container. Essential for biological function upkeep.",
     type: "Consumable",
-    rarity: "Common",
-    level: 1,
+    rarity: "Uncommon",
+    level: 19,
     effects: [
       "+10 Hydration",
       "Prevents 'Headache' debuff",
       "Refillable",
-      "Leak Risk: 5%",
       "Cooldown: 0s"
     ],
+    visible: true,
   },
   {
     id: "smoothie",
@@ -288,5 +284,6 @@ export const INVENTORY: InventoryItem[] = [
       "Antioxidant Buff",
       "Sugar Rush: Moderate"
     ],
+    visible: false,
   },
 ];

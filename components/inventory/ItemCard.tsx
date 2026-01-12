@@ -44,7 +44,7 @@ export default function ItemCard({
           <img
             src={item.image}
             alt={item.name}
-            className="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-cover rounded-xl p-1 group-hover:scale-110 transition-transform duration-500"
           />
         </div>
 
