@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Game } from "../lib/videogames";
-import FadeUp from "./animations/FadeUp";
+import { Game } from "@/lib/videogames";
+import FadeUp from "@/components/animations/FadeUp";
 
 export default function GameCard({ game, index }: { game: Game; index: number }) {
   return (

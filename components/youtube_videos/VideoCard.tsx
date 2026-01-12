@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { Play } from "lucide-react";
-import { YouTubeVideo } from "../lib/youtube";
-import FadeUp from "./animations/FadeUp";
+import { YouTubeVideo } from "@/lib/youtube";
+import FadeUp from "@/components/animations/FadeUp";
 
 export default function VideoCard({ video, index }: { video: YouTubeVideo; index: number }) {
   return (

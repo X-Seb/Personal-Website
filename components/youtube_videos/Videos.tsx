@@ -1,9 +1,9 @@
-import { getPlaylistVideos } from "../lib/youtube";
-import VideoCarousel from "./VideoCarousel";
-import FadeUp from "./animations/FadeUp";
+import { getPlaylistVideos } from "../../lib/youtube";
+import VideoCarousel from "@/components/youtube_videos/VideoCarousel";
+import FadeUp from "@/components/animations/FadeUp";
 
 export default async function Videos() {
-  const PLAYLIST_ID = "PLq__81rQOrbuc0NXsUgdxbmASCXuhnNoB"; 
+  const PLAYLIST_ID = "PLq__81rQOrbuc0NXsUgdxbmASCXuhnNoB";
   const videos = await getPlaylistVideos(PLAYLIST_ID);
 
   return (
@@ -16,12 +16,11 @@ export default async function Videos() {
             Content <span className="text-red-500">Creation</span>
           </h2>
           <p className="text-neutral-600 font-bold text-xl mb-12 max-w-xl">
-             Engineering failures, successes, and everything in between.
+            Engineering failures, successes, and everything in between.
           </p>
         </FadeUp>
 
         <VideoCarousel videos={videos} />
-        
       </div>
     </section>
   );

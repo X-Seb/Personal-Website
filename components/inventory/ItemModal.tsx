@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { InventoryItem, Rarity } from "../lib/inventory";
+import { InventoryItem, Rarity } from "../../lib/inventory";
 
 const rarityColors: Record<Rarity, string> = {
   Common: "text-neutral-400 border-neutral-600 shadow-neutral-900",

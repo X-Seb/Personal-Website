@@ -1,8 +1,8 @@
 "use client";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { YouTubeVideo } from "../lib/youtube";
-import VideoCard from "./VideoCard";
+import { YouTubeVideo } from "@/lib/youtube";
+import VideoCard from "@/components/youtube_videos/VideoCard";
 
 export default function VideoCarousel({ videos }: { videos: YouTubeVideo[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);

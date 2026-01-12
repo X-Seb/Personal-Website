@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import ItemCard from "./ItemCard";
-import ItemModal from "./ItemModal";
-import FadeUp from "./animations/FadeUp";
-import { INVENTORY, InventoryItem } from "../lib/inventory";
+import ItemCard from "@/components/inventory/ItemCard";
+import ItemModal from "@/components/inventory/ItemModal";
+import FadeUp from "@/components/animations/FadeUp";
+import { INVENTORY, InventoryItem } from "../../lib/inventory";
 
 export default function Inventory() {
   const [selectedItem, setSelectedItem] = useState<InventoryItem | null>(null);

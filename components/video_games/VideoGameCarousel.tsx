@@ -1,9 +1,9 @@
 "use client";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // npm install lucide-react if missing
-import VideoGameCard from "./VideoGameCard";
-import { GAMES } from "../lib/videogames";
-import FadeUp from "./animations/FadeUp";
+import VideoGameCard from "@/components/video_games/VideoGameCard";
+import { GAMES } from "@/lib/videogames";
+import FadeUp from "@/components/animations/FadeUp";
 
 export default function Games() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,9 @@ export default function Games() {
             <h2 className="text-4xl md:text-5xl font-extrabold uppercase mb-4 text-white font-pixel">
               Game <span className="text-rpg-light">Development</span>
             </h2>
-            <h3 className="text-neutral-600 font-bold text-xl">A collection of my games. Click on any game to play it!</h3>
+            <h3 className="text-neutral-600 font-bold text-xl">
+              A collection of my games. Click on any game to play it!
+            </h3>
           </FadeUp>
 
           {/* ARROW BUTTONS */}

@@ -1,6 +1,6 @@
 "use client";
-import { InventoryItem, Rarity } from "../lib/inventory";
-import FadeUp from "./animations/FadeUp";
+import { InventoryItem, Rarity } from "../../lib/inventory";
+import FadeUp from "../animations/FadeUp";
 import Image from "next/image";
 
 const rarityBorder: Record<Rarity, string> = {
