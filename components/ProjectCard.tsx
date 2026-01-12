@@ -1,15 +1,9 @@
 "use client";
 import Link from "next/link";
-import FadeUp from "./animations/FadeUp";
-import { ProjectMetadata } from "../lib/projects"; // Import the interface
+import FadeUp from "@/components/animations/FadeUp";
+import { ProjectMetadata } from "@/lib/projects"; // Import the interface
 
-export default function ProjectCard({
-  project,
-  index,
-}: {
-  project: ProjectMetadata;
-  index: number;
-}) {
+export default function ProjectCard({ project, index }: { project: ProjectMetadata; index: number }) {
   const sizeClasses: Record<string, string> = {
     "1x1": "md:col-span-1 md:row-span-1",
     "2x1": "md:col-span-2 md:row-span-1",
@@ -18,9 +12,7 @@ export default function ProjectCard({
   };
 
   return (
-    <div
-      className={`${sizeClasses[project.size] || sizeClasses["1x1"]} h-full`}
-    >
+    <div className={`${sizeClasses[project.size] || sizeClasses["1x1"]} h-full`}>
       <FadeUp delay={index * 0.1} className="h-full">
         <Link
           href={`/projects/${project.slug}`}
@@ -36,12 +28,8 @@ export default function ProjectCard({
           </div>
 
           <div className="relative z-10 p-6 h-full flex flex-col justify-end">
-            <h3 className="text-2xl font-bold text-white mb-1">
-              {project.title}
-            </h3>
-            <p className="text-neutral-400 text-sm line-clamp-2">
-              {project.description}
-            </p>
+            <h3 className="text-2xl font-bold text-white mb-1">{project.title}</h3>
+            <p className="text-neutral-400 text-sm line-clamp-2">{project.description}</p>
           </div>
         </Link>
       </FadeUp>

@@ -13,13 +13,11 @@ export default function NotFound() {
         404
       </motion.h1>
 
-      <h2 className="text-2xl md:text-4xl font-bold mt-4">
-        Glitch in the Matrix
-      </h2>
+      <h2 className="text-2xl md:text-4xl font-bold mt-4">Glitch in the Matrix</h2>
 
       <p className="text-neutral-400 mt-4 max-w-md text-center">
-        The coordinates you entered point to a void in the system. The page you
-        are looking for has either been deleted or never existed.
+        The coordinates you entered point to a void in the system. The page you are looking for has either been deleted
+        or never existed.
       </p>
 
       <Link

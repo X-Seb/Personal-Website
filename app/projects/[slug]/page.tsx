@@ -4,9 +4,11 @@ import Link from "next/link";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
+import YouTube from "@/components/YouTubeMDX"
 
 const components = {
   FadeUp,
+  YouTube,
 };
 
 export default async function ProjectPage({
