@@ -12,6 +12,9 @@
   --color-rpg-dark: #0f0518;
   --color-rpg-main: #7c3aed;
   --color-rpg-light: #e879f9;
+  
+  --font-sans: var(--font-inter);
+  --font-pixel: var(--font-pixel);
 }
 
 body {
@@ -21,4 +24,12 @@ body {
 html, body {
   background-color: whitesmoke;
   overscroll-behavior-y: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
