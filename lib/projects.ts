@@ -2,19 +2,37 @@ import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 
+export type ProjectStatus = 
+  | "Completed" 
+  | "In Progress" 
+  | "Terminated" 
+  | "Not Started" 
+  | "Passive" 
+  | "Delegated";
+
+export const StatusColors: Record<ProjectStatus, string> = {
+  "Completed": "bg-green-500/10 text-green-400 border-green-500/20",
+  "In Progress": "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  "Terminated": "bg-red-500/10 text-red-400 border-red-500/20",
+  "Not Started": "bg-neutral-500/10 text-neutral-400 border-neutral-500/20",
+  "Passive": "bg-amber-500/10 text-amber-400 border-amber-500/20",
+  "Delegated": "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+};
+
 export interface ProjectMetadata {
   title: string;
   description: string;
   startDate: string;
   endDate?: string;
   tags: string[];
+  techStack?: string[];
+  status: ProjectStatus;
+  role?: string;
   thumbnail: string;
   banner?: string;
   color?: string;
-  role?: string;
-  techStack?: string[];
   size: "1x1" | "1x2" | "2x1" | "2x2";
-  visible: boolean;
+  visible?: boolean;
   slug: string;
 }
 

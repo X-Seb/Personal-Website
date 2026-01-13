@@ -5,14 +5,16 @@ import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
-import ProjectVideo from "@/components/general/ProjectVideo";
-import ProjectImage from "@/components/general/ProjectImage";
-import { getAllProjects, formatDate, ProjectMetadata } from "@/lib/projects";
+import ProjectVideo from "@/components/projects/ProjectVideo";
+import ProjectImage from "@/components/projects/ProjectImage";
+import ProjectLink from "@/components/projects/ProjectLink";
+import { getAllProjects, formatDate, ProjectMetadata, StatusColors } from "@/lib/projects";
 
 const components = {
   FadeUp,
   ProjectVideo,
   ProjectImage,
+  ProjectLink,
 };
 
 const RPG_MAIN_COLOR = "#a855f7";
@@ -43,6 +45,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     .slice(0, 3);
 
   const accentColor = frontmatter.color || RPG_MAIN_COLOR;
+  const statusClass =
+    frontmatter.status && StatusColors[frontmatter.status]
+      ? StatusColors[frontmatter.status]
+      : "bg-neutral-500/10 text-neutral-400 border-neutral-500/20";
 
   return (
     <article className="min-h-screen bg-neutral-950 text-white selection:bg-white/20 pb-20">
@@ -73,7 +79,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div className="flex-1 w-full">
               <FadeUp delay={0.5}>
                 <h1
-                  className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+                  className="text-4xl md:text-6xl font-bold mb-8 tracking-tight"
                   style={{ color: accentColor, textShadow: `0 0 40px ${accentColor}30` }}
                 >
                   {frontmatter.title}
@@ -115,13 +121,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 </div>
               </FadeUp>
 
-              {/* ROLE ROW: Underneath */}
-              {frontmatter.role && (
-                <FadeUp delay={0.7} className="flex items-center gap-2 text-sm mt-8">
-                  <span className="text-neutral-500 font-bold uppercase tracking-wider text-xs">Role —</span>
-                  <span className="text-white font-medium">{frontmatter.role}</span>
-                </FadeUp>
-              )}
+              {/* ROLE AND STATUS */}
+              <FadeUp delay={0.7} className="grid grid-cols-2 gap-8 border-b-4 pb-8 border-white/10 pt-6 max-w-lg">
+                {frontmatter.status && (
+                  <div>
+                    <span className="block text-neutral-400 font-bold uppercase tracking-wider text-xs mb-2">
+                      Project Status
+                    </span>
+                    <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full border ${statusClass}`}>
+                      {frontmatter.status}
+                    </span>
+                  </div>
+                )}
+                {frontmatter.role && (
+                  <div>
+                    <span className="block text-neutral-400 font-bold uppercase tracking-wider text-xs mb-2">Role</span>
+                    <span className="text-white font-medium">{frontmatter.role}</span>
+                  </div>
+                )}
+              </FadeUp>
             </div>
 
             {/* C. THUMBNAIL */}

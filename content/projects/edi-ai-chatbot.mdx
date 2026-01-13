@@ -1,0 +1,87 @@
+---
+title: "Teamwork & EDI AI-Chatbot"
+description: "A custom-trained AI chatbot designed to teach students about Equity, Diversity, and Inclusion in collaborative settings."
+startDate: "2025-11"
+tags: ["AI", "Chatbot", "Teamwork", "Education"]
+techStack: ["BotPress", "React", "Tailwind", "Vercel"]
+status: "Completed"
+thumbnail: "/images/projects/poly-edi-chatbot/poly-edi-logo.webp"
+banner: "/images/projects/poly-edi-chatbot/poly-edi-chatbot.webp"
+color: "#ff5c00"
+role: "Lead Engineer & Developer"
+size: "2x1"
+visible: true
+---
+
+## The Concept
+
+In late 2025, I was forced to take a humanities class focused on team collaboration. For the final project, we were challenged to create something that could teach the rest of the class how to promote **Equity, Diversity, and Inclusion (EDI)** within teams.
+
+While most groups opted for presentations or videos, I suggested to my team (a group of six) that we build a custom **AI Chatbot** trained on high-quality resources. The chatbot would be a virtual coach for students. They agreed, and I took the lead on the technical implementation.
+
+## Data Collection & Training
+
+Garbage in, garbage out. The first step was curating a high-quality dataset.
+
+1.  **Research:** Each team member sourced articles and research papers on EDI principles. We filtered these down to the top three best resources.
+2.  **Web Scraping:** I identified four authoritative websites on teamwork dynamics and added them to the training pool.
+3.  **Class Integration:** I summarized our entire semester's worth of class notes into a single text document to ensure the bot used words relevant to our course.
+4.  **Condensing:** I manually reviewed and condensed the documents to ensure the AI only referenced the highest quality information. ✨
+
+<ProjectImage
+  src="/images/projects/poly-edi-chatbot/poly-edi-training-docs.webp"
+  alt="Chatbot resources"
+  caption="The resources used to train the AI"
+/>
+
+## Tech Stack & Build
+
+I needed an infrastructure that handled training, hosting, and building efficiently. I settled on **Botpress**; it was a platform I never used before, but it looked robust for this specific use case.
+
+### Infrastructure
+
+- **Engine:** Botpress (for NLP and Knowledge Base management)
+- **Frontend:** React
+- **Hosting:** Vercel
+- **Styling:** Custom palette matching the university's colors (Orange, Green, Blue, Red).
+
+<ProjectImage
+  src="/images/projects/poly-edi-chatbot/poly-edi-UI.webp"
+  alt="Chatbot Interface"
+  caption="The custom UI built with React, matching the university branding."
+/>
+
+## Development Challenges
+
+Integrating the **Botpress API** into a custom React frontend wasn't entirely smooth sailing.
+
+<ProjectImage
+  src="/images/projects/poly-edi-chatbot/poly-edi-code.webp"
+  alt="Chatbot Code"
+  caption="Beautiful Code..."
+/>
+
+The main issue was **Session Management**. The bot would often create a new session on page reload which made it "forget" the previous context or conversation history. It took a few hours of debugging the API integration and tweaking the refresh logic so messages persisted correctly and the UI updated in real-time.
+
+## The Logic
+
+Surprisingly, the AI required very little fine-tuning on the backend once the data was clean. Though I did modify the system prompt to enforce a specific response pattern.
+
+**The Bot's 4-Step Response Algorithm:**
+
+1.  **Identify Concern:** Acknowledges the specific student issue.
+2.  **Connect to EDI:** Links the issue to one of the pillars of Equity, Diversity, or Inclusion. Then, explains its impact on team performance.
+3.  **Propose Action:** Offers concrete, actionable solutions.
+4.  **Follow Up:** Asks a follow-up question to keep the user engaged.
+
+The tone was set to be conversational, empathetic, and professional. Like a **supportive coach**.
+
+## The Result
+
+When we presented the bot to the class, the reception was excellent. The bot was responsive, accurate, and genuinely helpful.
+
+It was a solid learning experience in **RAG (Retrieval-Augmented Generation)** workflows. Botpress proved to be a powerful tool for quickly spinning up knowledge-base bots. I'd definitely use it again for similar use cases where quick deployment and ease of training are priorities.
+
+You can try it out here: <ProjectLink href="https://poly-edi.vercel.app/">PolyÉDI</ProjectLink>
+
+Thanks for reading!
