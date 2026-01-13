@@ -21,7 +21,7 @@ export default function SkillCategoryUI({
       <div
         onClick={onToggle}
         className={`
-          relative bg-neutral-950/80 backdrop-blur-md border rounded-3xl overflow-hidden cursor-pointer group transition-all duration-500
+          relative bg-neutral-950/80 backdrop-blur-md border rounded-3xl overflow-hidden cursor-pointer group transition-all duration-600
           ${isExpanded ? "shadow-2xl" : "border-white/5 hover:border-white/10"}
         `}
         style={{
@@ -33,7 +33,7 @@ export default function SkillCategoryUI({
           <div className="flex items-center gap-6">
             {/* Icon Box */}
             <div
-              className="p-4 rounded-2xl border border-white/5 transition-transform duration-300 group-hover:scale-110"
+              className="p-4 rounded-2xl border border-white/5 transition-transform duration-600 group-hover:scale-110"
               style={{
                 backgroundColor: isExpanded ? category.color : "#171717",
                 color: isExpanded ? "white" : category.color,
@@ -53,7 +53,7 @@ export default function SkillCategoryUI({
 
           <ChevronDown
             size={24}
-            className={`text-neutral-500 transition-transform duration-500 ${
+            className={`text-neutral-500 transition-transform duration-600 ${
               isExpanded ? "rotate-180 text-white" : ""
             }`}
           />

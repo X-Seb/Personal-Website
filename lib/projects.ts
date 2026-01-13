@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 
-// 1. Updated Interface with new fields
 export interface ProjectMetadata {
   title: string;
   description: string;
@@ -30,22 +29,25 @@ export async function getAllProjects(): Promise<ProjectMetadata[]> {
   for (const file of files) {
     const slug = file.replace(".mdx", "");
     const filePath = path.join(root, file);
-    const fileContent = fs.readFileSync(filePath, "utf8");
 
-    const { frontmatter } = await compileMDX<ProjectMetadata>({
-      source: fileContent,
-      options: { parseFrontmatter: true },
-    });
+    try {
+      const fileContent = fs.readFileSync(filePath, "utf8");
 
-    if (frontmatter.visible !== false) {
-      projects.push({
-        ...frontmatter,
-        slug: slug,
+      const { frontmatter } = await compileMDX<ProjectMetadata>({
+        source: fileContent,
+        options: { parseFrontmatter: true },
       });
+
+      if (frontmatter.visible !== false) {
+        projects.push({
+          ...frontmatter,
+          slug: slug,
+        });
+      }
+    } catch (error) {
+      console.error(`❌ Error parsing MDX file "${file}":`, error);
     }
   }
-
-  // Sort by startDate (Newest first)
   return projects.sort((a, b) => (new Date(a.startDate) > new Date(b.startDate) ? -1 : 1));
 }
 

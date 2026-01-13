@@ -5,12 +5,14 @@ import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
-import YouTube from "@/components/YouTubeMDX";
+import ProjectVideo from "@/components/general/ProjectVideo";
+import ProjectImage from "@/components/general/ProjectImage";
 import { getAllProjects, formatDate, ProjectMetadata } from "@/lib/projects";
 
 const components = {
   FadeUp,
-  YouTube,
+  ProjectVideo,
+  ProjectImage,
 };
 
 const RPG_MAIN_COLOR = "#a855f7";
@@ -46,7 +48,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <article className="min-h-screen bg-neutral-950 text-white selection:bg-white/20 pb-20">
       {/* A. BANNER IMAGE */}
       {frontmatter.banner && (
-        <div className="w-full h-[40vh] relative">
+        <div className="w-full h-[50vh] relative">
           <Image src={frontmatter.banner} alt="Banner" fill className="object-cover opacity-50" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/0 via-neutral-950/60 to-neutral-950" />
         </div>
