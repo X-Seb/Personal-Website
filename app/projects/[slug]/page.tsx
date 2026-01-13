@@ -84,7 +84,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 >
                   {frontmatter.title}
                 </h1>
-
+              </FadeUp>
+              <FadeUp delay={0.4}>
                 {/* META ROW: Date | Tags | Tech Stack */}
                 <div className="flex flex-wrap items-center gap-3 text-neutral-400 font-mono text-sm mb-4">
                   {/* Date */}
@@ -122,7 +123,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </FadeUp>
 
               {/* ROLE AND STATUS */}
-              <FadeUp delay={0.4} className="grid grid-cols-2 gap-8 border-b-4 pb-8 border-white/10 pt-6 max-w-lg">
+              <FadeUp delay={0.6} className="grid grid-cols-2 gap-8 border-b-4 pb-8 border-white/10 pt-6 max-w-lg">
                 {frontmatter.status && (
                   <div>
                     <span className="block text-neutral-400 font-bold uppercase tracking-wider text-xs mb-2">
