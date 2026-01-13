@@ -20,7 +20,7 @@ export default function ProjectCard({ project, index }: { project: ProjectMetada
         >
           <div className="absolute inset-0 z-0">
             <img
-              src={project.image}
+              src={project.thumbnail}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

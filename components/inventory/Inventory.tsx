@@ -27,7 +27,7 @@ export default function Inventory() {
           <p className="text-neutral-600 text-xl font-bold">Gear, Tech & Consumables.</p>
         </FadeUp>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
           {/* 3. Map over the 'items' state, not the raw INVENTORY */}
           {items.map((item, index) => (
             <ItemCard key={item.id} item={item} index={index} onClick={() => setSelectedItem(item)} />

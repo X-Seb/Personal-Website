@@ -1,11 +1,43 @@
 ---
 title: "Pokeball Deckbox"
-description: "A 3D printed, pokemon-themed deckbox"
-date: "2025-06-01"
-tags: ["3D printing", "3D modeling"]
-image: "/images/projects/pokemon-deckbox/pokemon-deckbox-on-table.webp"
-size: "1x2"
+description: "A 3D printed, locking Pokemon-themed deckbox."
+startDate: "2025-03"
+tags: ["3D Printing", "CAD", "TCG"]
+color: "#ef4444"
+image: "/images/projects/deckbox-thumb.jpg" # Used for cards
+banner: "/images/projects/deckbox-banner.jpg" # New: Top of page
 visible: true
+techStack: ["Fusion 360", "Prusa i3 MK3S+", "PLA"]
 ---
 
-Text goes here lol
+## The Problem
+
+In March 2025, fresh off the **CRC Robotics Competition**, I found myself diving back into the Pokémon TCG. The issue? I only had two deckboxes, and they were falling apart.
+
+Commercial deckboxes are often flimsy plastic or overpriced leather. I needed something **sturdy, unique, and engineered** to actually protect the cards.
+
+## The Design Process
+
+### 1. Constraints & Measurements
+
+The process started in **Fusion 360**. I used **digital calipers** to measure the exact dimensions of a standard sleeved deck (63mm x 88mm). I established a tolerance of +0.5mm to ensure a snug fit without damaging the card edges.
+
+### 2. Iteration V1 (The Failure)
+
+My first print was a functional failure.
+
+- **Issue A:** The box was too wide, causing cards to rattle.
+- **Issue B:** The wall thickness was excessive, wasting filament and print time.
+
+### 3. Iteration V2 (The Mechanism)
+
+For the second iteration, I added two key features:
+
+1.  **The Visibility Window:** A cutout on the front face allowing the player to see the "Commander" or top card without opening the box.
+2.  **Rotary Locking Ring:** Instead of a friction fit (which wears out), I designed a turning ring system. The ring rotates to lock the lid in place, mimicking the aesthetic of a Pokéball.
+
+## The Result
+
+I printed the final assembly on a **Prusa** using multi-colored PLA (Red top, Black ring, White base). The locking mechanism snapped perfectly into place, and the tolerances were dialed in.
+
+It’s not just a box; it’s a functional prop that protects the deck while looking sick on the table.
