@@ -10,7 +10,7 @@ export default function VideoCard({ video, index }: { video: YouTubeVideo; index
       <Link
         href={video.link}
         target="_blank"
-        className="group block relative w-[300px] md:w-[400px] flex-shrink-0 bg-neutral-950/50 backdrop-blur-xl border-4 border-white/10 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]"
+        className="group block relative w-[300px] md:w-[400px] flex-shrink-0 bg-black backdrop-blur-xl border-4 border-black rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]"
       >
         <div className="relative aspect-video overflow-hidden border-b border-white/5">
           <img
@@ -28,13 +28,16 @@ export default function VideoCard({ video, index }: { video: YouTubeVideo; index
 
         <div className="p-5">
           <div className="flex justify-between items-center mb-2 text-xs text-neutral-400 font-mono">
-            <span>{video.publishedAt}</span>
+            {/*<span>{video.publishedAt}</span>*/}
             <span className="text-red-400 font-bold">{video.viewCount} Views</span>
           </div>
 
-          <h3 className="text-lg h-[3rem] font-bold text-white group-hover:text-red-400 transition-colors font-heading leading-tight line-clamp-2">
+          <h3 className="text-lg h-[3rem] font-bold my-6 text-white group-hover:text-red-400 transition-colors font-heading leading-tight line-clamp-2">
             {video.title}
           </h3>
+          <p className="text-neutral-400 text-sm line-clamp-3 mt-auto">
+            {video.description || "Watch the full breakdown on YouTube."}
+          </p>
         </div>
       </Link>
     </FadeUp>

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import FadeUp from "../animations/FadeUp";
 import SkillCategoryUI from "@/components/skills/SkillCategoryUI";
-import { SKILL_DATA } from "@/lib/skills";
+import { SKILL_DATA } from "@/lib/skillsList";
 
 export default function Skills() {
   const [expandedId, setExpandedId] = useState<string | null>(SKILL_DATA[0].id);

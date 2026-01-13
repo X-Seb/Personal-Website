@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import FadeUp from "../animations/FadeUp";
 import SkillItem from "@/components/skills/SkillCard";
-import { SkillCategory } from "../../lib/skills";
+import { SkillCategory } from "../../lib/skillsList";
 
 export default function SkillCategoryUI({
   category,

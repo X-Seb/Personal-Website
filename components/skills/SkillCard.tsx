@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { Skill } from "@/lib/skills";
+import { Skill } from "@/lib/skillsList";
 
 export default function SkillItem({ skill, color }: { skill: Skill; color: string }) {
   const SkillIcon = skill.icon;
-  
+
   return (
     <div className="group/skill">
       {/* Top Row: Name and Label */}
@@ -15,10 +15,7 @@ export default function SkillItem({ skill, color }: { skill: Skill; color: strin
             {skill.name}
           </span>
         </div>
-        <span 
-          className="text-xs font-mono uppercase tracking-wider font-bold opacity-80"
-          style={{ color: color }}
-        >
+        <span className="text-xs font-mono uppercase tracking-wider font-bold opacity-80" style={{ color: color }}>
           {skill.levelLabel}
         </span>
       </div>
@@ -31,9 +28,9 @@ export default function SkillItem({ skill, color }: { skill: Skill; color: strin
           viewport={{ once: true }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="h-full rounded-full relative"
-          style={{ 
+          style={{
             backgroundColor: color,
-            boxShadow: `0 0 10px ${color}`
+            boxShadow: `0 0 10px ${color}`,
           }}
         >
           {/* Shine Effect */}

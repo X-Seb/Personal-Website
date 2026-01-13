@@ -3,6 +3,7 @@ export interface YouTubeVideo {
   title: string;
   thumbnail: string;
   publishedAt: string;
+  description: string;
   viewCount: string;
   link: string;
 }
@@ -33,7 +34,7 @@ export async function getPlaylistVideos(playlistId: string): Promise<YouTubeVide
     videoData.items.forEach((item: any) => {
       statsMap.set(item.id, item.statistics.viewCount);
     });
-  }
+  }  
 
   return playlistData.items.map((item: any) => {
     const videoId = item.contentDetails.videoId;
@@ -45,6 +46,7 @@ export async function getPlaylistVideos(playlistId: string): Promise<YouTubeVide
         year: "numeric",
         month: "short",
       }),
+      description: item.snippet.description,
       viewCount: formatViews(statsMap.get(videoId) || "0"),
       link: `https://www.youtube.com/watch?v=${videoId}`,
     };

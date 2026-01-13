@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/projects/ProjectCard";
 import { getAllProjects } from "@/lib/projects";
 import FadeUp from "@/components/animations/FadeUp";
+import SectionHeading from "@/components/general/SectionHeading";
 
 export default async function Projects() {
   const projects = await getAllProjects();
@@ -8,12 +9,13 @@ export default async function Projects() {
   return (
     <section id="projects" title="Quest Log" className="py-32 relative">
       <div className="md:px-12 max-w-8xl mx-auto">
-        <FadeUp className=" mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white font-pixel text-shadow-2xs">Quest Logs</h2>
-          <p className="text-neutral-600 text-xl font-bold">
-            My Projects and experiments. Click on any project to learn more!
-          </p>
-        </FadeUp>
+        <SectionHeading
+          title={"Quest "}
+          highlight={"Logs"}
+          subtitle={"A curated collection of quests I've completed over the years..."}
+          color={"#ff0000"}
+          align={"left"}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[300px] gap-4">
           {projects.map((project, index) => (

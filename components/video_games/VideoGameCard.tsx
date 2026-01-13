@@ -5,7 +5,7 @@ import FadeUp from "@/components/animations/FadeUp";
 
 export default function GameCard({ game, index }: { game: Game; index: number }) {
   return (
-    <FadeUp delay={index * 0.1}>
+    <FadeUp delay={index * 0.05}>
       <Link
         href={game.link}
         target="_blank"

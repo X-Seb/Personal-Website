@@ -9,37 +9,37 @@ export default function VideoCarousel({ videos }: { videos: YouTubeVideo[] }) {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 400;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
+      const { current } = scrollRef;
+      const scrollAmount = current.clientWidth * 0.35;
+      current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
-    <div className="relative">
-      <div className="absolute -top-20 right-0 flex gap-3 z-20">
-        <button
-          onClick={() => scroll("left")}
-          className="p-3 rounded-full border border-white/20 bg-black/40 hover:bg-red-600 transition text-white backdrop-blur-md"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          className="p-3 rounded-full border border-white/20 bg-black/40 hover:bg-red-600 transition text-white backdrop-blur-md"
-        >
-          <ChevronRight size={24} />
-        </button>
-      </div>
+    <div className="relative group/carousel">
+      {/* LEFT ARROW */}
+      <button
+        onClick={() => scroll("left")}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white backdrop-blur-md border border-white/10 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hidden md:flex -ml-4"
+      >
+        <ChevronLeft size={32} />
+      </button>
+
+      {/* RIGHT ARROW */}
+      <button
+        onClick={() => scroll("right")}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white backdrop-blur-md border border-white/10 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hidden md:flex -mr-4"
+      >
+        <ChevronRight size={32} />
+      </button>
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory scroll-smooth no-scrollbar px-1"
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 scrollbar-hide px-6"
+        style={{ scrollbarWidth: "none" }}
       >
         {videos.map((video, index) => (
-          <div key={video.id} className="snap-start">
+          <div key={video.id} className="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw]">
             <VideoCard video={video} index={index} />
           </div>
         ))}
