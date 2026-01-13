@@ -54,8 +54,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <article className="min-h-screen bg-neutral-950 text-white selection:bg-white/20 pb-20">
       {/* A. BANNER IMAGE */}
       {frontmatter.banner && (
-        <div className="w-full h-[50vh] relative">
-          <Image src={frontmatter.banner} alt="Banner" fill className="object-cover opacity-50" priority />
+        <div className="w-full h-[70vh] relative">
+          <Image src={frontmatter.banner} alt="Banner" fill className="object-cover opacity-70" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/0 via-neutral-950/60 to-neutral-950" />
         </div>
       )}
@@ -69,7 +69,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <FadeUp delay={0.3}>
+          <FadeUp delay={0}>
             <Link href="/#projects" className="text-sm text-neutral-400 hover:text-white transition mb-8 inline-block">
               ← Return to Quest Log
             </Link>
@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           <div className="flex flex-col md:flex-row gap-8 items-start md:items-end justify-between pb-8">
             <div className="flex-1 w-full">
-              <FadeUp delay={0.5}>
+              <FadeUp delay={0.2}>
                 <h1
                   className="text-4xl md:text-6xl font-bold mb-8 tracking-tight"
                   style={{ color: accentColor, textShadow: `0 0 40px ${accentColor}30` }}
@@ -122,7 +122,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </FadeUp>
 
               {/* ROLE AND STATUS */}
-              <FadeUp delay={0.7} className="grid grid-cols-2 gap-8 border-b-4 pb-8 border-white/10 pt-6 max-w-lg">
+              <FadeUp delay={0.4} className="grid grid-cols-2 gap-8 border-b-4 pb-8 border-white/10 pt-6 max-w-lg">
                 {frontmatter.status && (
                   <div>
                     <span className="block text-neutral-400 font-bold uppercase tracking-wider text-xs mb-2">
