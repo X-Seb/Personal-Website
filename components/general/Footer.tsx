@@ -9,6 +9,15 @@ export default function Footer() {
           © {new Date().getFullYear()} Seb. Built with Focus & Discipline.
         </p>
         <Socials />
+        <button
+          onClick={() => {
+            localStorage.clear();
+            window.location.reload();
+          }}
+          className="bg-red-900 text-red-200 text-xs p-2 rounded"
+        >
+          RESET SAVE FILE
+        </button>
       </div>
     </footer>
   );

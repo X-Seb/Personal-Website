@@ -9,7 +9,6 @@ export interface InventoryItem {
   rarity: Rarity;
   level: number;
   effects: string[];
-  visible: boolean;
 }
 
 export const INVENTORY: InventoryItem[] = [
@@ -27,24 +26,7 @@ export const INVENTORY: InventoryItem[] = [
       "Grants 'Flow State' ability",
       "+80 Knowledge",
       "5% Chance to spawn money"
-    ],
-    visible: true,
-  },
-  {
-    id: "iphone",
-    name: "iPhone 14",
-    image: "/images/inventory/iphone.png",
-    description: "A communication device and secondary brain. Contains infinite knowledge and infinite distractions.",
-    type: "Weapon",
-    rarity: "Epic",
-    level: 85,
-    effects: [
-      "+100 Connectivity",
-      "Camera Quality: 4K",
-      "Summons 'Uber' mount",
-      "10% Chance to dissapear"
-    ],
-    visible: false,
+    ]
   },
   {
     id: "jetson",
@@ -59,8 +41,7 @@ export const INVENTORY: InventoryItem[] = [
       "Passive: Fan Noise",
       "Grants 'Computer Vision' sight",
       "+1 AI Girlfriend"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "arduino",
@@ -74,8 +55,7 @@ export const INVENTORY: InventoryItem[] = [
       "+15 Prototyping Speed",
       "Memory: 256KB (Tiny)",
       "Pinout: Massive"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "esp32",
@@ -90,8 +70,7 @@ export const INVENTORY: InventoryItem[] = [
       "Dual Core processing",
       "Grants 'IoT' ability",
       "Boot time: Instant"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "airpods-fake",
@@ -106,8 +85,7 @@ export const INVENTORY: InventoryItem[] = [
       "Audio Quality: Decent",
       "Connection Drop Chance: 2%",
       "Battery life: Unpredictable"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "stopwatch",
@@ -122,8 +100,7 @@ export const INVENTORY: InventoryItem[] = [
       "Grants 'Timeblocking' skill",
       "-5 Procrastination",
       "-10 Distractions"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "circuit-pack",
@@ -137,8 +114,7 @@ export const INVENTORY: InventoryItem[] = [
       "+50 Versatility",
       "Includes: Sensors, LEDs, Resistors",
       "Tangle risk: 100%"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "notebook",
@@ -154,8 +130,7 @@ export const INVENTORY: InventoryItem[] = [
       "Latency: 0ms",
       "Texture: Paper",
       "Requires 'Pencil' ammo"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "whiteboard",
@@ -169,8 +144,7 @@ export const INVENTORY: InventoryItem[] = [
       "+25 Planning",
       "+10 Coolness",
       "Smell: Marker Fumes"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "tripod",
@@ -185,8 +159,7 @@ export const INVENTORY: InventoryItem[] = [
       "Hands-free mode",
       "Setup time: 30s",
       "Durability: Low"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "mic",
@@ -201,8 +174,7 @@ export const INVENTORY: InventoryItem[] = [
       "+5 Charisma",
       "Range: Short",
       "Grants 'Podcaster' aura",
-    ],
-    visible: true,
+    ]
   },
   {
     id: "sleep-mask",
@@ -218,8 +190,7 @@ export const INVENTORY: InventoryItem[] = [
       "Disables 'Vision' ability",
       "Grants 'Deep REM' buff",
       "Comfort: Medium"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "earplugs",
@@ -234,8 +205,7 @@ export const INVENTORY: InventoryItem[] = [
       "+10 Focus",
       "Cost: Cheap",
       "+12 Sleep Quality"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "mouth-tape",
@@ -250,8 +220,7 @@ export const INVENTORY: InventoryItem[] = [
       "Prevents 'Snoring' debuff",
       "Social Weirdness: High",
       "Stamina Regen: +5%"
-    ],
-    visible: true,
+    ]
   },
   {
     id: "water-bottle",
@@ -266,8 +235,25 @@ export const INVENTORY: InventoryItem[] = [
       "Prevents 'Headache' debuff",
       "Refillable",
       "Cooldown: 0s"
-    ],
-    visible: true,
+    ]
+  },
+];
+
+const HIDDEN_ITEMS = [
+  {
+    id: "iphone",
+    name: "iPhone 14",
+    image: "/images/inventory/iphone.png",
+    description: "A communication device and secondary brain. Contains infinite knowledge and infinite distractions.",
+    type: "Weapon",
+    rarity: "Epic",
+    level: 85,
+    effects: [
+      "+100 Connectivity",
+      "Camera Quality: 4K",
+      "Summons 'Uber' mount",
+      "10% Chance to dissapear"
+    ]
   },
   {
     id: "smoothie",
@@ -283,7 +269,6 @@ export const INVENTORY: InventoryItem[] = [
       "Temperature: Freezing",
       "Antioxidant Buff",
       "Sugar Rush: Moderate"
-    ],
-    visible: false,
-  },
-];
+    ]
+  }
+]

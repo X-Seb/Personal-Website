@@ -1,12 +1,10 @@
-// lib/games.ts
-
 export interface Game {
   id: string;
   title: string;
   description: string;
   image: string;
   link: string; // URL to itch.io
-  tags: string[]; // e.g. ["Unity", "Horror", "Game Jam"]
+  tags: string[];
 }
 
 export const GAMES: Game[] = [

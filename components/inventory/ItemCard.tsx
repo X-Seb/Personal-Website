@@ -1,17 +1,16 @@
 "use client";
-import { InventoryItem, Rarity } from "../../lib/inventory";
-import FadeUp from "../animations/FadeUp";
-import Image from "next/image"; // Kept if you switch back, but using img tag below
+import { InventoryItem, Rarity } from "@/lib/inventory";
+import FadeUp from "@/components/animations/FadeUp";
+import Image from "next/image";
+import { useGame } from "@/context/GameContext";
 
-// 85% Black means it's mostly dark (readable), with 15% of the rarity color leaking through.
 const mix = "#171717_85%";
-
 const rarityBorder: Record<Rarity, string> = {
-  Common: `border-rarity-common/50 bg-[color-mix(in_srgb,var(--color-rarity-common),${mix})]`,
-  Uncommon: `border-rarity-uncommon/50 bg-[color-mix(in_srgb,var(--color-rarity-uncommon),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-uncommon)]`,
-  Rare: `border-rarity-rare/50 bg-[color-mix(in_srgb,var(--color-rarity-rare),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-rare)]`,
-  Epic: `border-rarity-epic/50 bg-[color-mix(in_srgb,var(--color-rarity-epic),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-epic)]`,
-  Legendary: `border-rarity-legendary/80 bg-[color-mix(in_srgb,var(--color-rarity-legendary),${mix})] shadow-[0_0_20px_-5px_var(--color-rarity-legendary)]`,
+  Common: `border-rarity-common/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-common),${mix})]`,
+  Uncommon: `border-rarity-uncommon/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-uncommon),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-uncommon)]`,
+  Rare: `border-rarity-rare/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-rare),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-rare)]`,
+  Epic: `border-rarity-epic/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-epic),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-epic)]`,
+  Legendary: `border-rarity-legendary/80 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-legendary),${mix})] shadow-[0_0_20px_-5px_var(--color-rarity-legendary)]`,
 };
 
 const rarityText: Record<Rarity, string> = {
@@ -22,23 +21,23 @@ const rarityText: Record<Rarity, string> = {
   Legendary: "text-yellow-400",
 };
 
-export default function ItemCard({
-  item,
-  index,
-  onClick,
-}: {
-  item: InventoryItem;
-  index: number;
-  onClick: () => void;
-}) {
+export default function ItemCard({ item, index }: { item: InventoryItem; index: number }) {
+  const { inspectItem, addItem } = useGame(); // <--- Get both actions
+
+  const handleClick = () => {
+    addItem(item.id); // 1. Claim the loot (Context handles duplicates automatically)
+    inspectItem(item); // 2. Open the modal
+  };
+
   return (
     <FadeUp delay={index * 0.05} className="h-full">
       <div
-        onClick={onClick}
-        // Added h-full to make sure cards align nicely in the grid
-        className={`relative group h-full p-4 rounded-xl border-4 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer flex flex-col ${
-          rarityBorder[item.rarity]
-        }`}
+        onClick={handleClick}
+        className={`
+            relative group h-full p-4 rounded-xl border-4 transition-all duration-300 
+            hover:scale-[1.02] hover:-translate-y-1 cursor-pointer flex flex-col 
+            ${rarityBorder[item.rarity]}
+        `}
       >
         <div className="absolute top-2 right-2 z-10 bg-white/10 backdrop-blur text-[14px] font-mono font-bold border border-white/40 px-2 py-0.5 rounded text-white shadow-lg">
           LVL {item.level}
@@ -46,10 +45,12 @@ export default function ItemCard({
 
         {/* Image Container */}
         <div className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg bg-black/40 border border-white/5">
-          <img
+          <Image
             src={item.image}
             alt={item.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
 

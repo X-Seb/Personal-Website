@@ -33,7 +33,7 @@ import {
 import { BiChip, BiBrain, BiRocket, BiPalette, BiWorld, BiCodeBlock, BiTerminal } from "react-icons/bi";
 import { IoMdMail } from "react-icons/io";
 import { FaRobot, FaLanguage, FaWrench, FaFunnelDollar, FaMusic, FaHandshake } from "react-icons/fa";
-import { PiFileCSharp } from "react-icons/pi";
+//import { PiFileCSharp } from "react-icons/pi";
 import { GiSolderingIron } from "react-icons/gi";
 
 export type SkillLevelLabel = "Basic" | "Intermediate" | "Advanced" | "Expert";

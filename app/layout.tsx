@@ -4,6 +4,8 @@ import "./globals.css";
 import NavBar from "../components/general/NavBar";
 import Footer from "../components/general/Footer";
 import { Inter, Pixelify_Sans } from "next/font/google";
+import { GameProvider } from "@/context/GameContext";
+import GameOverlay from "@/components/inventory/GameOverlay";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -21,9 +23,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${inter.variable} ${pixelify.variable}`} suppressHydrationWarning={true}>
-        <NavBar />
-        {children}
-        <Footer />
+        <GameProvider>
+          <NavBar />
+          {children}
+          <GameOverlay />
+          <Footer />
+        </GameProvider>
       </body>
     </html>
   );

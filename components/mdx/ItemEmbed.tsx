@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 import { INVENTORY, Rarity } from "@/lib/inventory";
-import ItemModal from "@/components/inventory/ItemModal";
 import { Maximize2 } from "lucide-react";
+import { useGame } from "@/context/GameContext"; // <--- NEW IMPORT
 
-// 1. USE THE SAME MIX LOGIC (So it matches ItemCard)
+// --- VISUAL CONSTANTS (PRESERVED) ---
 const mix = "#171717_85%";
 
 const rarityBorder: Record<Rarity, string> = {
@@ -25,7 +24,8 @@ const rarityText: Record<Rarity, string> = {
 };
 
 export default function ItemEmbed({ id }: { id: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+  // 1. USE GLOBAL CONTEXT INSTEAD OF LOCAL STATE
+  const { inspectItem, addItem } = useGame();
 
   const item = INVENTORY.find((i) => i.id === id);
 
@@ -37,54 +37,53 @@ export default function ItemEmbed({ id }: { id: string }) {
     );
   }
 
+  const handleClick = () => {
+    addItem(item.id); // 1. Claim the loot
+    inspectItem(item); // 2. Open the modal
+  };
+
   return (
-    <>
-      <div
-        onClick={() => setIsOpen(true)}
-        className={`
-            my-10 relative group rounded-xl border-2 overflow-hidden flex flex-col md:flex-row 
-            transition-all duration-300 hover:scale-[1.02] cursor-pointer 
-            ${rarityBorder[item.rarity]}
-        `}
-      >
-        <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur text-[12px] font-mono font-bold border border-white/40 px-2 py-0.5 rounded text-white shadow-lg">
-          LVL {item.level}
-        </div>
-
-        {/* IMAGE CONTAINER */}
-        {/* Fixed: Made it a fixed width on desktop (w-48) and forced square aspect ratio on mobile if needed */}
-        <div className="relative w-full md:w-2/5 h-60 md:h-auto shrink-0 bg-black/30 border-b md:border-b-0 md:border-r border-white/5 flex items-center justify-center overflow-hidden">
-          <Image
-            src={item.image}
-            alt={item.name}
-            fill
-            className="object-cover mt-0 transition-transform duration-500 group-hover:scale-110"
-          />
-        </div>
-
-        {/* CONTENT */}
-        <div className="p-6 flex flex-col justify-center w-full relative">
-          <div className="flex flex-col gap-1 mb-2">
-            <span className={`text-[10px] font-bold uppercase tracking-widest opacity-80 ${rarityText[item.rarity]}`}>
-              {item.rarity} {item.type}
-            </span>
-
-            {/* ADDED TEXT GLOW */}
-            <h4 className="text-2xl font-extrabold text-white leading-tight [text-shadow:_0_0_12px_rgba(255,255,255,0.4)]">
-              {item.name}
-            </h4>
-          </div>
-
-          <p className="text-neutral-300 text-sm leading-relaxed line-clamp-2 opacity-90">{item.description}</p>
-
-          <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/50 group-hover:text-white transition-colors">
-            <Maximize2 size={12} />
-            Inspect Item
-          </div>
-        </div>
+    <div
+      onClick={handleClick}
+      className={`
+          my-10 relative group rounded-xl border-2 overflow-hidden flex flex-col md:flex-row 
+          transition-all duration-300 hover:scale-[1.02] cursor-pointer 
+          ${rarityBorder[item.rarity]}
+      `}
+    >
+      <div className="absolute top-3 right-3 z-20 bg-white/10 backdrop-blur text-[12px] font-mono font-bold border border-white/40 px-2 py-0.5 rounded text-white shadow-lg">
+        LVL {item.level}
       </div>
 
-      <ItemModal item={isOpen ? item : null} onClose={() => setIsOpen(false)} />
-    </>
+      {/* IMAGE CONTAINER (YOUR EXACT STYLING) */}
+      <div className="relative w-full md:w-2/5 h-60 md:h-auto shrink-0 bg-black/30 border-b md:border-b-0 md:border-r border-white/5 flex items-center justify-center overflow-hidden">
+        <Image
+          src={item.image}
+          alt={item.name}
+          fill
+          className="object-cover mt-0 transition-transform duration-500 group-hover:scale-110"
+        />
+      </div>
+
+      {/* CONTENT */}
+      <div className="p-6 flex flex-col justify-center w-full relative">
+        <div className="flex flex-col gap-1 mb-2">
+          <span className={`text-[10px] font-bold uppercase tracking-widest opacity-80 ${rarityText[item.rarity]}`}>
+            {item.rarity} {item.type}
+          </span>
+
+          <h4 className="text-2xl font-extrabold text-white leading-tight [text-shadow:_0_0_12px_rgba(255,255,255,0.4)]">
+            {item.name}
+          </h4>
+        </div>
+
+        <p className="text-neutral-300 text-sm leading-relaxed line-clamp-2 opacity-90">{item.description}</p>
+
+        <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/50 group-hover:text-white transition-colors">
+          <Maximize2 size={12} />
+          Inspect Item
+        </div>
+      </div>
+    </div>
   );
 }
