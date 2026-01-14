@@ -1,6 +1,6 @@
 "use client";
 import { useGame } from "@/context/GameContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,24 +29,34 @@ export default function GameOverlay() {
   const { collectedIds, inventory, viewingItem, closeModal } = useGame();
   const [notificationItem, setNotificationItem] = useState<string | null>(null);
 
+  // REFS (Silent trackers)
+  const lastItemId = useRef<string | null>(null);
+  const mountTime = useRef(Date.now());
+
   // LOGIC: Watch for changes in collectedIds
   useEffect(() => {
     if (collectedIds.length > 0) {
       const newestId = collectedIds[collectedIds.length - 1];
 
-      // If the newest ID is different from what we last showed (or we just loaded), show it
-      // Note: We check if notificationItem is ALREADY this item to prevent loop,
-      // but to allow re-triggering, we rely on the collectedIds changing.
-      setNotificationItem(newestId);
+      // 1. If we are already tracking this item, do nothing
+      if (newestId === lastItemId.current) return;
 
-      // Auto-hide after 4 seconds
-      const timer = setTimeout(() => {
-        setNotificationItem(null);
-      }, 4000);
+      // 2. Check if this is a "Reload" (Data appeared instantly on mount)
+      // If data appears within 1 second of page load, it's the Save File.
+      const isReload = Date.now() - mountTime.current < 1000;
 
-      return () => clearTimeout(timer);
+      // 3. Update the tracker
+      lastItemId.current = newestId;
+
+      // 4. Only show toast if it is NOT a reload
+      if (!isReload) {
+        setNotificationItem(newestId);
+        const timer = setTimeout(() => setNotificationItem(null), 4000);
+        return () => clearTimeout(timer);
+      }
     }
   }, [collectedIds]);
+
   const item = inventory.find((i) => i.id === notificationItem);
 
   return (
