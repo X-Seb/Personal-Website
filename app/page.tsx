@@ -5,6 +5,7 @@ import VideoGames from "@/components/video_games/VideoGames";
 import Videos from "@/components/youtube_videos/Videos";
 import Mission from "@/components/Mission";
 import Skills from "@/components/skills/Skills";
+import StoryTimeline from "@/components/story/StoryTimeline";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Skills />
       <VideoGames />
       <Videos />
+      <StoryTimeline />
       <Inventory />
     </main>
   );

@@ -27,7 +27,7 @@ export default function SectionHeading({
       >
         {title} <span style={{ color: color }}>{highlight}</span>
       </h2>
-      <p className="text-neutral-600 text-lg md:text-xl font-medium max-w-2xl">
+      <p className={`text-neutral-600 text-lg md:text-xl font-medium max-w-2xl ${alignClass}`}>
         {subtitle}
       </p>
     </FadeUp>
