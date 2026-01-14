@@ -32,7 +32,6 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
-        // FIX 1: Restored themeClasses here so the WHOLE modal has the colored border
         className={`relative w-full max-w-4xl bg-neutral-950 rounded-3xl overflow-hidden shadow-2xl border-2 ${themeClasses}`}
       >
         <button
@@ -52,10 +51,12 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
                 >
                   {item.rarity} {item.type}
                 </span>
-                <span className="font-mono text-neutral-400">LVL {item.level}</span>
+                <span className="font-mono font-bold text-neutral-200">LVL {item.level}</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-none">{item.name}</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.4)] mb-6 leading-none">
+                {item.name}
+              </h2>
 
               <p className="text-neutral-300 text-lg leading-relaxed">{item.description}</p>
             </div>
@@ -96,7 +97,6 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
               <img
                 src={item.image}
                 alt={item.name}
-                // FIX 3: w-full h-full object-cover fills the box completely
                 className="relative z-10 w-full h-full object-cover drop-shadow-2xl hover:scale-110 transition-transform duration-500"
               />
             </div>

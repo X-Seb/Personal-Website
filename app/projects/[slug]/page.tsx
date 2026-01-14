@@ -5,9 +5,10 @@ import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
-import ProjectVideo from "@/components/projects/ProjectVideo";
-import ProjectImage from "@/components/projects/ProjectImage";
-import ProjectLink from "@/components/projects/ProjectLink";
+import ProjectVideo from "@/components/mdx/ProjectVideo";
+import ProjectImage from "@/components/mdx/ProjectImage";
+import ProjectLink from "@/components/mdx/ProjectLink";
+import ItemEmbed from "@/components/mdx/ItemEmbed";
 import { getAllProjects, formatDate, ProjectMetadata, StatusColors } from "@/lib/projects";
 
 const components = {
@@ -15,6 +16,7 @@ const components = {
   ProjectVideo,
   ProjectImage,
   ProjectLink,
+  ItemEmbed,
 };
 
 const RPG_MAIN_COLOR = "#a855f7";

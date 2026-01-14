@@ -1,14 +1,17 @@
 "use client";
 import { InventoryItem, Rarity } from "../../lib/inventory";
 import FadeUp from "../animations/FadeUp";
-import Image from "next/image";
+import Image from "next/image"; // Kept if you switch back, but using img tag below
+
+// 85% Black means it's mostly dark (readable), with 15% of the rarity color leaking through.
+const mix = "#171717_85%";
 
 const rarityBorder: Record<Rarity, string> = {
-  Common: "border-rarity-common/50 bg-rarity-common/5",
-  Uncommon: "border-rarity-uncommon/50 bg-rarity-uncommon/5 shadow-[0_0_10px_var(--color-rarity-uncommon)]",
-  Rare: "border-rarity-rare/50 bg-rarity-rare/5 shadow-[0_0_12px_var(--color-rarity-rare)]",
-  Epic: "border-rarity-epic/50 bg-rarity-epic/5 shadow-[0_0_15px_var(--color-rarity-epic)]",
-  Legendary: "border-rarity-legendary/80 bg-rarity-legendary/10 shadow-[0_0_30px_var(--color-rarity-legendary)]",
+  Common: `border-rarity-common/50 bg-[color-mix(in_srgb,var(--color-rarity-common),${mix})]`,
+  Uncommon: `border-rarity-uncommon/50 bg-[color-mix(in_srgb,var(--color-rarity-uncommon),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-uncommon)]`,
+  Rare: `border-rarity-rare/50 bg-[color-mix(in_srgb,var(--color-rarity-rare),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-rare)]`,
+  Epic: `border-rarity-epic/50 bg-[color-mix(in_srgb,var(--color-rarity-epic),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-epic)]`,
+  Legendary: `border-rarity-legendary/80 bg-[color-mix(in_srgb,var(--color-rarity-legendary),${mix})] shadow-[0_0_20px_-5px_var(--color-rarity-legendary)]`,
 };
 
 const rarityText: Record<Rarity, string> = {
@@ -29,31 +32,40 @@ export default function ItemCard({
   onClick: () => void;
 }) {
   return (
-    <FadeUp delay={index * 0.05}>
+    <FadeUp delay={index * 0.05} className="h-full">
       <div
         onClick={onClick}
-        className={`relative group p-4 rounded-xl border-4 transition-all duration-300 hover:scale-105 hover:-translate-y-1 ${
+        // Added h-full to make sure cards align nicely in the grid
+        className={`relative group h-full p-4 rounded-xl border-4 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 cursor-pointer flex flex-col ${
           rarityBorder[item.rarity]
         }`}
       >
-        <div className="absolute top-2 right-2 z-10 bg-black/60 backdrop-blur text-[14px] font-mono border border-white/20 px-2 py-0.5 rounded text-white">
+        <div className="absolute top-2 right-2 z-10 bg-white/10 backdrop-blur text-[14px] font-mono font-bold border border-white/40 px-2 py-0.5 rounded text-white shadow-lg">
           LVL {item.level}
         </div>
 
-        <div className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg bg-black/20">
+        {/* Image Container */}
+        <div className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg bg-black/40 border border-white/5">
           <img
             src={item.image}
             alt={item.name}
-            className="w-full h-full object-cover rounded-xl p-1 group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
 
-        <div className="space-y-1">
-          <p className={`text-xs font-bold uppercase tracking-widest mb-1 opacity-90 ${rarityText[item.rarity]}`}>
+        {/* Content */}
+        <div className="mt-auto space-y-1">
+          <p className={`text-[10px] font-bold uppercase tracking-widest mb-1 opacity-90 ${rarityText[item.rarity]}`}>
             {item.rarity} {item.type}
           </p>
-          <h3 className="text-[20px] font-extrabold text-gray-600 leading-tight py-2 truncate">{item.name}</h3>
-          <p className="text-m text-neutral-400 line-clamp-3 min-h-[2.5em]">{item.description}</p>
+
+          <h3 className="text-[20px] font-extrabold text-white leading-tight py-1 truncate [text-shadow:_0_0_12px_rgba(255,255,255,0.4)]">
+            {item.name}
+          </h3>
+
+          <p className="text-sm text-neutral-300 line-clamp-2 min-h-[2.5em] leading-relaxed opacity-80">
+            {item.description}
+          </p>
         </div>
       </div>
     </FadeUp>
