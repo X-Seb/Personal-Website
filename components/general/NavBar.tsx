@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { name: "Projects", href: "/#projects" },
   { name: "Skills", href: "/#skills" },
   { name: "Games", href: "/#videogames" },
-  { name: "Quest Logs", href: "/#articles" },
+  { name: "Quest Logs", href: "/quest-log" },
   { name: "Videos", href: "/#videos" },
   { name: "Lore", href: "/#story" },
   { name: "Inventory", href: "/inventory" },
