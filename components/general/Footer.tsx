@@ -1,5 +1,5 @@
 "use client";
-import Socials from "@/components/general/Socials";
+import Socials from "@/components/tools/Socials";
 
 export default function Footer() {
   return (

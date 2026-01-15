@@ -1,5 +1,5 @@
 import VideoGameCarousel from "@/components/video_games/VideoGameCarousel";
-import SectionHeading from "@/components/general/SectionHeading";
+import SectionHeading from "@/components/tools/SectionHeading";
 
 export default async function VideoGames() {
   return (

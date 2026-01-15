@@ -1,7 +1,7 @@
 "use client";
 import { STORY_ITEMS } from "@/lib/story";
 import StoryItem from "@/components/story/StoryItem";
-import SectionHeading from "@/components/general/SectionHeading";
+import SectionHeading from "@/components/tools/SectionHeading";
 
 export default function StoryTimeline() {
   return (

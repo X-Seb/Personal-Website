@@ -1,7 +1,7 @@
 import ProjectCard from "@/components/projects/ProjectCard";
 import { getAllProjects } from "@/lib/projects";
 import FadeUp from "@/components/animations/FadeUp";
-import SectionHeading from "@/components/general/SectionHeading";
+import SectionHeading from "@/components/tools/SectionHeading";
 
 export default async function Projects() {
   const projects = await getAllProjects();

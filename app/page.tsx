@@ -5,7 +5,7 @@ import Videos from "@/components/youtube_videos/Videos";
 import Mission from "@/components/Mission";
 import Skills from "@/components/skills/Skills";
 import StoryTimeline from "@/components/story/StoryTimeline";
-import LootChest from "@/components/inventory/LootChest";
+import Chest from "@/components/inventory/Chest";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       {/* blog here */}
       <Videos />
       <StoryTimeline />
-      <LootChest /> {/* Make this better */}
+      <Chest id={"bottom-of-home"} lootTable={["mouth-tape", "earplugs", "whiteboard"]} dropCount={2} />
     </main>
   );
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 import FadeUp from "../animations/FadeUp";
 import SkillCategoryUI from "@/components/skills/SkillCategoryUI";
 import { SKILL_DATA } from "@/lib/skillsList";
-import SectionHeading from "../general/SectionHeading";
+import SectionHeading from "../tools/SectionHeading";
 
 export default function Skills() {
   const [expandedId, setExpandedId] = useState<string | null>(SKILL_DATA[0].id);

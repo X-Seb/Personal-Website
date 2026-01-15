@@ -37,18 +37,9 @@ export default function GameOverlay() {
   useEffect(() => {
     if (collectedIds.length > 0) {
       const newestId = collectedIds[collectedIds.length - 1];
-
-      // 1. If we are already tracking this item, do nothing
       if (newestId === lastItemId.current) return;
-
-      // 2. Check if this is a "Reload" (Data appeared instantly on mount)
-      // If data appears within 1 second of page load, it's the Save File.
       const isReload = Date.now() - mountTime.current < 1000;
-
-      // 3. Update the tracker
       lastItemId.current = newestId;
-
-      // 4. Only show toast if it is NOT a reload
       if (!isReload) {
         setNotificationItem(newestId);
         const timer = setTimeout(() => setNotificationItem(null), 4000);

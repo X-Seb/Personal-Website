@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { ArrowRight, MapPin, Radio, Zap } from "lucide-react";
 import FadeUp from "./animations/FadeUp";
-import Socials from "@/components/general/Socials";
+import Socials from "@/components/tools/Socials";
 
 export default function Mission() {
   return (
