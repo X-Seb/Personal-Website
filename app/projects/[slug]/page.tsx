@@ -72,8 +72,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       >
         <div className="max-w-4xl mx-auto">
           <FadeUp delay={0}>
-            <Link href="/#projects" className="text-sm text-neutral-400 hover:text-white transition mb-8 inline-block">
-              ← Return to Quest Log
+            <Link
+              href="/#projects"
+              className="text-sm text-neutral-400 font-bold hover:text-white transition mb-8 inline-block"
+            >
+              ← Return to Projects
             </Link>
           </FadeUp>
 
@@ -81,7 +84,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div className="flex-1 w-full">
               <FadeUp delay={0.2}>
                 <h1
-                  className="text-4xl md:text-6xl font-bold mb-8 tracking-tight"
+                  className="text-4xl md:text-6xl font-pixel font-bold mb-8 tracking-tight"
                   style={{ color: accentColor, textShadow: `0 0 40px ${accentColor}30` }}
                 >
                   {frontmatter.title}
@@ -91,7 +94,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 {/* META ROW: Date | Tags | Tech Stack */}
                 <div className="flex flex-wrap items-center gap-3 text-neutral-400 font-mono text-sm mb-4">
                   {/* Date */}
-                  <span className="mr-2">
+                  <span className="mr-2 font-bold">
                     {formatDate(frontmatter.startDate)}
                     {frontmatter.endDate ? ` — ${formatDate(frontmatter.endDate)}` : ""}
                   </span>

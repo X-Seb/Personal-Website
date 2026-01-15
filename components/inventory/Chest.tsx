@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { INVENTORY, InventoryItem } from "@/lib/inventory";
-import { PackageOpen } from "lucide-react";
+import { GiLockedChest } from "react-icons/gi";
 import ItemCard from "@/components/inventory/ItemCard";
 
 interface ChestProps {
@@ -65,12 +65,12 @@ export default function Chest({ id, lootTable, dropCount = 1 }: ChestProps) {
           {!isOpen ? (
             // CLOSED: Gold & Brown Theme
             <div className="w-full h-full bg-neutral-900 border-4 border-yellow-700/50 rounded-2xl flex items-center justify-center shadow-2xl group-hover:border-yellow-500 transition-colors">
-              <PackageOpen size={80} className="text-yellow-600 group-hover:text-yellow-400 transition-colors" />
+              <GiLockedChest size={80} className="text-yellow-600 group-hover:text-yellow-400 transition-colors" />
             </div>
           ) : (
             // OPEN: Dimmed & Pushed back
             <div className="w-full h-full bg-neutral-950/30 border-4 border-neutral-800/50 rounded-2xl flex items-center justify-center grayscale opacity-20 blur-sm">
-              <PackageOpen size={80} className="text-neutral-800" />
+              <GiLockedChest size={80} className="text-neutral-800" />
             </div>
           )}
         </div>
