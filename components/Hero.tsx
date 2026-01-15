@@ -28,8 +28,8 @@ export default function Hero() {
         <source src="/videos/hero-loop-v1.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-purple-900/60 mix-blend-multiply z-10" />
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/80 via-black/50 to-neutral-950/90 z-10" />
+      <div className="absolute inset-0 bg-purple-900/40 mix-blend-multiply z-10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/50 via-black/20 to-neutral-950/90 z-10" />
 
       {/* CONTENT */}
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-10">
