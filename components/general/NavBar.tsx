@@ -9,10 +9,10 @@ import { motion, AnimatePresence } from "framer-motion";
 const NAV_LINKS = [
   { name: "Projects", href: "/#projects" },
   { name: "Skills", href: "/#skills" },
-  { name: "Quest Logs", href: "/#articles" },
-  { name: "Lore", href: "/#story" },
   { name: "Games", href: "/#videogames" },
+  { name: "Quest Logs", href: "/#articles" },
   { name: "Videos", href: "/#videos" },
+  { name: "Lore", href: "/#story" },
   { name: "Inventory", href: "/inventory" },
 ];
 

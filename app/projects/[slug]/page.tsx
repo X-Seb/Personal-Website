@@ -5,18 +5,21 @@ import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
-import ProjectVideo from "@/components/mdx/ProjectVideo";
-import ProjectImage from "@/components/mdx/ProjectImage";
-import ProjectLink from "@/components/mdx/ProjectLink";
+import VideoEmbed from "@/components/mdx/YouTubeEmbed";
+import ImageEmbed from "@/components/mdx/ImageEmbed";
+import LinkEmbed from "@/components/mdx/LinkEmbed";
 import ItemEmbed from "@/components/mdx/ItemEmbed";
+import ProjectEmbed from "@/components/mdx/ProjectEmbed";
+//import ProjectEmbed from "@/components/mdx/ProjectEmbed";
 import { getAllProjects, formatDate, ProjectMetadata, StatusColors } from "@/lib/projects";
 
 const components = {
   FadeUp,
-  ProjectVideo,
-  ProjectImage,
-  ProjectLink,
-  ItemEmbed,
+  Video: VideoEmbed,
+  Image: ImageEmbed,
+  Link: LinkEmbed,
+  Item: ItemEmbed,
+  Project: ProjectEmbed,
 };
 
 const RPG_MAIN_COLOR = "#a855f7";
@@ -30,15 +33,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   }
 
   const fileContent = fs.readFileSync(filePath, "utf8");
-
-  // 1. Parse Frontmatter
   const { content, frontmatter } = await compileMDX<ProjectMetadata>({
     source: fileContent,
     options: { parseFrontmatter: true },
     components: components,
   });
 
-  // 2. Fetch Related Projects
   const allProjects = await getAllProjects();
   const currentTags = frontmatter.tags || [];
 

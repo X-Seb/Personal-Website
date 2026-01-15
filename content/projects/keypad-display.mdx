@@ -30,7 +30,7 @@ We had to physically build the input detection and memory storage systems from s
 
 This was my first time facing a 4x4 Matrix Keypad. We naively assumed each button had its own wire. We were wrong.
 
-<ProjectImage src="/images/projects/keypad-display/4x4-keypad.webp" alt="4x4 Keypad" caption="A simple 4x4 Keypad" />
+<Image src="/images/projects/keypad-display/4x4-keypad.webp" alt="4x4 Keypad" caption="A simple 4x4 Keypad" />
 
 The keypad connects rows and columns. To figure out which specific button is pressed, we had to build a detection circuit using **Transistors**. We used 3 transistors to handle the 3 rows we were using, allowing us to triangulate the signal.
 
@@ -42,7 +42,7 @@ The circuit is a beast. It requires converting a physical button press into a 4-
 2.  **The Encoder:** The outputs of these gates feed into a **Priority Encoder**. It takes the 10 different input lines (0-9) and compresses them into a single **4-bit BCD signal** (e.g., pressing '5' spits out `0101`).
 3.  **The "Z-Signal" (The Clock):** Using a ton of AND gates, we wired up a signal that goes LOW whenever _any_ button is pressed. This acts as our **Clock Trigger**.
 
-<ProjectImage
+<Image
   src="/images/projects/keypad-display/display-circuit-input-only.webp"
   alt="Unfinished Circuit"
   caption="The input section it completed. We also made progress on the visual display."
@@ -73,7 +73,7 @@ It turned out to be **Voltage Noise**. The electromechanical bounce of the keypa
 
 We added **Capacitors** to the input lines to stabilize the voltage (a hardware debouncing technique). Immediately, the 5 appeared. It was the most satisfying fix of the semester.
 
-<ProjectImage
+<Image
   src="/images/projects/keypad-display/counter-circuit.webp"
   alt="Final Circuit"
   caption="The journey from button press to binary data."
@@ -83,6 +83,6 @@ We added **Capacitors** to the input lines to stabilize the voltage (a hardware 
 
 A fully functional 2-digit memory system powered by pure silicon logic.
 
-<ProjectVideo id="YLngay3Nhjo" />
+<Video id="YLngay3Nhjo" />
 
 Using an Arduino would've been 10x easier... But it was a good challenge. 😎

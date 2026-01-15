@@ -2,11 +2,10 @@
 import Image from "next/image";
 import { INVENTORY, Rarity } from "@/lib/inventory";
 import { Maximize2 } from "lucide-react";
-import { useGame } from "@/context/GameContext"; // <--- NEW IMPORT
+import { useGame } from "@/context/GameContext";
 
-// --- VISUAL CONSTANTS (PRESERVED) ---
+// TODO: UI needs improvement tbh. Could be a lot better.
 const mix = "#171717_85%";
-
 const rarityBorder: Record<Rarity, string> = {
   Common: `border-rarity-common/50 bg-[color-mix(in_srgb,var(--color-rarity-common),${mix})]`,
   Uncommon: `border-rarity-uncommon/50 bg-[color-mix(in_srgb,var(--color-rarity-uncommon),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-uncommon)]`,
@@ -55,7 +54,6 @@ export default function ItemEmbed({ id }: { id: string }) {
         LVL {item.level}
       </div>
 
-      {/* IMAGE CONTAINER (YOUR EXACT STYLING) */}
       <div className="relative w-full md:w-2/5 h-60 md:h-auto shrink-0 bg-black/30 border-b md:border-b-0 md:border-r border-white/5 flex items-center justify-center overflow-hidden">
         <Image
           src={item.image}

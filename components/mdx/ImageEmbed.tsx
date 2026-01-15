@@ -3,13 +3,13 @@ import Image from "next/image";
 import { useState } from "react";
 import { X, Maximize2 } from "lucide-react";
 
-interface ProjectImageProps {
+interface ImageEmbedProps {
   src: string;
   alt: string;
   caption?: string;
 }
 
-export default function ProjectImage({ src, alt, caption }: ProjectImageProps) {
+export default function ImageEmbed({ src, alt, caption }: ImageEmbedProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

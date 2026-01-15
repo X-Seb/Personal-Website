@@ -5,7 +5,7 @@ import NavBar from "../components/general/NavBar";
 import Footer from "../components/general/Footer";
 import { Inter, Pixelify_Sans } from "next/font/google";
 import { GameProvider } from "@/context/GameContext";
-import GameOverlay from "@/components/inventory/GameOverlay";
+import GameOverlay from "@/components/game/GameOverlay";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import FadeUp from "@/components/animations/FadeUp";
 import { ProjectMetadata } from "@/lib/projects"; // Import the interface
 
@@ -16,20 +17,38 @@ export default function ProjectCard({ project, index }: { project: ProjectMetada
       <FadeUp delay={index * 0.1} className="h-full">
         <Link
           href={`/projects/${project.slug}`}
-          className="block h-full group relative overflow-hidden border-2 border-gray-600/40 rounded-3xl bg-neutral-900/50 transition-colors duration-500"
+          className="block h-full group relative overflow-hidden border-2 border-gray-600/40 rounded-3xl bg-neutral-900/50 hover:scale-[1.02] transition-all duration-500 ease-out"
         >
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src={project.thumbnail}
               alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           </div>
 
           <div className="relative z-10 p-6 h-full flex flex-col justify-end">
-            <h3 className="text-2xl font-bold text-white mb-1">{project.title}</h3>
-            <p className="text-neutral-400 text-sm line-clamp-2">{project.description}</p>
+            <h3
+              className="text-2xl font-bold font-pixel uppercase mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,4)]"
+              style={{
+                textShadow: `0 0 10px ${project.color}100`,
+              }}
+            >
+              {project.title}
+            </h3>
+            <div className="flex flex-wrap gap-2 mb-4 overflow-hidden">
+              {project.tags?.map((tag, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 text-neutral-300 border border-white/10 backdrop-blur-sm"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p className="text-neutral-300 font-bold text-sm line-clamp-2">{project.description}</p>
           </div>
         </Link>
       </FadeUp>

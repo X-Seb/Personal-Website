@@ -4,7 +4,17 @@ description: "An Arduino-based alarm system that requires physical exertion to d
 startDate: "2025-12-19"
 endDate: "2025-12-22"
 tags: ["Arduino", "Hardware", "Product Design"]
-techStack: ["Arduino Uno", "HC-SR04 Ultrasonic", "74HC595 Shift Register", "4-Digit Display", "4x4 Keypad", "C++", "VS Code", "PlatformIO"]
+techStack:
+  [
+    "Arduino Uno",
+    "HC-SR04 Ultrasonic",
+    "74HC595 Shift Register",
+    "4-Digit Display",
+    "4x4 Keypad",
+    "C++",
+    "VS Code",
+    "PlatformIO",
+  ]
 role: "Lead Engineer (Solo)"
 status: "Completed"
 thumbnail: "/images/projects/push-up-alarm/alarm-clock-on-desk.webp"
@@ -43,7 +53,7 @@ Soon enough we had a blinking LED! Nice.
 
 First, we need to receive numerical input from the user, since the user can choose what time the alarm will trigger. To do this, we'll use a 4x4 membrane keypad.
 
-<ProjectImage
+<Image
   src="/images/projects/push-up-alarm/4x4-keypad.webp"
   alt="4x4 Keypad"
   caption="A 4x4 membrane keypad (using 3 columns) to set the time."
@@ -51,7 +61,7 @@ First, we need to receive numerical input from the user, since the user can choo
 
 We're only going to use three columns in this project; we don't need the letters. After a bit of coding, the numbers were popping up in the terminal. Excellent! User input has been conquered!
 
-<ProjectImage
+<Image
   src="/images/projects/push-up-alarm/serial-port-numbers.webp"
   alt="Numbers in Serial Port"
   caption="Nice. We can read which numbers are being pressed by the user. Perfect."
@@ -61,11 +71,7 @@ We're only going to use three columns in this project; we don't need the letters
 
 Of course, we need a display so the user knows which numbers they're pressing. For this I'll use a four-digit display.
 
-<ProjectImage
-  src="/images/projects/push-up-alarm/4digit-display.webp"
-  alt="4 Digit Display"
-  caption="A 4 Digit Display"
-/>
+<Image src="/images/projects/push-up-alarm/4digit-display.webp" alt="4 Digit Display" caption="A 4 Digit Display" />
 
 The 4-digit display requires 12 pins to operate. The keypad already takes 7. And I knew I still needed room for the buzzer and ultrasonic sensor. We were out of pins before we even plugged in the sensor... 😬
 
@@ -73,7 +79,7 @@ The 4-digit display requires 12 pins to operate. The keypad already takes 7. And
 
 The solution was the **74HC595 8-bit Shift Register** . This chip is actually OP. It allowed me to control 8 output lines using only 3 pins on the Arduino by sending data serially (one bit at a time).
 
-<ProjectImage
+<Image
   src="/images/projects/push-up-alarm/8bit-shift-register.webp"
   alt="Shift Register"
   caption="Using the 74HC595 to save pins. Essential for complex Arduino projects."
@@ -90,7 +96,7 @@ One wire fixed 4 hours of debugging.
 
 Alright, now when you input numbers on the keypad, they show up on the display.
 
-<ProjectVideo id="qKW0bnAIcaw" />
+<Video id="qKW0bnAIcaw" />
 
 ## Finalizing Hardware
 
@@ -98,7 +104,7 @@ I also plugged in the ultrasonic sensor and the buzzer.
 
 The ultrasonic sensor will come in handy to determine if you do a push-up since it can measure distance.
 
-<ProjectImage
+<Image
   src="/images/projects/push-up-alarm/ultrasonic-sensor.webp"
   alt="Ultrasonic Sensor"
   caption="An ultrasonic sensor"
@@ -136,7 +142,7 @@ And there we go! The push-up alarm clock is now complete.
 
 Finally, I unplugged it from my computer and put a battery in the arduino so the push-up alarm clock can be moved around.
 
-<ProjectImage
+<Image
   src="/images/projects/push-up-alarm/alarm-clock-on-floor.webp"
   alt="Alarm Clock"
   caption="By using a battery, the Arduino can be powered without my computer."
@@ -144,7 +150,7 @@ Finally, I unplugged it from my computer and put a battery in the arduino so the
 
 And here's a little demo of the project:
 
-<ProjectVideo id="h7yHECxOs8g" />
+<Video id="h7yHECxOs8g" />
 
 ## Reflections & Future Improvements
 

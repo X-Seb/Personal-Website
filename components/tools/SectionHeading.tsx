@@ -15,7 +15,7 @@ export default function SectionHeading({ title, highlight, subtitle, color, alig
   return (
     <FadeUp className={`mb-12 ${alignClass} max-w-3xl`}>
       <h2
-        className="text-4xl md:text-5xl font-bold mb-4 text-white font-pixel leading-tight"
+        className="text-4xl md:text-5xl font-bold mb-4 text-white font-pixel uppercase leading-tight"
         style={{ textShadow: `0 0 25px ${color}80` }} // Subtle glow
       >
         {title} <span style={{ color: color }}>{highlight}</span>

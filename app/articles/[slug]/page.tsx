@@ -5,19 +5,21 @@ import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import FadeUp from "@/components/animations/FadeUp";
-import ProjectVideo from "@/components/mdx/ProjectVideo";
-import ProjectImage from "@/components/mdx/ProjectImage";
-import ProjectLink from "@/components/mdx/ProjectLink";
+import VideoEmbed from "@/components/mdx/YouTubeEmbed";
+import ImageEmbed from "@/components/mdx/ImageEmbed";
+import LinkEmbed from "@/components/mdx/LinkEmbed";
 import ItemEmbed from "@/components/mdx/ItemEmbed";
 import { formatDate } from "@/lib/projects";
+import ProjectEmbed from "@/components/mdx/ProjectEmbed";
 import { ArticleMetadata, getAllArticles } from "@/lib/articles";
 
 const components = {
   FadeUp,
-  Video: ProjectVideo,
-  Image: ProjectImage,
-  Link: ProjectLink,
+  Video: VideoEmbed,
+  Image: ImageEmbed,
+  Link: LinkEmbed,
   Item: ItemEmbed,
+  Project: ProjectEmbed, // Use: <Project slug="my-cool-project" />
 };
 
 const DEFAULT_COLOR = "#3b82f6";

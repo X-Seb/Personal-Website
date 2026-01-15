@@ -28,7 +28,7 @@ Garbage in, garbage out. The first step was curating a high-quality dataset.
 3.  **Class Integration:** I summarized our entire semester's worth of class notes into a single text document to ensure the bot used words relevant to our course.
 4.  **Condensing:** I manually reviewed and condensed the documents to ensure the AI only referenced the highest quality information. ✨
 
-<ProjectImage
+<Image
   src="/images/projects/poly-edi-chatbot/poly-edi-training-docs.webp"
   alt="Chatbot resources"
   caption="The resources used to train the AI"
@@ -45,7 +45,7 @@ I needed an infrastructure that handled training, hosting, and building efficien
 - **Hosting:** Vercel
 - **Styling:** Custom palette matching the university's colors (Orange, Green, Blue, Red).
 
-<ProjectImage
+<Image
   src="/images/projects/poly-edi-chatbot/poly-edi-UI.webp"
   alt="Chatbot Interface"
   caption="The custom UI built with React, matching the university branding."
@@ -55,11 +55,7 @@ I needed an infrastructure that handled training, hosting, and building efficien
 
 Integrating the **Botpress API** into a custom React frontend wasn't entirely smooth sailing.
 
-<ProjectImage
-  src="/images/projects/poly-edi-chatbot/poly-edi-code.webp"
-  alt="Chatbot Code"
-  caption="Beautiful Code..."
-/>
+<Image src="/images/projects/poly-edi-chatbot/poly-edi-code.webp" alt="Chatbot Code" caption="Beautiful Code..." />
 
 The main issue was **Session Management**. The bot would often create a new session on page reload which made it "forget" the previous context or conversation history. It took a few hours of debugging the API integration and tweaking the refresh logic so messages persisted correctly and the UI updated in real-time.
 
@@ -82,6 +78,6 @@ When we presented the bot to the class, the reception was excellent. The bot was
 
 It was a solid learning experience in **RAG (Retrieval-Augmented Generation)** workflows. Botpress proved to be a powerful tool for quickly spinning up knowledge-base bots. I'd definitely use it again for similar use cases where quick deployment and ease of training are priorities.
 
-You can try it out here: <ProjectLink href="https://poly-edi.vercel.app/">PolyÉDI</ProjectLink>
+You can try it out here: <Link href="https://poly-edi.vercel.app/">PolyÉDI</Link>
 
 Thanks for reading!

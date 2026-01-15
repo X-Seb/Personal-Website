@@ -42,7 +42,6 @@ export default function Chest({ id, lootTable, dropCount = 1 }: ChestProps) {
   };
 
   return (
-    // Fixed height container ensures consistent layout
     <div className="relative flex items-center justify-center py-12 h-80 w-full">
       {/* --- LAYER 1: THE CHEST (Background) --- */}
       <motion.button
@@ -50,7 +49,6 @@ export default function Chest({ id, lootTable, dropCount = 1 }: ChestProps) {
         disabled={isOpen}
         whileHover={!isOpen ? { scale: 1.05 } : {}}
         whileTap={!isOpen ? { scale: 0.95 } : {}}
-        // Absolute position keeps it centered, allowing loot to overlap it
         className="absolute z-10 group cursor-pointer"
       >
         {/* Gold Glow */}
@@ -63,12 +61,10 @@ export default function Chest({ id, lootTable, dropCount = 1 }: ChestProps) {
         {/* The Chest Graphic */}
         <div className="relative w-48 h-48 transition-all duration-300">
           {!isOpen ? (
-            // CLOSED: Gold & Brown Theme
             <div className="w-full h-full bg-neutral-900 border-4 border-yellow-700/50 rounded-2xl flex items-center justify-center shadow-2xl group-hover:border-yellow-500 transition-colors">
               <GiLockedChest size={80} className="text-yellow-600 group-hover:text-yellow-400 transition-colors" />
             </div>
           ) : (
-            // OPEN: Dimmed & Pushed back
             <div className="w-full h-full bg-neutral-950/30 border-4 border-neutral-800/50 rounded-2xl flex items-center justify-center grayscale opacity-20 blur-sm">
               <GiLockedChest size={80} className="text-neutral-800" />
             </div>
