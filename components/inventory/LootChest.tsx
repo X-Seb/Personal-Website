@@ -4,8 +4,8 @@ import { INVENTORY, InventoryItem } from "@/lib/inventory";
 import { Sparkles, PackageOpen } from "lucide-react";
 import FadeUp from "@/components/animations/FadeUp";
 import Link from "next/link";
-import ItemCard from "@/components/inventory/ItemCard"; // Import your good card
-import ItemModal from "@/components/inventory/ItemModal"; // Import the modal
+import ItemCard from "@/components/inventory/ItemCard";
+import ItemModal from "@/components/inventory/ItemModal";
 
 export default function LootChest() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,13 +43,17 @@ export default function LootChest() {
               </div>
             </button>
           ) : (
-            // REVEALED LOOT (Using the good ItemCard)
+            // REVEALED LOOT
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in zoom-in duration-500">
               {loot.map((item, i) => (
-                <div key={item.id} className="text-left">
-                  {" "}
-                  {/* Wrapper to reset text-align center */}
-                  <ItemCard item={item} index={i} onClick={() => setSelectedItem(item)} />
+                <div
+                  key={item.id}
+                  // FIX: Moved onClick here and added cursor-pointer
+                  className="text-left cursor-pointer transition-transform hover:scale-105 active:scale-95"
+                  onClick={() => setSelectedItem(item)}
+                >
+                  {/* ItemCard doesn't need onClick anymore */}
+                  <ItemCard item={item} index={i} />
                 </div>
               ))}
             </div>
