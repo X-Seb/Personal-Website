@@ -6,10 +6,10 @@ import Socials from "@/components/general/Socials";
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 relative overflow-hidden">
+    <section id="mission" className="py-24 relative overflow-hidden bg-neutral-950">
       <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
         <FadeUp>
-          <div className="flex flex-col md:flex-row gap-12 items-center bg-neutral-950 border-2 border-neutral-800 p-8 rounded-3xl relative shadow-2xl hover:scale-[1.02] transition-all duration-500">
+          <div className="flex flex-col md:flex-row gap-12 items-center bg-neutral-900/80 border-2 border-neutral-800 p-8 rounded-3xl relative shadow-2xl hover:scale-[1.02] transition-all duration-500">
             {/* LEFT: Avatar Area */}
             <div className="relative w-48 h-48 md:w-72 md:h-72 flex-shrink-0 group">
               <div className="absolute inset-0 border-4 border-dashed border-neutral-800 rounded-full animate-[spin_10s_linear_infinite] group-hover:border-rpg-main/50 transition-colors" />
@@ -69,16 +69,16 @@ export default function Mission() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
-                <Link
+                {/* <Link
                   href="/story"
                   className="px-8 py-3.5 rounded-xl bg-rpg-main text-white font-bold hover:bg-rpg-light hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all flex items-center justify-center gap-2 group"
                 >
                   Read Lore
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </Link> */}
                 <Link
                   href="mailto:sebastien.therriault1@gmail.com"
-                  className="px-8 py-3.5 rounded-xl border-2 border-neutral-700 text-neutral-300 hover:text-white hover:border-white hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
+                  className="px-8 py-3.5 rounded-xl border-2 border-neutral-600 text-neutral-300 font-bold hover:text-white hover:border-white hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
                 >
                   Contact Me
                 </Link>

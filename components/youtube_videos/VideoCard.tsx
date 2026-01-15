@@ -10,7 +10,7 @@ export default function VideoCard({ video, index }: { video: YouTubeVideo; index
       <Link
         href={video.link}
         target="_blank"
-        className="group block relative w-[300px] md:w-[400px] flex-shrink-0 bg-black backdrop-blur-xl border-4 border-black rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]"
+        className="group block relative w-[300px] md:w-[400px] flex-shrink-0 bg-neutral-900 backdrop-blur-xl border-4 border-white/5 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]"
       >
         <div className="relative aspect-video overflow-hidden border-b border-white/5">
           <img

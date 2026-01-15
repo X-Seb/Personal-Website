@@ -7,13 +7,13 @@ export default async function Projects() {
   const projects = await getAllProjects();
 
   return (
-    <section id="projects" title="Quest Log" className="py-32 relative">
+    <section id="projects" title="Quest Log" className="py-32 relative bg-neutral-950">
       <div className="md:px-12 max-w-8xl mx-auto">
         <SectionHeading
-          title={"Quest "}
-          highlight={"Logs"}
-          subtitle={"A curated collection of quests I've completed over the years..."}
-          color={"#ff0000"}
+          title={"Main "}
+          highlight={"Campaigns"}
+          subtitle={"A curated collection of projects I've completed over the years..."}
+          color={"#ee1000"}
           align={"left"}
         />
 

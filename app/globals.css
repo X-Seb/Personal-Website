@@ -18,11 +18,10 @@
 }
 
 body {
-  cursor: url("/cursor-sword.png"), auto;
+  @apply bg-neutral-950 text-white antialiased;
 }
 
 html, body {
-  background-color: whitesmoke;
   overscroll-behavior-y: none;
 }
 

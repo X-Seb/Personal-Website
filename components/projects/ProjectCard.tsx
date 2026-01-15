@@ -16,7 +16,7 @@ export default function ProjectCard({ project, index }: { project: ProjectMetada
       <FadeUp delay={index * 0.1} className="h-full">
         <Link
           href={`/projects/${project.slug}`}
-          className="block h-full group relative overflow-hidden border-2 border-gray-600 rounded-3xl bg-neutral-900/50 transition-colors duration-500"
+          className="block h-full group relative overflow-hidden border-2 border-gray-600/40 rounded-3xl bg-neutral-900/50 transition-colors duration-500"
         >
           <div className="absolute inset-0 z-0">
             <img

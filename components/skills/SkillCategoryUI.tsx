@@ -21,8 +21,8 @@ export default function SkillCategoryUI({
       <div
         onClick={onToggle}
         className={`
-          relative bg-neutral-950/80 backdrop-blur-md border rounded-3xl overflow-hidden cursor-pointer group transition-all duration-600
-          ${isExpanded ? "shadow-2xl" : "border-white/5 hover:border-white/10"}
+          relative bg-neutral-950/50 backdrop-blur-md border rounded-3xl overflow-hidden cursor-pointer group transition-all duration-600
+          ${isExpanded ? "shadow-2xl" : "border-white/10 hover:border-white/30"}
         `}
         style={{
           borderColor: isExpanded ? `${category.color}40` : "", // 40 = 25% opacity

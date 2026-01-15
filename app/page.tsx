@@ -15,9 +15,10 @@ export default function Home() {
       <Projects />
       <Skills />
       <VideoGames />
+      {/* blog here */}
       <Videos />
       <StoryTimeline />
-      <LootChest />
+      <LootChest /> {/* Make this better */}
     </main>
   );
 }

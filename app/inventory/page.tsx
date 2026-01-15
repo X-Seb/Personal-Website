@@ -31,13 +31,13 @@ export default function InventoryPage() {
         <FadeUp className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h2 className="text-4xl font-bold mb-4 text-white font-pixel text-shadow-lg">Inventory</h2>
-            <p className="text-neutral-400 text-lg font-medium">Manage your acquired gear and technology.</p>
+            <p className="text-neutral-400 text-lg font-bold">Manage your acquired gear and technology.</p>
           </div>
 
           {/* COUNTER WIDGET */}
           <div className="bg-neutral-900 border border-white/10 px-6 py-4 rounded-xl flex items-center gap-4">
             <div className="text-right">
-              <p className="text-xs font-bold text-neutral-500 uppercase tracking-widest">Collection</p>
+              <p className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Collection</p>
               <p className="text-2xl font-bold text-white font-mono">
                 <span className="text-purple-400">{collectedCount}</span> / {totalItems}
               </p>
