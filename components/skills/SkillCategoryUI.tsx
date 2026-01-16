@@ -72,7 +72,7 @@ export default function SkillCategoryUI({
                 <p className="text-neutral-300 text-m mb-8 mt-4 leading-relaxed max-w-2xl">{category.description}</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                  {category.skills.map((skill) => (
+                  {(category.skills || []).map((skill) => (
                     <SkillItem key={skill.name} skill={skill} color={category.color} />
                   ))}
                 </div>

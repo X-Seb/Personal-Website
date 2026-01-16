@@ -5,26 +5,18 @@ import SectionHeading from "@/components/tools/SectionHeading";
 import FadeUp from "@/components/animations/FadeUp";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-// You can change this number to 12 later.
-// I set it to 12 so currently all your posts show on one page.
 const POSTS_PER_PAGE = 12;
-
 export default async function QuestLogPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  // 1. Get current page from URL query params (e.g. /quest-log?page=2)
   const params = await searchParams;
   const currentPage = Number(params.page) || 1;
-
-  // 2. Fetch all articles
   const allArticles = await getAllArticles();
-
-  // 3. Calculate Pagination
-  const totalPosts = allArticles.length;
+  const cleanArticles = allArticles.filter((a) => a.visible === true);
+  const totalPosts = cleanArticles.length;
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
-
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
 
-  const currentArticles = allArticles.slice(startIndex, endIndex);
+  const currentArticles = cleanArticles.slice(startIndex, endIndex);
 
   return (
     <main className="min-h-screen bg-neutral-950 pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">
@@ -38,7 +30,7 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
             title="Quest "
             highlight="Log"
             subtitle="The complete archives of my engineering journey, business experiments, and random thoughts."
-            color="#a855f7" // Purple
+            color="#a855f7"
             align="center"
           />
         </div>
@@ -48,8 +40,6 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {currentArticles.map((article, index) => (
               <div key={article.slug} className="h-[420px]">
-                {" "}
-                {/* Fixed height wrapper for alignment */}
                 <ArticleCard article={article} index={index} />
               </div>
             ))}
@@ -63,7 +53,6 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
         {/* C. PAGINATION CONTROLS */}
         {totalPages > 1 && (
           <FadeUp delay={0.2} className="flex justify-center items-center gap-6 mt-12">
-            {/* PREV BUTTON */}
             {currentPage > 1 ? (
               <Link
                 href={`/quest-log?page=${currentPage - 1}`}

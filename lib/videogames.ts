@@ -30,7 +30,7 @@ export const GAMES: Game[] = [
     description: "In this action-packed fighting game, defeat increasingly difficult waves of enemies originating from a multitude of board games.",
     image: "/images/video_games/board-game.webp",
     link: "https://sebgame.itch.io/board-game",
-    tags: [	"3D", "Action", "Low-poly", "Colorful", "Shoot 'Em Up", "Speedrun", "Tabletop", "Top Down"]
+    tags: [	"3D", "Action", "Low-poly", "Colorful", "Top Down", "Shoot 'Em Up", "Speedrun", "Tabletop"]
   },
   {
     id: "slimeslair",

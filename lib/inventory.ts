@@ -13,7 +13,7 @@ export interface InventoryItem {
 
 export const INVENTORY: InventoryItem[] = [
   {
-    id: "macbook",
+    id: "macbook-pro-14",
     name: "MacBook Pro",
     image: "/images/inventory/laptop-open-on-desk.webp",
     description: "The main weapon of choice. High durability, critical hit rate increased at night.",
@@ -237,6 +237,21 @@ export const INVENTORY: InventoryItem[] = [
       "Cooldown: 0s"
     ]
   },
+  {
+    id: "money-models-book",
+    name: "100M$ Money Models",
+    image: "/images/inventory/money-models-book.webp",
+    description: "A Tome of Infinite Wisdom. Provides insight regarding the art of capitalism.",
+    type: "Tool",
+    rarity: "Uncommon",
+    level: 19,
+    effects: [
+      "+20 Knowledge",
+      "+12 Mana Power",
+      "Can also be used as a weapon",
+      "Cover: Hard",
+    ]
+  }
 ];
 
 const HIDDEN_ITEMS = [

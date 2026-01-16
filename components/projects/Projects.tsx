@@ -4,6 +4,7 @@ import SectionHeading from "@/components/tools/SectionHeading";
 
 export default async function Projects() {
   const allProjects = await getAllProjects();
+  const visibleProjects = allProjects.filter((p) => p.visible === true);
   // const shuffled = [...allProjects];
   // for (let i = shuffled.length - 1; i > 0; i--) {
   //   const j = Math.floor(Math.random() * (i + 1));
@@ -37,7 +38,7 @@ export default async function Projects() {
         />
 
         <div className="grid grid-cols-1 grid-flow-dense md:grid-cols-4 auto-rows-[300px] gap-8">
-          {allProjects.map((project, index) => (
+          {(visibleProjects || []).map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>

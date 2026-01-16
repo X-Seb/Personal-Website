@@ -22,7 +22,7 @@ export default function GameCard({ game, index }: { game: Game; index: number })
 
         <div className="p-6 relative">
           <div className="flex flex-wrap gap-2 h-16 mb-3 content-start overflow-hidden">
-            {game.tags.map((tag) => (
+            {(game.tags || []).map((tag) => (
               <span
                 key={tag}
                 className="text-[10px] uppercase font-bold text-rpg-main bg-rpg-main/10 px-2 py-1 rounded whitespace-nowrap"

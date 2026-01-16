@@ -10,13 +10,13 @@ export default function LockedItemCard({ item, index }: { item: any; index: numb
         {/* Padlock Overlay */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/10 backdrop-blur-[2px] rounded-xl gap-2">
           <div className="p-3 bg-black/50 rounded-full border border-white/10 text-neutral-500 group-hover:text-red-400 transition-colors">
-            <Lock size={24} />
+            <Lock size={32} />
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Undiscovered</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400">Undiscovered</span>
         </div>
 
         {/* Level Tag (Obscured) */}
-        <div className="absolute top-2 right-2 z-10 bg-black/40 text-[10px] font-mono border border-white/5 px-2 py-1 rounded text-neutral-600">
+        <div className="absolute top-2 right-2 z-10 bg-black/40 text-[10px] font-mono border border-white/5 px-2 py-1 rounded text-neutral-400">
           LVL ??
         </div>
 

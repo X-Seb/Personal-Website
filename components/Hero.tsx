@@ -40,7 +40,7 @@ export default function Hero() {
               <TypeAnimation
                 sequence={[600, "ROBOTS", 4000, "SOFTWARE", 4000, "GAMES", 4000, "SYSTEMS", 4000, "THE FUTURE", 6000]}
                 wrapper="span"
-                speed={4}
+                speed={1}
                 repeat={Infinity}
                 cursor={true}
               />

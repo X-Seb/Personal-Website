@@ -64,7 +64,7 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
 
             <div className={`space-y-3 bg-neutral-900/50 p-6 rounded-2xl border border-white/5`}>
               <h4 className="text-xs uppercase text-neutral-500 font-bold mb-2 tracking-wider">Passive Effects</h4>
-              {item.effects.map((effect, i) => (
+              {(item.effects || []).map((effect, i) => (
                 <div key={i} className="flex items-center gap-3 text-neutral-200 font-medium">
                   <span className={`${themeClasses}`}>✦</span>
                   {effect}

@@ -9,7 +9,7 @@ export default async function Articles() {
   const allArticles = await getAllArticles();
 
   // Only show the 3 most recent posts on the homepage
-  const recentArticles = allArticles.slice(0, 3);
+  const recentArticles = allArticles.filter((a) => a.visible === true).slice(0, 3);
 
   return (
     <section id="articles" className="py-32 relative bg-neutral-950 border-t border-white/5">
