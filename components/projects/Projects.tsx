@@ -12,7 +12,7 @@ const PROJECT_LAYOUT = [
   { slug: "easy-list", size: "1x1" },
   { slug: "edi-ai-chatbot", size: "2x1" },
   { slug: "keypad-display", size: "1x1" },
-  //{ slug: "crc-kryptik", size: "2x1" },
+  { slug: "crc-kryptik", size: "2x1" },
   { slug: "personal-website", size: "2x2" },
   { slug: "creative-archive", size: "1x1" },
   //{ slug: "crc-taktik", size: "2x2" },
