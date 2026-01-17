@@ -4,7 +4,15 @@ import Image from "next/image";
 import FadeUp from "@/components/animations/FadeUp";
 import { ProjectMetadata } from "@/lib/projects"; // Import the interface
 
-export default function ProjectCard({ project, index }: { project: ProjectMetadata; index: number }) {
+export default function ProjectCard({
+  project,
+  index,
+  size,
+}: {
+  project: ProjectMetadata;
+  index: number;
+  size: string;
+}) {
   const sizeClasses: Record<string, string> = {
     "1x1": "md:col-span-1 md:row-span-1",
     "2x1": "md:col-span-2 md:row-span-1",
@@ -13,7 +21,7 @@ export default function ProjectCard({ project, index }: { project: ProjectMetada
   };
 
   return (
-    <div className={`${sizeClasses[project.size] || sizeClasses["1x1"]} h-full`}>
+    <div className={`${sizeClasses[size] || sizeClasses["1x1"]} h-full`}>
       <FadeUp delay={index * 0.1} className="h-full">
         <Link
           href={`/projects/${project.slug}`}

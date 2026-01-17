@@ -1,45 +1,60 @@
 import ProjectCard from "@/components/projects/ProjectCard";
-import { getAllProjects, ProjectMetadata } from "@/lib/projects";
+import { getAllProjects } from "@/lib/projects";
 import SectionHeading from "@/components/tools/SectionHeading";
+
+// Define the layout (Order + Size)
+const PROJECT_LAYOUT = [
+  { slug: "push-up-alarm-clock", size: "2x1" },
+  { slug: "posture-police", size: "2x2" },
+  { slug: "crc-taktik", size: "2x2" },
+  { slug: "discord-stocks-bot", size: "2x1" },
+  { slug: "arm-3d-print", size: "1x2" },
+  { slug: "creative-archive", size: "1x1" },
+  { slug: "edi-ai-chatbot", size: "2x1" },
+  { slug: "keypad-display", size: "1x1" },
+  //{ slug: "crc-kryptik", size: "2x1" },
+  //{ slug: "easy-list", size: "1x1" },
+  //{ slug: "crc-taktik", size: "2x2" },
+  //{ slug: "personal-website", size: "1x2" },
+  { slug: "pokemon-deckbox", size: "1x1" },
+  { slug: "tilted-bridge", size: "1x1" },
+  //{ slug: "yahboom-robot", size: "1x1" },
+];
 
 export default async function Projects() {
   const allProjects = await getAllProjects();
   const visibleProjects = allProjects.filter((p) => p.visible === true);
-  // const shuffled = [...allProjects];
-  // for (let i = shuffled.length - 1; i > 0; i--) {
-  //   const j = Math.floor(Math.random() * (i + 1));
-  //   [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  // }
+  const sortedProjects = visibleProjects
+    .map((project) => {
+      const layoutIndex = PROJECT_LAYOUT.findIndex((p) => p.slug === project.slug);
+      const layoutConfig = PROJECT_LAYOUT[layoutIndex];
 
-  // const largeProjects = shuffled.filter((p) => p.size === "2x2");
-  // const smallProjects = shuffled.filter((p) => p.size !== "2x2");
-  // const sortedProjects: ProjectMetadata[] = [];
-
-  // let smallIndex = 0;
-  // for (let i = 0; i < largeProjects.length; i++) {
-  //   sortedProjects.push(largeProjects[i]);
-  //   if (smallIndex < smallProjects.length) sortedProjects.push(smallProjects[smallIndex++]);
-  //   if (smallIndex < smallProjects.length) sortedProjects.push(smallProjects[smallIndex++]);
-  // }
-
-  // while (smallIndex < smallProjects.length) {
-  //   sortedProjects.push(smallProjects[smallIndex++]);
-  // } // Add all remaining small projects
+      return {
+        ...project,
+        size: layoutConfig ? layoutConfig.size : "1x1",
+        order: layoutIndex !== -1 ? layoutIndex : 999,
+      };
+    })
+    .sort((a, b) => a.order - b.order);
 
   return (
-    <section id="projects" title="Quest Log" className="py-32 relative bg-neutral-950">
-      <div className="md:px-12 max-w-8xl mx-auto">
+    <section id="projects" className="py-32 relative bg-neutral-950">
+      <div className="md:px-12 max-w-[90rem] mx-auto">
         <SectionHeading
-          title={"Main "}
-          highlight={"Campaigns"}
-          subtitle={"A curated collection of projects I've completed over the years..."}
-          color={"#ee1000"}
-          align={"left"}
+          title="Main "
+          highlight="Campaigns"
+          subtitle="A curated collection of projects I've completed over the years..."
+          color="#ee1000"
+          align="left"
         />
-
-        <div className="grid grid-cols-1 grid-flow-dense md:grid-cols-4 auto-rows-[300px] gap-8">
-          {(visibleProjects || []).map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
+        <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[300px] gap-8 grid-flow-dense">
+          {sortedProjects.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              index={index}
+              size={project.size as "1x1" | "2x1" | "1x2" | "2x2"}
+            />
           ))}
         </div>
       </div>

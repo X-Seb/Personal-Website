@@ -26,12 +26,11 @@ export interface ProjectMetadata {
   endDate?: string;
   tags: string[];
   techStack?: string[];
-  status: ProjectStatus;
+  status?: ProjectStatus;
   role?: string;
   thumbnail: string;
   banner?: string;
   color?: string;
-  size: "1x1" | "1x2" | "2x1" | "2x2";
   visible?: boolean;
   slug: string;
 }

@@ -251,6 +251,21 @@ export const INVENTORY: InventoryItem[] = [
       "Can also be used as a weapon",
       "Cover: Hard",
     ]
+  },
+  {
+    id: "smoothie",
+    name: "Mixed Berry Smoothie",
+    image: "/images/inventory/mixed-berry-smoothie.webp",
+    description: "A blended concoction of frozen fruits. High viscosity, high nutrition.",
+    type: "Consumable",
+    rarity: "Uncommon",
+    level: 5,
+    effects: [
+      "+30 Health",
+      "+10 Brain Power",
+      "Temperature: Freezing",
+      "Antioxidant Buff",
+    ]
   }
 ];
 
@@ -270,20 +285,4 @@ const HIDDEN_ITEMS = [
       "10% Chance to dissapear"
     ]
   },
-  {
-    id: "smoothie",
-    name: "Mixed Berry Smoothie",
-    image: "/images/inventory/smoothie.png",
-    description: "A blended concoction of frozen fruits. High viscosity, high nutrition.",
-    type: "Consumable",
-    rarity: "Uncommon",
-    level: 5,
-    effects: [
-      "+30 Health",
-      "+10 Brain Power",
-      "Temperature: Freezing",
-      "Antioxidant Buff",
-      "Sugar Rush: Moderate"
-    ]
-  }
 ]
