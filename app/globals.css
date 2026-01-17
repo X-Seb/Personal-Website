@@ -32,3 +32,30 @@ html, body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* Make code blocks look fire */
+figure[data-rehype-pretty-code-figure] {
+  @apply mb-4 mt-2 rounded-lg overflow-hidden border border-neutral-800;
+}
+
+pre {
+  @apply overflow-x-auto py-4 px-0 text-sm leading-6 !bg-[#282c34]; 
+}
+pre > code {
+  @apply grid;
+}
+:not(pre) > code {
+  @apply px-1 py-0.5 rounded bg-white/10 font-mono text-sm text-purple-300; /* Styles the inline backticks nicely */
+}
+code > [data-line] {
+  @apply px-4 border-l-2 border-transparent;
+}
+code > [data-highlighted-line] {
+  @apply bg-neutral-800/50 border-l-purple-500;
+}
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+  content: "" !important;
+}
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "" !important;
+}

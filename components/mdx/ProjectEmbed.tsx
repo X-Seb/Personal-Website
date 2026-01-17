@@ -19,7 +19,7 @@ export default async function ProjectEmbed({ slug }: { slug: string }) {
     <Link href={`/projects/${project.slug}`} className="block my-8 group no-underline">
       <div className="relative flex items-center gap-6 bg-neutral-900/50 border border-white/10 p-4 rounded-2xl transition-all duration-300 hover:bg-neutral-900 hover:border-purple-500/50 hover:-translate-y-1">
         {/* Thumbnail */}
-        <div className="relative w-24 h-24 shrink-0 rounded-xl overflow-hidden border border-white/5">
+        <div className="relative w-24 h-24 mt-0 pt-0 shrink-0 rounded-xl overflow-hidden border border-white/5">
           <Image
             src={project.thumbnail}
             alt={project.title}

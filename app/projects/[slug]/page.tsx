@@ -10,7 +10,7 @@ import ImageEmbed from "@/components/mdx/ImageEmbed";
 import LinkEmbed from "@/components/mdx/LinkEmbed";
 import ItemEmbed from "@/components/mdx/ItemEmbed";
 import ProjectEmbed from "@/components/mdx/ProjectEmbed";
-//import ProjectEmbed from "@/components/mdx/ProjectEmbed";
+import rehypePrettyCode from "rehype-pretty-code";
 import { getAllProjects, formatDate, ProjectMetadata, StatusColors } from "@/lib/projects";
 
 const components = {
@@ -24,6 +24,16 @@ const components = {
 
 const RPG_MAIN_COLOR = "#a855f7";
 
+const prettyCodeOptions = {
+  theme: "one-dark-pro", // VS theme
+  keepBackground: true,
+  onVisitLine(node: any) {
+    if (node.children.length === 0) {
+      node.children = [{ type: "text", value: " " }];
+    }
+  },
+};
+
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const filePath = path.join(process.cwd(), "content", "projects", `${slug}.mdx`);
@@ -35,7 +45,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { content, frontmatter } = await compileMDX<ProjectMetadata>({
     source: fileContent,
-    options: { parseFrontmatter: true },
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+      },
+    },
     components: components,
   });
 
