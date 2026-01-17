@@ -1,0 +1,82 @@
+---
+title: "Mechanical Robot Arm"
+description: "A fully articulated, 3D-printed robot arm featuring a custom gravity-weighted base and ratchet-locking joints."
+startDate: "2025-05"
+tags: ["3D Printing", "CAD", "Mech. Design", "School"]
+color: "#f97316"
+thumbnail: "/images/projects/robot-arm-3d-print/robot-arm-without-hand.webp"
+banner: "/images/projects/robot-arm-3d-print/arm-3d-pieces.webp"
+status: "Completed"
+visible: true
+techStack: ["Fusion 360", "Filament (PLA)", "Prusa i3 MK3S+"]
+role: "Mechanical Designer (Solo)"
+size: "1x1"
+---
+
+During my final semester in CEGEP, I was challenged to create a 3D object that represented my field of study. Since I was in Pure & Applied Science (and I love robotics), I decided to engineer a fully functional **3D Printed Robot Arm**.
+
+This wasn't just a static model: I wanted something that could move, lock in place, and actually hold objects.
+
+## The Gravity Base Design
+
+The first engineering challenge was stability. A long arm creates a massive lever arm, meaning the center of gravity shifts dangerously as it extends.
+
+To prevent it from toppling over, I designed a **hollow base** specifically sized to house a standard laboratory physics weight. This added the necessary mass without wasting hours and filament for a solid plastic base.
+
+<Image
+  src="/images/projects/robot-arm-3d-print/arm-3d-pieces.webp"
+  alt="3D printed components laid out"
+  caption="Different components: Base, rotating turntable ring, joint lock, and arm segments"
+/>
+
+I designed the base as a **two-part snap-fit assembly**.
+
+1.  The internal turntable ring slides into the bottom half.
+2.  The top half snaps over it, trapping the ring in a track.
+3.  Plastic extrusions lock the entire assembly together, creating a smooth 360° rotational axis. 🔥
+
+## The Ratchet Joint System
+
+To make the arm articulate without expensive motors, I designed a custom friction-lock system.
+
+I took inspiration from **camera lens mounts** and **Hirth joints**. I modeled rings with interlocking triangular teeth. When clamped together, they lock the arm rigidly at specific angles. When loosened a little, they "click-clack" to the next position.
+
+<Image
+  src="/images/projects/robot-arm-3d-print/arm-triangle-lock-system.webp"
+  alt="Close up of the ratchet joint mechanism"
+  caption="The custom ratchet system. The triangular teeth allow for angle adjustments and maintaining high holding torque."
+/>
+
+While plastic-on-plastic friction does degrade over time, for a prototype it worked perfectly. It holds the arm's weight easily without sagging.
+
+## Assembly & The Claw
+
+I printed three primary arm segments to maximize reach without reducing structural integrity. Any longer, and the plastic's flexibility would have introduced too much wobble.
+
+<Image
+  src="/images/projects/robot-arm-3d-print/robot-arm-without-hand.webp"
+  alt="The assembled arm standing upright"
+  caption="The fully assembled arm segments standing tall."
+/>
+
+For the end effector (the hand), I ran into the classic engineer's enemy: **Time.**
+
+I had to simplify the design. It’s a basic two-finger claw that uses a rubber band to generate clamping force. It’s not the complex gripper I envisioned, but it works.
+
+<Image
+  src="/images/projects/robot-arm-3d-print/arm-hand-ending.webp"
+  alt="The simple claw mechanism"
+  caption="The MVP Claw: Simple geometry powered by a rubber band."
+/>
+
+## Final Result
+
+Despite the rush on the hand, the arm is a success. The weighted base keeps it planted, the ratchet joints hold their angles, and it can successfully hold small objects.
+
+<Image
+  src="/images/projects/robot-arm-3d-print/robot-arm-3d-print.webp"
+  alt="Robot arm holding a pumpkin"
+  caption="Mission Success: The arm holding a payload (a spooky pumpkin head)."
+/>
+
+This project definitely helped me improve my CAD skills. Designing the tolerances for snap-fits was especially rough. 😅
