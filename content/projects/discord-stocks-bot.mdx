@@ -1,15 +1,99 @@
 ---
-title: "name"
-description: "desc"
-startDate: "2025-03"
-tags: ["tag"]
-color: "#a844ef"
-thumbnail: ""
-banner: ""
-status: "Completed"
-visible: false
-techStack: ["tech"]
-role: "Lead Engineer (Solo)"
+title: "AI Trading Assistant (Discord)"
+description: "A hybrid AI agent that provides real-time stock analysis, news, and charts using natural language."
+startDate: "2025-10"
+tags: ["AI", "Discord Bot", "Finance", "Chatbot"]
+color: "#7289da"
+thumbnail: "/images/projects/discord-stonks-bot/n8n-workflow.webp"
+banner: "/images/projects/discord-stonks-bot/n8n-workflow.webp"
+status: "In Progress"
+visible: true
+techStack:
+  ["Discord.js", "Node.js", "Railway", "n8n", "GPT-4o", "Tavily API", "Financial Modeling Prep API", "Quickchart API"]
+role: "Solo Developer"
 ---
 
-content goes here
+**The summer I became a "Finance Bro" (briefly).**
+
+Over the summer, my friends and I got deep into stock trading. We needed an edge; something faster than Googling and smarter than standard bots.
+I decided to build a custom Discord bot that we could ping in our chat to get real-time analysis using natural language.
+
+This was my first time using the Discord API, and I pushed the limits of what AI Agents can do in N8N.
+
+## 🏗️ The Hybrid Architecture
+
+Instead of building a massive Node.js application, I designed a hybrid architecture for speed and flexibility.
+
+1.  **The Gateway (Node.js on Railway):** A lightweight, 24/7 Node.js terminal running `discord.js`. It listens for pings, packages the message context (user, server, history), and fires it off via webhook.
+2.  **The Brain (N8N):** The actual logic lives in an N8N workflow. This is where the AI decides which tools to use, and formats the response.
+
+<Image
+  src="/images/projects/discord-stonks-bot/railway-github-terminal.webp"
+  alt="Railway terminal logs"
+  caption="The 24/7 Node.js gateway running on Railway."
+/>
+
+Thanks to the terminal, the bot runs 24/7 and it's always online on Discord. You can ping it at any time and it will reply instantly.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <Image
+    src="/images/projects/discord-stonks-bot/bot-in-member-list.webp"
+    alt="Discord Bot Online"
+    caption="The bot is always ready."
+  />
+  <Image
+    src="/images/projects/discord-stonks-bot/bot-profile.webp"
+    alt="Discord Bot Profile"
+    caption="The bot's profile"
+  />
+</div>
+
+## 🧠 The N8N "Brain" & The Huge Prompt
+
+I chose N8N because I wanted to get an AI agent running fast and N8N is the perfect tool for that.
+
+The workflow is triggered by the Discord webhook. It uses a massive system prompt to tell GPT-4o exactly how to behave as a financial analyst.
+
+<Image
+  src="/images/projects/discord-stonks-bot/n8n-agent-prompt.webp"
+  alt="The system prompt in N8N"
+  caption="The Omega Prompt that defines the AI's persona and rules."
+/>
+
+**The Two-Step Response:**
+Because AI takes time to "think", the bot sends an immediate acknowledgement (e.g., "On it, boss. Checking the charts.") so the user knows it's working, before sending the final detailed analysis.
+
+<Image
+  src="/images/projects/discord-stonks-bot/n8n-workflow.webp"
+  alt="The complete N8N AI workflow"
+  caption="The n8n workflow. The AI Agent node is the centerpiece."
+/>
+
+## 🛠️ The Agent's Tool Belt
+
+The real power comes from the **5 tools** I gave the AI agent access to. It doesn't just hallucinate answers; it fetches real-time data.
+
+- **Financial Data:** Uses the `Financial Modeling Prep` API for real-time prices, company profiles, and historical data.
+- **Market Sentiment:** Fetches the current Fear & Greed Index.
+- **Web Research:** Uses `Tavily` to perform live Google searches and extract content from news articles to understand _why_ a stock is moving.
+- **Charting:** It can even generatex full graphs in the chat using the `quickchart.io` API
+
+<Image
+  src="/images/projects/discord-stonks-bot/bot-showing-fear-and-greed.webp"
+  alt="Fear and Greed"
+  caption="Displaying the Fear & Greed chart"
+/>
+<Image
+  src="/images/projects/discord-stonks-bot/bot-explaining-orb-strategy.webp"
+  alt="ORB Strategy"
+  caption="With Tavily search, the bot has access to all the information on the internet"
+/>
+
+## 🚀 Lessons Learned
+
+This project was a blast.
+
+- **Discord API:** Surprisingly straightforward. `discord.js` makes event handling easy.
+- **AI Agents:** I've used N8N before, but integrating 5 different tools and ensuring the AI chooses the right one required a lot of prompt engineering and testing.
+
+Right now, the bot remains in private beta for me and my friends, but the architecture could be scaled enough to be public someday.
