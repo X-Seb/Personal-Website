@@ -1,15 +1,123 @@
 ---
-title: "name"
-description: "desc"
-startDate: "2025-03"
-tags: ["tag"]
-color: "#a844ef"
-thumbnail: ""
-banner: ""
+title: "TakTik 2025"
+description: "Leading the Vanier Robotics Team as Team Captain."
+startDate: "2025-02"
+tags: ["Robotics", "Mech. Design", "Hardware", "3D Printing", "CRC", "School", "CAD"]
+color: "#ff0b0b"
+thumbnail: "/images/projects/crc-taktik/robot-drivetrain.webp"
+banner: "/images/projects/crc-taktik/team-pic-kiosk-good.webp"
 status: "Completed"
 visible: false
-techStack: ["tech"]
-role: "Lead Engineer (Solo)"
+techStack:
+  ["Arduino", "T-Extrusions", "goBILDA motors", "BaneBot motors", "Prusa i3 MK3S+", "Mecanum wheels", "Filament"]
+role: "Team Captain"
 ---
 
-content goes here
+After a successful first year, **we're back.**
+
+This time, I was elected to be the team captain and I had a ton of new ideas I wanted to implement.
+
+This is the full log of my second and last year as a participant at CRC (Canadian Robotics Competition).
+
+It's been a challenging year but I learned more than I ever could have imagined. These lessons will be with me for the rest of my life.
+
+## Getting ready
+
+Before the first semester started, we were already at work. We reorganized the sub-team structure to counter the shortcomings from the year before.
+
+Next, we cleaned up the robotics room by getting rid of a few items that we didn't need. I also prepared a sponsorship package for potential sponsors.
+
+Our theme for the year was **Plants vs. Zombies** which we need to incorporate in our video, kiosk, website, etc.
+
+**Let's go!**
+
+## Orientation Day
+
+On orientation day, we did a quick presentation about the team and already recruited some new members. Nice.
+
+We also put up some posters around the school to incite people around the school to join us.
+
+<Image
+  src="/images/projects/crc-taktik/vanier-robotics-poster.webp"
+  alt="Vanier Robotics Poster"
+  caption="Robotics needs YOU!"
+/>
+
+## The Robot:
+
+STEP 1: Dissassembling last year's robot:
+
+<Video id="8KocDer2yBg" />
+
+Now that the old robot has been dissassembled, it's time to build the new one.
+
+In TakTik 2025, the game involves manipulating donut-shaped pieces (Game Pieces, or GPs). We need to place them on various "posts" and also launch them on a small center post.
+
+Our robot is a Mecanum-based machine that has two main systems:
+
+- A claw system made for picking up game pieces (GPs) & stacking them on the posts
+- A flywheel system used to store & shoot GPs onto the center post.
+
+## Drivetrain
+
+Our first step was building a drivetrain. We opted for a drivetrain made of **T-slotters**, equipped with 4 **Mecanum wheels**. Each motor was attached with **custom 3D-printed motor mounts**, which were re-modeled multiple times.
+
+Each motor is quite powerful:
+
+<Video id="zAbINZnyIiE" />
+
+And here's the final drivetrain:
+
+<Image
+  src="/images/projects/crc-taktik/robot-drivetrain.webp"
+  alt="Robot Drivetrain"
+  caption="Our drivetrain, powered by 4 BaneBot motors."
+/>
+
+## Claw System
+
+Of course, we needed a way to grab the GPs. It took many iterations, but we eventually devised a complex claw system, equipped with **2 servos**.
+
+This allows the claw to both rotate on itself and open/close.
+
+Using this design, the claw can grab up to **3 GPs at a time.** The claw was re-printed 6 times (ouch), but the final version was reliable.
+
+<Video id="OK3S35nWen8" />
+
+## Conveyor Belt
+
+Next, we needed a system that could feed GPs to a launching mechanism (which was built later). We opted for a conveyor belt system that will feed the GPs into a small storage area.
+
+<Video id="DwFBV2oOWyo" />
+
+## Flywheel
+
+We need a launching system to throw the GPs onto the center post.
+
+At first, we considered using two flywheels to launch the GPs, but we realized that this would be too bulky and wouldn't "spin" the GPs in the air.
+
+We decided to go with a different and more reliable design: **one flywheel with a curved ramp.**
+
+<Video id="fbsVVy47z1Q" />
+
+Finally, it was time for the real battle – **cable management.** It looked like a spaghetti mess, but after a few days of work (and lots of 3D-printed wire holders), we managed to bring the robot to life. Each motor, servo, and sensor was ready for action!
+
+<Video id="8Z9gSyf6gyM" />
+
+## Winter Break
+
+The winter break gave us two full weeks of uninterrupted work. We spent countless hours perfecting the drivetrain, the claw system, and the shooting system.
+
+By the end we were getting a lot more reliable.
+
+<Video id="Vhk2pnSQe1c" />
+
+After many months of brainstorming, prototyping, testing, and (probably too many) snacks, our robot was ready.
+
+And it's pretty fast. 😅
+
+<Video id="GKMqIk5G4WA" />
+
+## The Competition
+
+... finish this part tmr ...
