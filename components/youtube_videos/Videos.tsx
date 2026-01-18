@@ -13,7 +13,7 @@ export default async function Videos() {
         <SectionHeading
           title="The "
           highlight="Archives"
-          subtitle="Documenting the journey, one frame at a time. The failures, the wins, and everything in between."
+          subtitle="Documenting the journey: the failures, the wins, and everything in between."
           color="#ef4444"
           align="left"
         />

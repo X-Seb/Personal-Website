@@ -6,19 +6,17 @@ import SectionHeading from "@/components/tools/SectionHeading";
 const PROJECT_LAYOUT = [
   { slug: "push-up-alarm-clock", size: "2x1" },
   { slug: "posture-police", size: "2x2" },
-  { slug: "discord-stocks-bot", size: "2x1" },
   { slug: "arm-3d-print", size: "1x2" },
+  { slug: "discord-stocks-bot", size: "2x1" },
   { slug: "easy-list", size: "1x1" },
-  { slug: "edi-ai-chatbot", size: "2x1" },
   { slug: "keypad-display", size: "1x1" },
   { slug: "crc-taktik", size: "2x2" },
+  { slug: "edi-ai-chatbot", size: "2x1" },
   { slug: "crc-kryptik", size: "2x1" },
-  { slug: "creative-archive", size: "1x1" },
-  { slug: "pokemon-deckbox", size: "1x1" },
+  { slug: "pokemon-deckbox", size: "1x2" },
   { slug: "tilted-bridge", size: "1x1" },
   { slug: "personal-website", size: "2x2" },
-
-  //{ slug: "yahboom-robot", size: "1x1" },
+  { slug: "creative-archive", size: "1x1" },
 ];
 
 export default async function Projects() {

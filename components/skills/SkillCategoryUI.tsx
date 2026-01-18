@@ -21,7 +21,7 @@ export default function SkillCategoryUI({
       <div
         onClick={onToggle}
         className={`
-          relative bg-neutral-950/50 backdrop-blur-md border rounded-3xl overflow-hidden cursor-pointer group transition-all duration-600
+          relative bg-neutral-800/50 backdrop-blur-md border rounded-3xl overflow-hidden cursor-pointer group transition-all duration-600
           ${isExpanded ? "shadow-2xl" : "border-white/10 hover:border-white/30"}
         `}
         style={{

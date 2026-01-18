@@ -42,7 +42,7 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
               {(article.tags || []).slice(0, 4).map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-white/5 text-rpg-light border border-white/5 group-hover:border-purple-500/30 group-hover:text-purple-300 transition-colors"
+                  className="text-[10px] font-bold uppercase tracking-wider px-2 rounded bg-white/5 text-rpg-light border border-white/5 group-hover:border-purple-500/30 group-hover:text-purple-300 transition-colors"
                 >
                   {tag}
                 </span>
