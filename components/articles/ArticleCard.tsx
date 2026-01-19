@@ -46,7 +46,7 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
                 </span>
               ))}
             </div>
-            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors line-clamp-2 h-12 leading-tight">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors line-clamp-2 h-12 leading-tight">
               {article.title}
             </h3>
             <p className="text-neutral-400 text-sm font-medium line-clamp-2 mb-6 leading-relaxed">

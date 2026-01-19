@@ -41,7 +41,7 @@ export default function ProjectCard({
 
           <div className="relative z-10 p-6 h-full flex flex-col justify-end">
             <h3
-              className="text-2xl font-bold font-pixel uppercase line-clamp-2 mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,4)]"
+              className="text-xl md:text-2xl font-bold font-pixel uppercase line-clamp-2 mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,4)]"
               style={{
                 textShadow: `0 0 10px ${project.color}100`,
               }}
@@ -60,7 +60,7 @@ export default function ProjectCard({
                 </span>
               ))}
             </div>
-            <p className="text-neutral-300 font-bold text-sm line-clamp-2">{project.description}</p>
+            <p className="text-neutral-300 font-bold text-[10px] md:text-sm line-clamp-2">{project.description}</p>
           </div>
         </Link>
       </FadeUp>

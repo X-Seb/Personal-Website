@@ -9,7 +9,7 @@ export default function GameCard({ game, index }: { game: Game; index: number })
       <Link
         href={game.link}
         target="_blank"
-        className="group block relative w-[300px] md:w-[400px] shrink-0 bg-neutral-900 border-4 border-white/10 rounded-2xl overflow-hidden hover:border-rpg-main transition-all duration-300"
+        className="group block relative w-[270px] md:w-[400px] shrink-0 bg-neutral-900 border-4 border-white/10 rounded-2xl overflow-hidden hover:border-rpg-main transition-all duration-300"
       >
         <div className="relative aspect-video overflow-hidden">
           <img
@@ -22,17 +22,18 @@ export default function GameCard({ game, index }: { game: Game; index: number })
 
         <div className="p-6 relative">
           <div className="flex flex-wrap gap-2 h-16 mb-3 content-start overflow-hidden">
-            {(game.tags || []).slice(0, 7).map((tag) => (
+            {(game.tags || []).slice(0, 7).map((tag, i) => (
               <span
                 key={tag}
-                className="text-[10px] uppercase font-bold text-rpg-main bg-rpg-main/10 px-2 py-1 rounded whitespace-nowrap"
-              >
+                className={`text-[10px] uppercase font-bold text-rpg-main bg-rpg-main/10 px-2 py-1 rounded whitespace-nowrap ${
+                  i >= 3 ? "hidden md:inline-block" : ""
+                }`}>
                 {tag}
               </span>
             ))}
           </div>
 
-          <h3 className="text-2xl font-extrabold text-white group-hover:text-rpg-main transition-colors my-6">
+          <h3 className="text-xl md:text-2xl font-extrabold text-white group-hover:text-rpg-main transition-colors my-6">
             {game.title}
           </h3>
 
