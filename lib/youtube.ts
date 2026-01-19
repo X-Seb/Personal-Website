@@ -14,20 +14,17 @@ export async function getPlaylistVideos(playlistId: string): Promise<YouTubeVide
 
   const playlistRes = await fetch(
     `${BASE_URL}/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=${playlistId}&key=${API_KEY}`,
-    { next: { revalidate: 3600 } } // Cache for 1 hour so you don't burn quota
+    { next: { revalidate: 3600 } } // Cache for 1 hour
   );
   
   const playlistData = await playlistRes.json();
   if (!playlistData.items) return [];
 
   const videoIds = playlistData.items.map((item: any) => item.contentDetails.videoId).join(",");
-
   const videoRes = await fetch(
     `${BASE_URL}/videos?part=statistics&id=${videoIds}&key=${API_KEY}`
   );
   const videoData = await videoRes.json();
-
-  // 4. Merge the data
   const statsMap = new Map<string, string>();
   
   if (videoData.items) {
@@ -53,7 +50,6 @@ export async function getPlaylistVideos(playlistId: string): Promise<YouTubeVide
   });
 }
 
-// Helper: 12000 -> 12K
 function formatViews(views: string): string {
   const num = parseInt(views);
   if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";

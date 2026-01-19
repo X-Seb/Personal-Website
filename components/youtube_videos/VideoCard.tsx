@@ -10,7 +10,7 @@ export default function VideoCard({ video, index }: { video: YouTubeVideo; index
       <Link
         href={video.link}
         target="_blank"
-        className="group block relative w-[300px] md:w-[400px] flex-shrink-0 bg-neutral-900 backdrop-blur-xl border-4 border-white/5 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]"
+        className="group block relative w-[300px] md:w-[400px] shrink-0 bg-neutral-900 backdrop-blur-xl border-4 border-white/5 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)]"
       >
         <div className="relative aspect-video overflow-hidden border-b border-white/5">
           <img
@@ -28,7 +28,7 @@ export default function VideoCard({ video, index }: { video: YouTubeVideo; index
 
         <div className="p-5">
           <div className="flex justify-between items-center mb-2 text-xs text-neutral-400 font-mono">
-            {/*<span>{video.publishedAt}</span>*/}
+            {/*<span>{video.publishedAt}</span> doesn't get real date*/}
             <span className="text-red-400 font-bold">{video.viewCount} Views</span>
           </div>
 

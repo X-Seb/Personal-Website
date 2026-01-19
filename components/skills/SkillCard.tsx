@@ -33,7 +33,6 @@ export default function SkillItem({ skill, color }: { skill: Skill; color: strin
             boxShadow: `0 0 10px ${color}`,
           }}
         >
-          {/* Shine Effect */}
           <div className="absolute inset-0 bg-white/20" />
         </motion.div>
       </div>

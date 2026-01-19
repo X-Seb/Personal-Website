@@ -6,11 +6,11 @@ import { useGame } from "@/context/GameContext";
 
 const mix = "#171717_85%";
 const rarityBorder: Record<Rarity, string> = {
-  Common: `border-rarity-common/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-common),${mix})]`,
-  Uncommon: `border-rarity-uncommon/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-uncommon),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-uncommon)]`,
-  Rare: `border-rarity-rare/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-rare),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-rare)]`,
-  Epic: `border-rarity-epic/50 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-epic),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-epic)]`,
-  Legendary: `border-rarity-legendary/80 bg-neutral-900 bg-[color-mix(in_srgb,var(--color-rarity-legendary),${mix})] shadow-[0_0_20px_-5px_var(--color-rarity-legendary)]`,
+  Common: `border-rarity-common/50 bg-neutral-700 bg-[color-mix(in_srgb,var(--color-rarity-common),${mix})]`,
+  Uncommon: `border-rarity-uncommon/50 bg-neutral-700 bg-[color-mix(in_srgb,var(--color-rarity-uncommon),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-uncommon)]`,
+  Rare: `border-rarity-rare/50 bg-neutral-700 bg-[color-mix(in_srgb,var(--color-rarity-rare),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-rare)]`,
+  Epic: `border-rarity-epic/50 bg-neutral-700 bg-[color-mix(in_srgb,var(--color-rarity-epic),${mix})] shadow-[0_0_15px_-5px_var(--color-rarity-epic)]`,
+  Legendary: `border-rarity-legendary/80 bg-neutral-700 bg-[color-mix(in_srgb,var(--color-rarity-legendary),${mix})] shadow-[0_0_20px_-5px_var(--color-rarity-legendary)]`,
 };
 
 const rarityText: Record<Rarity, string> = {
@@ -22,10 +22,10 @@ const rarityText: Record<Rarity, string> = {
 };
 
 export default function ItemCard({ item, index }: { item: InventoryItem; index: number }) {
-  const { inspectItem, addItem } = useGame(); // <--- Get both actions
+  const { inspectItem, addItem } = useGame();
 
   const handleClick = () => {
-    addItem(item.id); // 1. Claim the loot (Context handles duplicates automatically)
+    addItem(item.id); // 1. Claim the loot
     inspectItem(item); // 2. Open the modal
   };
 

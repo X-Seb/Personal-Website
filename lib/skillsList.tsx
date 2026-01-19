@@ -1,5 +1,4 @@
 import React from "react";
-// 1. IMPORT ICONS
 import {
   SiReact,
   SiNextdotjs,
@@ -9,31 +8,24 @@ import {
   SiTailwindcss,
   SiNodedotjs,
   SiHtml5,
-  SiCss3, // Web
+  SiCss3,
   SiArduino,
   SiRos,
-  SiNvidia,
   SiAutodesk,
   SiKicad,
-  SiRaspberrypi, // Hardware
-  SiHubspot,
   SiN8N,
-  SiZapier,
-  SiGoogleads, // Business
-  SiAdobepremierepro,
   SiFigma,
   SiAdobephotoshop,
   SiBlender,
   SiDavinciresolve,
-  SiUnity, // Creative & Game Dev
+  SiUnity,
   SiGit,
   SiDocker,
-  SiLinux, // Software Eng
+  SiLinux,
 } from "react-icons/si";
-import { BiChip, BiBrain, BiRocket, BiPalette, BiWorld, BiCodeBlock, BiTerminal } from "react-icons/bi";
+import { BiRocket, BiPalette, BiWorld, BiCodeBlock, BiTerminal } from "react-icons/bi";
 import { IoMdMail } from "react-icons/io";
 import { FaRobot, FaLanguage, FaWrench, FaFunnelDollar, FaMusic, FaHandshake } from "react-icons/fa";
-//import { PiFileCSharp } from "react-icons/pi";
 import { GiSolderingIron } from "react-icons/gi";
 
 export type SkillLevelLabel = "Basic" | "Intermediate" | "Advanced" | "Expert";

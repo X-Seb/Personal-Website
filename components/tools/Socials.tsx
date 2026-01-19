@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-// Import the specific brand icons you need
 import { SiYoutube, SiGithub, SiItchdotio, SiLinkedin, SiX } from "react-icons/si";
 
 export default function Socials() {

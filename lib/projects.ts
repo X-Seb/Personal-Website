@@ -71,13 +71,10 @@ export async function getAllProjects(): Promise<ProjectMetadata[]> {
 export function formatDate(dateString: string) {
   if (!dateString) return "";
   const date = new Date(dateString);
-  
   const userTimezoneOffset = date.getTimezoneOffset() * 60000;
   const adjustedDate = new Date(date.getTime() + userTimezoneOffset);
-  
   const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long" };
-  // Only show day if the string is specific enough (YYYY-MM-DD)
-  if (dateString.length > 7) options.day = "numeric"; 
+  if (dateString.length > 7) options.day = "numeric"; // show day
   
   return new Intl.DateTimeFormat("en-US", options).format(adjustedDate);
 }

@@ -21,7 +21,6 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
   }, [item]);
 
   if (!item) return null;
-
   const themeClasses = rarityColors[item.rarity];
   const bgGlow = rarityColors[item.rarity].replace("text-", "bg-").split(" ")[0];
 
@@ -75,7 +74,7 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
 
           {/* RIGHT: Image Showcase */}
           <div className="md:w-2/5 bg-neutral-900 flex items-center justify-center p-8 relative order-1 md:order-2 border-b md:border-b-0 md:border-l border-white/10">
-            {/* THE SQUARE BOX */}
+            {/* SQUARE BOX */}
             <div
               className={`
               relative aspect-square w-full max-w-[320px] 
@@ -86,15 +85,7 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
               ${themeClasses} 
             `}
             >
-              {/* THE AURA */}
-              <div
-                className={`
-                    absolute inset-0 opacity-40 blur-2xl
-                    ${bgGlow}
-                `}
-              />
-
-              {/* THE IMAGE */}
+              <div className={`absolute inset-0 opacity-40 blur-2xl${bgGlow}`} />
               <img
                 src={item.image}
                 alt={item.name}

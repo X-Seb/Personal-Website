@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -16,12 +15,11 @@ const NAV_LINKS = [
   { name: "Inventory", href: "/inventory" },
 ];
 
-// Animation Variants
 const menuVariants = {
   closed: {
     opacity: 0,
     transition: {
-      when: "afterChildren", // Wait for children to hide before fading out
+      when: "afterChildren",
       staggerChildren: 0.05,
       staggerDirection: -1,
     },
@@ -29,9 +27,9 @@ const menuVariants = {
   open: {
     opacity: 1,
     transition: {
-      when: "beforeChildren", // Fade in background FIRST, then show links
+      when: "beforeChildren",
       staggerChildren: 0.1,
-      delayChildren: 0.1, // Small pause to ensure background is set
+      delayChildren: 0.1,
     },
   },
 };
@@ -46,14 +44,14 @@ export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // 1. SCROLL LISTENER
+  // SCROLL LISTENER
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 2. LOCK BODY SCROLL WHEN MENU IS OPEN
+  // LOCK BODY SCROLL WHEN MENU IS OPEN
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"; // Disable scroll
@@ -77,17 +75,15 @@ export default function NavBar() {
       className={`
         fixed top-0 left-0 w-full z-50 transition-all duration-300
         ${
-          // If menu is open, we force transparent because the Overlay provides the black bg
           isOpen
             ? "bg-transparent border-transparent"
             : scrolled
               ? "bg-black/90 backdrop-blur-md border-purple-900/30 py-4 shadow-lg"
-              : "bg-gradient-to-b from-black/80 to-transparent border-transparent py-6"
+              : "bg-linear-to-b from-black/80 to-transparent border-transparent py-6"
         }
       `}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* LOGO (High Z-Index to sit above overlay) */}
         <Link href="/" className="group relative text-3xl font-bold tracking-tighter text-white font-pixel z-50">
           <span className="group-hover:text-purple-400 transition-colors duration-300">SEB</span>
           <span className="text-purple-600 group-hover:text-purple-400 transition-colors duration-300">.DEV</span>
@@ -113,7 +109,7 @@ export default function NavBar() {
           ))}
         </div>
 
-        {/* MOBILE BUTTON (High Z-Index) */}
+        {/* MOBILE BUTTON */}
         <button
           className="md:hidden text-neutral-400 hover:text-white z-50 transition-colors"
           onClick={() => setIsOpen(!isOpen)}

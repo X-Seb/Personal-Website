@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "@/app/globals.css";
-import NavBar from "../components/general/NavBar";
-import Footer from "../components/general/Footer";
+import "./globals.css";
+import NavBar from "@/components/general/NavBar";
+import Footer from "@/components/general/Footer";
 import { Inter, Pixelify_Sans } from "next/font/google";
 import { GameProvider } from "@/context/GameContext";
 import GameOverlay from "@/components/game/GameOverlay";
@@ -15,7 +14,7 @@ const pixelify = Pixelify_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Seb's Awesome Website",
+  title: "Seb's Workshop",
   description: "Learn all about Seb, his projects, and other fun stuff. :)",
 };
 

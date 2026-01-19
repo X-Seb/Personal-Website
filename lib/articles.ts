@@ -44,6 +44,5 @@ export async function getAllArticles(): Promise<ArticleMetadata[]> {
     }
   }
 
-  // Sort by Newest First
   return articles.sort((a, b) => (new Date(a.publishedDate) > new Date(b.publishedDate) ? -1 : 1));
 }

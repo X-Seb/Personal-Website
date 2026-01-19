@@ -11,7 +11,7 @@ export default function Mission() {
         <FadeUp>
           <div className="flex flex-col md:flex-row gap-12 items-center bg-neutral-900/80 border-2 border-neutral-800 p-8 rounded-3xl relative shadow-2xl hover:scale-[1.02] transition-all duration-500">
             {/* LEFT: Avatar Area */}
-            <div className="relative w-48 h-48 md:w-72 md:h-72 flex-shrink-0 group">
+            <div className="relative w-48 h-48 md:w-72 md:h-72 shrink-0 group">
               <div className="absolute inset-0 border-4 border-dashed border-neutral-800 rounded-full animate-[spin_10s_linear_infinite] group-hover:border-rpg-main/50 transition-colors" />
 
               <div className="absolute inset-3 rounded-full overflow-hidden border-4 border-neutral-900 bg-neutral-800 z-10 aspect-square">
@@ -21,8 +21,6 @@ export default function Mission() {
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-
-              {/* Status Dot */}
               <div className="absolute bottom-8 right-8 bg-neutral-950 p-1.5 rounded-full border border-neutral-800 z-20">
                 <div className="w-5 h-5 bg-green-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(34,197,94,1)]" />
               </div>

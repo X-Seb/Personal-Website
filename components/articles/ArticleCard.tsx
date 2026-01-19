@@ -11,7 +11,6 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
     <FadeUp delay={index * 0.1} className="h-full">
       <Link href={`/articles/${article.slug}`} className="group block h-full">
         <article className="relative h-full flex flex-col bg-neutral-800/50 border border-white/5 rounded-2xl overflow-hidden hover:scale-[1.02] hover:border-purple-500/50 hover:bg-neutral-900 transition-all duration-300 hover:-translate-y-3 hover:shadow-[5_5_30px_rgba(168,85,247,0.15)]">
-          {/* IMAGE SECTION - Fixed height so they are all identical */}
           <div className="relative h-48 w-full shrink-0 overflow-hidden">
             {article.thumbnail ? (
               <Image
@@ -22,22 +21,21 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
               />
             ) : (
               <div
-                className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-950"
+                className="w-full h-full bg-linear-to-br from-neutral-800 to-neutral-950"
                 style={{ backgroundColor: article.color || "#a855f7" }}
               >
                 <div className="absolute inset-0 bg-black/60" />
               </div>
             )}
 
-            {/* Date Badge */}
             <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/10 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-neutral-300">
               <Calendar size={12} />
               {formatDate(article.publishedDate)}
             </div>
           </div>
 
-          {/* CONTENT SECTION - Flex column to push arrow to bottom */}
-          <div className="p-6 flex flex-col flex-grow h-full">
+          {/* CONTENT SECTION */}
+          <div className="p-6 flex flex-col grow h-full">
             <div className="flex gap-2 mb-4 h-4 overflow-hidden">
               {(article.tags || []).slice(0, 3).map((tag) => (
                 <span

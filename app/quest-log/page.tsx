@@ -15,18 +15,13 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
-
   const currentArticles = cleanArticles.slice(startIndex, endIndex);
-
-  const featuresArticles = ["all-in-2025-event-reflection", "cold-email-experiment-vibe", "how-i-got-my-first-clients"];
 
   return (
     <main className="min-h-screen bg-neutral-950 pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">
-      {/* Background Ambience (Purple for Quest Log) */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-900/20 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* A. HEADER */}
         <div className="mb-20">
           <SectionHeading
             title="Quest "
@@ -37,7 +32,7 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
           />
         </div>
 
-        {/* B. ARTICLES GRID */}
+        {/* ARTICLES GRID */}
         {currentArticles.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {currentArticles.map((article, index) => (
@@ -52,7 +47,7 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
           </div>
         )}
 
-        {/* C. PAGINATION CONTROLS */}
+        {/* PAGINATION CONTROLS */}
         {totalPages > 1 && (
           <FadeUp delay={0.2} className="flex justify-center items-center gap-6 mt-12">
             {currentPage > 1 ? (

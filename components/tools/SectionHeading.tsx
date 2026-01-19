@@ -5,7 +5,7 @@ interface SectionHeadingProps {
   title: string;
   highlight: string; // The colorful part
   subtitle: string;
-  color: string; // Hex code for the highlight
+  color: string; // Hex code for highlight
   align?: "left" | "center";
 }
 

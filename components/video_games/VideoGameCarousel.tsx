@@ -17,15 +17,12 @@ export default function VideoGameCarousel() {
 
   return (
     <div className="relative group/carousel">
-      {/* LEFT ARROW - Listens to group-hover/carousel */}
       <button
         onClick={() => scroll("left")}
         className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/50 hover:bg-purple-600 rounded-full text-white backdrop-blur-md border border-white/10 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hidden md:flex -ml-4"
       >
         <ChevronLeft size={32} />
       </button>
-
-      {/* RIGHT ARROW - Listens to group-hover/carousel */}
       <button
         onClick={() => scroll("right")}
         className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/50 hover:bg-purple-600 rounded-full text-white backdrop-blur-md border border-white/10 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hidden md:flex -mr-4"

@@ -7,7 +7,7 @@ export default function Wiggle({ children }: { children: React.ReactNode }) {
       animate={{ rotate: [0, -5, 5, -5, 5, 0] }} // Wiggle left/right
       transition={{
         duration: 0.5,
-        repeat: Infinity, // Loop forever
+        repeat: Infinity,
         repeatDelay: 3, // Wait 3 seconds between wiggles
         ease: "easeInOut",
       }}

@@ -52,14 +52,14 @@ export default function Hero() {
       />
 
       <div className="absolute inset-0 bg-purple-900/40 mix-blend-multiply z-10" />
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/50 via-black/20 to-neutral-950/90 z-10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-black/50 via-black/20 to-neutral-950/90 z-10" />
 
       {/* CONTENT */}
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-10">
         <FadeUp delay={0.2} duration={0.8}>
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white mb-2 font-pixel text-shadow-lg leading-tight cursor-default drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] transition-all duration-500 hover:text-purple-200 hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]">
             I BUILD{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-600">
               <TypeAnimation
                 sequence={[
                   500,
@@ -78,7 +78,7 @@ export default function Hero() {
                   5000,
                   () => endCycle(),
                   "",
-                  1000,
+                  500,
                 ]}
                 wrapper="span"
                 speed={1}
@@ -108,15 +108,13 @@ export default function Hero() {
         transition={{ duration: 1.5, repeat: Infinity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 cursor-pointer text-white/30 hover:text-white transition-colors"
         onClick={() => {
-          const next = document.getElementById("mission"); // Make sure next section has this ID
+          const next = document.getElementById("mission");
           if (next) next.scrollIntoView({ behavior: "smooth" });
         }}
       >
         <FaArrowDown size={32} />
       </motion.div>
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-neutral-950 to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-neutral-950 to-transparent z-20" />
     </section>
   );
 }
-
-function videoEnd() {}

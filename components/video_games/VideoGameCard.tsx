@@ -9,7 +9,7 @@ export default function GameCard({ game, index }: { game: Game; index: number })
       <Link
         href={game.link}
         target="_blank"
-        className="group block relative w-[300px] md:w-[400px] flex-shrink-0 bg-neutral-900 border-4 border-white/10 rounded-2xl overflow-hidden hover:border-rpg-main transition-all duration-300"
+        className="group block relative w-[300px] md:w-[400px] shrink-0 bg-neutral-900 border-4 border-white/10 rounded-2xl overflow-hidden hover:border-rpg-main transition-all duration-300"
       >
         <div className="relative aspect-video overflow-hidden">
           <img
@@ -17,7 +17,7 @@ export default function GameCard({ game, index }: { game: Game; index: number })
             alt={game.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-linear-to-t from-neutral-900 via-transparent to-transparent opacity-80" />
         </div>
 
         <div className="p-6 relative">

@@ -25,13 +25,12 @@ export default function SkillCategoryUI({
           ${isExpanded ? "shadow-2xl" : "border-white/10 hover:border-white/30"}
         `}
         style={{
-          borderColor: isExpanded ? `${category.color}40` : "", // 40 = 25% opacity
+          borderColor: isExpanded ? `${category.color}40` : "",
         }}
       >
         {/* HEADER */}
         <div className="p-6 md:p-8 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            {/* Icon Box */}
             <div
               className="p-4 rounded-2xl border border-white/5 transition-transform duration-600 group-hover:scale-110"
               style={{
