@@ -122,27 +122,46 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {content}
         </div>
 
-        {/* BOTTOM */}
-        <div className="mt-20 pt-12 border-t border-white/10 flex justify-between items-center">
-          <div className="flex gap-4">
-            {/* Simple Next/Prev Navigation */}
-            {prevArticle && (
-              <Link
-                href={`/articles/${prevArticle.slug}`}
-                className="text-sm text-neutral-500 hover:text-white transition"
-              >
-                ← Older Quest
-              </Link>
-            )}
-            {nextArticle && (
-              <Link
-                href={`/articles/${nextArticle.slug}`}
-                className="text-sm text-neutral-500 hover:text-white transition"
-              >
-                Newer Quest →
-              </Link>
-            )}
-          </div>
+        {/* BOTTOM NAVIGATION */}
+        <div className="mt-20 pt-12 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {nextArticle ? (
+            <Link href={`/articles/${nextArticle.slug}`} className="group flex flex-col items-start gap-2">
+              <span className="font-mono font-bold text-neutral-500 group-hover:text-purple-400 transition">
+                ← Newer Quest
+              </span>
+              <div className="w-full flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-3 group-hover:border-purple-500/50 group-hover:bg-white/10 transition-all">
+                {nextArticle.thumbnail && (
+                  <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-white/10">
+                    <Image src={nextArticle.thumbnail} alt={nextArticle.title} fill className="object-cover" />
+                  </div>
+                )}
+                <span className="font-bold text-neutral-200 group-hover:text-white line-clamp-2">
+                  {nextArticle.title}
+                </span>
+              </div>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {prevArticle ? (
+            <Link href={`/articles/${prevArticle.slug}`} className="group flex flex-col items-end gap-2 text-right">
+              <span className="font-mono font-bold text-neutral-500 group-hover:text-purple-400 transition">
+                Older Quest →
+              </span>
+              <div className="w-full flex flex-row-reverse items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-3 group-hover:border-purple-500/50 group-hover:bg-white/10 transition-all">
+                {prevArticle.thumbnail && (
+                  <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden border border-white/10">
+                    <Image src={prevArticle.thumbnail} alt={prevArticle.title} fill className="object-cover" />
+                  </div>
+                )}
+                <span className="font-bold text-neutral-200 group-hover:text-white line-clamp-2">
+                  {prevArticle.title}
+                </span>
+              </div>
+            </Link>
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </article>

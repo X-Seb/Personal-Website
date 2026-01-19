@@ -119,7 +119,7 @@ export const INVENTORY: InventoryItem[] = [
   {
     id: "water-bottle",
     name: "Hydration Vessel",
-    image: "/images/inventory/water-bottle.webp",
+    image: "/images/inventory/bottle.webp",
     description: "Highly secure H2O container. Essential for biological function upkeep.",
     type: "Consumable",
     rarity: "Uncommon",

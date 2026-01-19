@@ -6,7 +6,7 @@ import MatrixRain from "@/components/animations/MatrixRain";
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black text-white p-4 overflow-hidden">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black text-white p-4 overflow-x-hidden overflow-y-auto">
       <MatrixRain />
       <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto text-center mt-32">
         <motion.h1
