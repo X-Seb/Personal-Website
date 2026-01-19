@@ -43,17 +43,18 @@ export default function VideoGameCarousel() {
         ))}
       </div>
 
-      {/* MOBILE CONTROLS (Underneath) */}
-      <div className="flex md:hidden justify-center gap-6 mt-2">
+      <div className="flex md:hidden justify-center gap-8">
         <button
           onClick={() => scroll("left")}
-          className="p-4 rounded-full bg-neutral-800 border border-white/10 text-white active:scale-95 transition-transform"
+          className="p-4 rounded-full bg-neutral-800 border border-white/10 text-white active:scale-95 transition-transform hover:bg-purple-500/20"
+          aria-label="Scroll Left"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={() => scroll("right")}
-          className="p-4 rounded-full bg-neutral-800 border border-white/10 text-white active:scale-95 transition-transform"
+          className="p-4 rounded-full bg-neutral-800 border border-white/10 text-white active:scale-95 transition-transform hover:bg-purple-500/20"
+          aria-label="Scroll Right"
         >
           <ChevronRight size={24} />
         </button>

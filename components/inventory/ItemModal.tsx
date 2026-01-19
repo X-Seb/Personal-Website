@@ -54,17 +54,17 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
                 <span className="font-mono font-bold text-neutral-200">LVL {item.level}</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-black text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.4)] mb-6 leading-none">
+              <h2 className="text-2xl md:text-5xl font-black text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.4)] mb-6 leading-none">
                 {item.name}
               </h2>
 
-              <p className="text-neutral-300 text-lg leading-relaxed">{item.description}</p>
+              <p className="text-neutral-300 text-m md:text-xl leading-relaxed">{item.description}</p>
             </div>
 
             <div className={`space-y-3 bg-neutral-900/50 p-6 rounded-2xl border border-white/5`}>
               <h4 className="text-xs uppercase text-neutral-500 font-bold mb-2 tracking-wider">Passive Effects</h4>
               {(item.effects || []).map((effect, i) => (
-                <div key={i} className="flex items-center gap-3 text-neutral-200 font-medium">
+                <div key={i} className="flex items-center text-[10px] md:text-sm gap-3 text-neutral-200 font-medium">
                   <span className={`${themeClasses}`}>✦</span>
                   {effect}
                 </div>

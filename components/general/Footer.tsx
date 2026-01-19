@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="absolute bottom-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center relative z-10">
-        <div className="flex gap-6 mb-8">
+        <div className="flex flex-wrap justify-center gap-6 mb-8">
           {SOCIALS.map((social) => (
             <a
               key={social.label}
