@@ -9,7 +9,7 @@ export default function Mission() {
     <section id="mission" className="py-24 relative overflow-hidden bg-neutral-950">
       <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
         <FadeUp>
-          <div className="flex flex-col md:flex-row gap-12 items-center bg-neutral-900/80 border-2 border-neutral-800 p-8 rounded-3xl relative shadow-2xl hover:scale-[1.02] transition-all duration-500">
+          <div className="flex flex-col md:flex-row gap-12 items-center bg-neutral-900/80 border-2 border-neutral-800 p-4 rounded-3xl relative shadow-2xl hover:scale-[1.02] transition-all duration-500">
             {/* LEFT: Avatar Area */}
             <div className="relative w-48 h-48 md:w-72 md:h-72 shrink-0 group">
               <div className="absolute inset-0 border-4 border-dashed border-neutral-800 rounded-full animate-[spin_10s_linear_infinite] group-hover:border-rpg-main/50 transition-colors" />

@@ -29,22 +29,22 @@ export default function SkillCategoryUI({
         }}
       >
         {/* HEADER */}
-        <div className="p-6 md:p-8 flex items-center justify-between">
-          <div className="flex items-center gap-6">
+        <div className="p-4 md:p-8 flex items-center justify-between">
+          <div className="flex items-center gap-3 md:gap-6">
             <div
-              className="p-4 rounded-2xl border border-white/5 transition-transform duration-600 group-hover:scale-110"
+              className="p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/5 transition-transform duration-600 group-hover:scale-110 shrink-0"
               style={{
                 backgroundColor: isExpanded ? category.color : "#171717",
                 color: isExpanded ? "white" : category.color,
                 boxShadow: isExpanded ? `0 0 20px ${category.color}60` : "none",
               }}
             >
-              <Icon size={32} />
+              <Icon className="w-6 h-6 md:w-8 md:h-8" />
             </div>
 
             <div className="text-left">
-              <h3 className="text-3xl font-pixel text-white font-heading tracking-wide">{category.title}</h3>
-              <p className="text-sm text-neutral-400 uppercase font-bold tracking-wider mt-1 group-hover:text-neutral-400 transition-colors">
+              <h3 className="text-xl md:text-3xl font-pixel text-white font-heading tracking-wide">{category.title}</h3>
+              <p className="text-[10px] md:text-sm text-neutral-400 uppercase font-bold tracking-wider mt-1 group-hover:text-neutral-400 transition-colors">
                 {category.subtitle}
               </p>
             </div>
@@ -67,7 +67,7 @@ export default function SkillCategoryUI({
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
             >
-              <div className="px-6 md:px-8 pb-8 pt-2 border-t border-white/5 mx-6">
+              <div className="px-4 md:px-8 pb-6 md:pb-8 pt-2 border-t border-white/5 mx-6">
                 <p className="text-neutral-300 text-m mb-8 mt-4 leading-relaxed max-w-2xl">{category.description}</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">

@@ -20,6 +20,8 @@ export default function ProjectCard({
     "2x2": "md:col-span-2 md:row-span-2",
   };
 
+  const isWide = size.startsWith("2");
+
   return (
     <div className={`${sizeClasses[size] || sizeClasses["1x1"]} h-full`}>
       <FadeUp delay={index * 0.1} className="h-full">
@@ -39,7 +41,7 @@ export default function ProjectCard({
 
           <div className="relative z-10 p-6 h-full flex flex-col justify-end">
             <h3
-              className="text-2xl font-bold font-pixel uppercase mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,4)]"
+              className="text-2xl font-bold font-pixel uppercase line-clamp-2 mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,4)]"
               style={{
                 textShadow: `0 0 10px ${project.color}100`,
               }}
@@ -47,10 +49,12 @@ export default function ProjectCard({
               {project.title}
             </h3>
             <div className="flex flex-wrap gap-2 mb-4 overflow-hidden">
-              {project.tags?.map((tag, i) => (
+              {project.tags?.slice(0, 6).map((tag, i) => (
                 <span
                   key={i}
-                  className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 text-neutral-300 border border-white/10 backdrop-blur-sm"
+                  className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 text-neutral-300 border border-white/10 backdrop-blur-sm ${
+                    i >= 3 ? (isWide ? "hidden md:inline-block" : "hidden") : ""
+                  }`}
                 >
                   {tag}
                 </span>

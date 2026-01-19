@@ -23,14 +23,14 @@ export default function StoryItem({ item, index }: StoryItemProps) {
       <div className="hidden md:block w-1/2" />
 
       {/* NODE (Center Icon) */}
-      <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border border-neutral-800 bg-neutral-900 z-20 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.8)] group hover:scale-110 transition-transform duration-300">
+      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border border-neutral-800 bg-neutral-900 z-20 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.8)] group hover:scale-110 transition-transform duration-300">
         <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${accentColor}`}>
           <Icon size={14} />
         </div>
       </div>
 
       {/* CARD CONTAINER */}
-      <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${isEven ? "md:pr-16" : "md:pl-16"}`}>
+      <div className={`w-full md:w-1/2 pl-4 md:pl-0 ${isEven ? "md:pr-16" : "md:pl-16"}`}>
         <FadeUp delay={index * 0.1} className="w-full">
           <div className="relative group">
             <div className="p-6 rounded-2xl bg-neutral-900/60 border border-white/5 hover:border-white/10 hover:bg-neutral-900 transition-all duration-300 hover:-translate-y-1 shadow-xl backdrop-blur-sm text-left">

@@ -8,7 +8,7 @@ export default function SkillItem({ skill, color }: { skill: Skill; color: strin
   return (
     <div className="group/skill">
       {/* Top Row: Name and Label */}
-      <div className="flex justify-between items-end mb-2.5">
+      <div className="flex flex-col items-start gap-2 mb-2.5 md:flex-row md:items-end md:justify-between md:gap-0">
         <div className="flex items-center gap-3">
           <SkillIcon className="text-neutral-400 group-hover/skill:text-white transition-colors" size={20} />
           <span className="text-neutral-200 font-bold text-sm group-hover/skill:text-white transition-colors">
