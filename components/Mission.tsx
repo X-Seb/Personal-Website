@@ -62,7 +62,7 @@ export default function Mission() {
               </div>
 
               <p className="text-neutral-300 leading-relaxed max-w-xl text-lg">
-                <b>Hey, I'm Seb!</b> 👋 I am a multidisciplinary engineer focued on <b>high-impact technology</b>. I'm
+                <b>Hey, I'm Seb!</b> 👋 I am a multidisciplinary engineer focused on <b>high-impact technology</b>. I'm
                 optimistic about the future and I'm building the systems that will power it.
                 <br />
                 <br />
