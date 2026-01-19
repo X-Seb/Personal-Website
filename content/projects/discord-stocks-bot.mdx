@@ -18,14 +18,14 @@ role: "Solo Developer"
 Over the summer, my friends and I got deep into stock trading. We needed an edge; something faster than Googling and smarter than standard bots.
 I decided to build a custom Discord bot that we could ping in our chat to get real-time analysis using natural language.
 
-This was my first time using the Discord API, and I pushed the limits of what AI Agents can do in N8N.
+This was my first time using the `Discord API`, and I pushed the limits of what AI Agents can do in `n8n`.
 
 ## 🏗️ The Hybrid Architecture
 
-Instead of building a massive Node.js application, I designed a hybrid architecture for speed and flexibility.
+Instead of building a massive `Node.js` application, I designed a hybrid architecture for speed and flexibility.
 
 1.  **The Gateway (Node.js on Railway):** A lightweight, 24/7 Node.js terminal running `discord.js`. It listens for pings, packages the message context (user, server, history), and fires it off via webhook.
-2.  **The Brain (N8N):** The actual logic lives in an N8N workflow. This is where the AI decides which tools to use, and formats the response.
+2.  **The Brain (n8n):** The actual logic lives in an `n8n` workflow. This is where the AI decides which tools to use, and formats the response.
 
 <Image
   src="/images/projects/discord-stonks-bot/railway-github-terminal.webp"
@@ -48,11 +48,11 @@ Thanks to the terminal, the bot runs 24/7 and it's always online on Discord. You
   />
 </div>
 
-## 🧠 The N8N "Brain" & The Huge Prompt
+## 🧠 The n8n "Brain" & The Huge Prompt
 
-I chose N8N because I wanted to get an AI agent running fast and N8N is the perfect tool for that.
+I chose `n8n` because I wanted to get an AI agent running fast and `n8n` is the perfect tool for that.
 
-The workflow is triggered by the Discord webhook. It uses a massive system prompt to tell GPT-4o exactly how to behave as a financial analyst.
+The workflow is triggered by the Discord webhook. It uses a massive system prompt to tell `GPT-4o` exactly how to behave as a financial analyst.
 
 <Image
   src="/images/projects/discord-stonks-bot/n8n-agent-prompt.webp"
@@ -94,6 +94,6 @@ The real power comes from the **5 tools** I gave the AI agent access to. It does
 This project was a blast.
 
 - **Discord API:** Surprisingly straightforward. `discord.js` makes event handling easy.
-- **AI Agents:** I've used N8N before, but integrating 5 different tools and ensuring the AI chooses the right one required a lot of prompt engineering and testing.
+- **AI Agents:** I've used `n8n` many times before, but integrating 5 different tools and ensuring the AI chooses the right one required a lot of prompt engineering and testing.
 
 Right now, the bot remains in private beta for me and my friends, but the architecture could be scaled enough to be public someday.

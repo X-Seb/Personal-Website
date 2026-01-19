@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { INVENTORY, InventoryItem } from "@/lib/inventory";
-import { GiLockedChest } from "react-icons/gi";
+import { GiLockedChest, GiOpenChest } from "react-icons/gi"; // Import Open Icon
 import ItemCard from "@/components/inventory/ItemCard";
 
 interface ChestProps {
@@ -42,46 +42,50 @@ export default function Chest({ id, lootTable, dropCount = 1 }: ChestProps) {
   };
 
   return (
-    <div className="relative flex items-center justify-center py-12 h-80 w-full">
-      {/* --- LAYER 1: THE CHEST (Background) --- */}
+    // Container: Flex Column so loot pushes content down instead of overlapping
+    <div className="relative flex flex-col items-center justify-start w-full min-h-[300px] py-12 gap-8">
+      
+      {/* --- LAYER 1: THE CHEST --- */}
       <motion.button
         onClick={handleOpen}
         disabled={isOpen}
         whileHover={!isOpen ? { scale: 1.05 } : {}}
         whileTap={!isOpen ? { scale: 0.95 } : {}}
-        className="absolute z-10 group cursor-pointer"
+        className="relative z-10 group cursor-pointer outline-none"
       >
-        {/* Gold Glow */}
-        <div
-          className={`absolute inset-0 blur-[80px] transition-all duration-500 rounded-full ${
-            isOpen ? "bg-yellow-600/5 opacity-20" : "bg-yellow-600/0 group-hover:bg-yellow-600/30"
-          }`}
-        />
+        {/* Gold Glow (Only when closed) */}
+        {!isOpen && (
+          <div className="absolute inset-0 blur-[60px] bg-yellow-600/20 group-hover:bg-yellow-600/40 transition-all duration-500 rounded-full" />
+        )}
 
         {/* The Chest Graphic */}
         <div className="relative w-48 h-48 transition-all duration-300">
           {!isOpen ? (
+            // CLOSED STATE
             <div className="w-full h-full bg-neutral-900 border-4 border-yellow-700/50 rounded-2xl flex items-center justify-center shadow-2xl group-hover:border-yellow-500 transition-colors">
               <GiLockedChest size={80} className="text-yellow-600 group-hover:text-yellow-400 transition-colors" />
             </div>
           ) : (
-            <div className="w-full h-full bg-neutral-950/30 border-4 border-neutral-800/50 rounded-2xl flex items-center justify-center grayscale opacity-20 blur-sm">
-              <GiLockedChest size={80} className="text-neutral-800" />
+            // OPEN STATE (Fixed: Visible but disabled)
+            <div className="w-full h-full bg-neutral-900/50 border-4 border-neutral-700 rounded-2xl flex items-center justify-center shadow-inner">
+               {/* Use Open Chest Icon so it looks 'looted' */}
+               <GiOpenChest size={80} className="text-neutral-500 opacity-80" />
             </div>
           )}
         </div>
       </motion.button>
 
-      {/* THE LOOT REVEAL */}
-      <div className="absolute z-20 w-full flex justify-center pointer-events-none">
+      {/* --- LAYER 2: THE LOOT REVEAL --- */}
+      {/* Rendered normally in the flow (not absolute) to prevent overlapping text above */}
+      <div className="w-full flex justify-center pointer-events-none z-20">
         <div className="flex flex-wrap justify-center gap-4 w-full max-w-5xl px-4 pointer-events-auto">
           <AnimatePresence>
             {justDroppedLoot.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ y: 20, opacity: 0, scale: 0 }}
-                animate={{ y: 0, opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1, type: "spring", stiffness: 300, damping: 20 }}
+                initial={{ y: -50, opacity: 0, scale: 0.5 }} // Starts "inside" chest
+                animate={{ y: 0, opacity: 1, scale: 1 }}     // Drops down
+                transition={{ delay: index * 0.1, type: "spring", stiffness: 200, damping: 20 }}
                 className="relative w-full md:w-64"
               >
                 <ItemCard item={item} index={index} />

@@ -44,7 +44,7 @@ export const INVENTORY: InventoryItem[] = [
     ]
   },
   {
-    id: "arduino",
+    id: "arduino-mega",
     name: "Arduino Mega 2560",
     image: "/images/inventory/arduino-mega.webp",
     description: "The reliable workhorse of embedded systems. Tons of pins, zero operating system.",
@@ -178,7 +178,7 @@ export const INVENTORY: InventoryItem[] = [
   },
   {
     id: "sleep-mask",
-    name: "Blackout Sleep Mask",
+    name: "Void Sleep Mask",
     image: "/images/inventory/sleep-eyepatch.webp",
     description: "Forces the wearer into shutdown mode. Blocks all visual input.",
     type: "Gear",
@@ -189,7 +189,7 @@ export const INVENTORY: InventoryItem[] = [
       "+15 Sleep Quality",
       "Disables 'Vision' ability",
       "Grants 'Deep REM' buff",
-      "Comfort: Medium"
+      "+10 Void Affinity"
     ]
   },
   {
@@ -265,6 +265,20 @@ export const INVENTORY: InventoryItem[] = [
       "+10 Brain Power",
       "Temperature: Freezing",
       "Antioxidant Buff",
+    ]
+  },
+  {
+    id: "pile-of-gp",
+    name: "Pile of Game Pieces",
+    image: "/images/inventory/stack-of-gp.webp",
+    description: "3D-printed Game Pieces for TakTik 2025. Come in Blue or Yellow. Also referred to as 'GPs'.",
+    type: "Weapon",
+    rarity: "Common",
+    level: 8,
+    effects: [
+      "Material: ABS",
+      "Often spawn in stacks",
+      "+10 points",
     ]
   }
 ];
