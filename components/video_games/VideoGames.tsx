@@ -8,7 +8,7 @@ export default async function VideoGames() {
         <SectionHeading
           title="Virtual "
           highlight="Worlds"
-          subtitle="My awesome games. Click on any game to play it!"
+          subtitle="Indie development fun. Click any card to play in-browser."
           color="#7700dd"
           align="left"
         />

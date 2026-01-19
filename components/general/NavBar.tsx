@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { name: "Projects", href: "/#projects" },
   { name: "Skills", href: "/#skills" },
   { name: "Games", href: "/#videogames" },
-  { name: "Quest Logs", href: "/quest-log" },
+  { name: "Quest Log", href: "/quest-log" },
   { name: "Videos", href: "/#videos" },
   { name: "Lore", href: "/#story" },
   { name: "Inventory", href: "/inventory" },
@@ -81,8 +81,8 @@ export default function NavBar() {
           isOpen
             ? "bg-transparent border-transparent"
             : scrolled
-            ? "bg-black/90 backdrop-blur-md border-purple-900/30 py-4 shadow-lg"
-            : "bg-gradient-to-b from-black/80 to-transparent border-transparent py-6"
+              ? "bg-black/90 backdrop-blur-md border-purple-900/30 py-4 shadow-lg"
+              : "bg-gradient-to-b from-black/80 to-transparent border-transparent py-6"
         }
       `}
     >

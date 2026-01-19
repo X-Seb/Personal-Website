@@ -23,7 +23,7 @@ export default function Mission() {
               </div>
 
               {/* Status Dot */}
-              <div className="absolute bottom-6 right-6 bg-neutral-950 p-1.5 rounded-full border border-neutral-800 z-20">
+              <div className="absolute bottom-8 right-8 bg-neutral-950 p-1.5 rounded-full border border-neutral-800 z-20">
                 <div className="w-5 h-5 bg-green-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(34,197,94,1)]" />
               </div>
             </div>
@@ -36,7 +36,7 @@ export default function Mission() {
                   <span>Status: ONLINE</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold font-pixel text-white">
-                  Seb <span className="text-neutral-600">_Builds</span>
+                  Seb <span className="text-neutral-400">_Builds</span>
                 </h2>
               </div>
 
@@ -47,42 +47,39 @@ export default function Mission() {
                     <Zap size={20} />
                   </div>
                   <div>
-                    <p className="text-[12px] uppercase text-neutral-500 font-bold tracking-wider">Current Quest</p>
+                    <p className="text-[12px] uppercase text-neutral-400 font-bold tracking-wider">Current Quest</p>
                     <p className="text-sm font-bold text-white">Building This Website</p>
                   </div>
                 </div>
 
-                <div className="bg-neutral-900 border border-neutral-800 p-3 rounded-xl flex items-center gap-4 hover:border-red-500/50 transition-colors group">
+                <div className="bg-neutral-900/80 border border-neutral-800 p-3 rounded-xl flex items-center gap-4 hover:border-red-500/50 transition-colors group">
                   <div className="p-2.5 bg-neutral-800 rounded-lg text-red-500 group-hover:text-white group-hover:bg-red-500 transition-all">
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <p className="text-[12px] uppercase text-neutral-500 font-bold tracking-wider">Location</p>
+                    <p className="text-[12px] uppercase text-neutral-400 font-bold tracking-wider">Location</p>
                     <p className="text-sm font-bold text-white">MTL</p>
                   </div>
                 </div>
               </div>
 
               <p className="text-neutral-300 leading-relaxed max-w-xl text-lg">
-                Hey, I'm Seb! I love building things like robots, video games, websites, or other hardware projects. My
-                goal: improve the world by creating innovative technologies...
+                <b>Hey, I'm Seb!</b> 👋 I am a multidisciplinary engineer focued on <b>high-impact technology</b>. I'm
+                optimistic about the future and I'm building the systems that will power it.
+                <br />
+                <br />
+                Currently obsessed with <b>Mechatronics, AI, and Energy</b>.
+                <br />
+                <span className="text-purple-400 font-mono font-bold">Welcome to my digital workshop.</span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
-                {/* <Link
-                  href="/story"
-                  className="px-8 py-3.5 rounded-xl bg-rpg-main text-white font-bold hover:bg-rpg-light hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all flex items-center justify-center gap-2 group"
-                >
-                  Read Lore
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link> */}
                 <Link
                   href="mailto:sebastien.therriault1@gmail.com"
                   className="px-8 py-3.5 rounded-xl border-2 border-neutral-600 text-neutral-300 font-bold hover:text-white hover:border-white hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
                 >
                   Contact Me
                 </Link>
-
                 <Socials />
               </div>
             </div>

@@ -58,22 +58,6 @@ export interface SkillCategory {
 // DATA (6 Categories)
 export const SKILL_DATA: SkillCategory[] = [
   {
-    id: "webdev",
-    title: "Web Development",
-    subtitle: "Frontend & Backend Stack",
-    description: "Building scalable, interactive web applications and digital interfaces.",
-    categoryIcon: BiCodeBlock,
-    color: "#22d3ee",
-    skills: [
-      { name: "React / Next.js", icon: SiReact, level: 40, levelLabel: "Intermediate" },
-      { name: "TypeScript", icon: SiTypescript, level: 35, levelLabel: "Intermediate" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, level: 35, levelLabel: "Intermediate" },
-      { name: "Node.js", icon: SiNodedotjs, level: 45, levelLabel: "Intermediate" },
-      { name: "HTML5", icon: SiHtml5, level: 65, levelLabel: "Advanced" },
-      { name: "CSS3", icon: SiCss3, level: 65, levelLabel: "Advanced" },
-    ],
-  },
-  {
     id: "software",
     title: "Software Engineering",
     subtitle: "Data, Algorithms & Game Dev",
@@ -88,6 +72,22 @@ export const SKILL_DATA: SkillCategory[] = [
       { name: "Docker", icon: SiDocker, level: 20, levelLabel: "Basic" },
       { name: "Linux", icon: SiLinux, level: 50, levelLabel: "Intermediate" },
       { name: "Automation (n8n)", icon: SiN8N, level: 90, levelLabel: "Expert" },
+    ],
+  },
+  {
+    id: "webdev",
+    title: "Web Development",
+    subtitle: "Frontend & Backend Stack",
+    description: "Building scalable, interactive web applications and digital interfaces.",
+    categoryIcon: BiCodeBlock,
+    color: "#22d3ee",
+    skills: [
+      { name: "React / Next.js", icon: SiReact, level: 40, levelLabel: "Intermediate" },
+      { name: "TypeScript", icon: SiTypescript, level: 35, levelLabel: "Intermediate" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, level: 35, levelLabel: "Intermediate" },
+      { name: "Node.js", icon: SiNodedotjs, level: 45, levelLabel: "Intermediate" },
+      { name: "HTML5", icon: SiHtml5, level: 65, levelLabel: "Advanced" },
+      { name: "CSS3", icon: SiCss3, level: 65, levelLabel: "Advanced" },
     ],
   },
   {

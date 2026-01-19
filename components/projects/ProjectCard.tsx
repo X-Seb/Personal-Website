@@ -25,7 +25,7 @@ export default function ProjectCard({
       <FadeUp delay={index * 0.1} className="h-full">
         <Link
           href={`/projects/${project.slug}`}
-          className="block h-full group relative overflow-hidden border-2 border-gray-600/40 rounded-3xl bg-neutral-900/50 hover:scale-[1.02] transition-all duration-500 ease-out"
+          className="block h-full group relative overflow-hidden border-2 border-gray-600/40 rounded-3xl hover:border-purple-500/50 bg-neutral-900/50 hover:scale-[1.02] hover:-translate-y-3 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-500 ease-out"
         >
           <div className="absolute inset-0 z-0">
             <Image

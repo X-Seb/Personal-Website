@@ -16,7 +16,7 @@ export default function Skills() {
         <SectionHeading
           title={"Skill "}
           highlight={"Tree"}
-          subtitle={"Skills are the foundation of all growth. Click categories to expand."}
+          subtitle={"The weapons of choice. Constantly upgrading my character stats."}
           color={"#00aaff"}
           align={"center"}
         />

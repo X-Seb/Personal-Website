@@ -37,11 +37,11 @@ export default async function Projects() {
 
   return (
     <section id="projects" className="py-32 relative bg-neutral-950">
-      <div className="md:px-12 max-w-[90rem] mx-auto">
+      <div className="md:px-12 max-w-[90rem] mx-auto px-4 md:px-12">
         <SectionHeading
           title="Main "
           highlight="Campaigns"
-          subtitle="A curated collection of projects I've completed over the years..."
+          subtitle="Building the future, one project at a time. A curated collection of Software, Hardware, and Systems."
           color="#ee1000"
           align="left"
         />

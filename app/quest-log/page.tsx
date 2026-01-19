@@ -18,6 +18,8 @@ export default async function QuestLogPage({ searchParams }: { searchParams: Pro
 
   const currentArticles = cleanArticles.slice(startIndex, endIndex);
 
+  const featuresArticles = ["all-in-2025-event-reflection", "cold-email-experiment-vibe", "how-i-got-my-first-clients"];
+
   return (
     <main className="min-h-screen bg-neutral-950 pt-32 pb-20 px-6 md:px-12 relative overflow-hidden">
       {/* Background Ambience (Purple for Quest Log) */}

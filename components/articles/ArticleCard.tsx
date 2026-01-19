@@ -10,7 +10,7 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
   return (
     <FadeUp delay={index * 0.1} className="h-full">
       <Link href={`/articles/${article.slug}`} className="group block h-full">
-        <article className="relative h-full flex flex-col bg-neutral-800/50 border border-white/5 rounded-2xl overflow-hidden hover:border-purple-500/50 hover:bg-neutral-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+        <article className="relative h-full flex flex-col bg-neutral-800/50 border border-white/5 rounded-2xl overflow-hidden hover:scale-[1.02] hover:border-purple-500/50 hover:bg-neutral-900 transition-all duration-300 hover:-translate-y-3 hover:shadow-[5_5_30px_rgba(168,85,247,0.15)]">
           {/* IMAGE SECTION - Fixed height so they are all identical */}
           <div className="relative h-48 w-full shrink-0 overflow-hidden">
             {article.thumbnail ? (
@@ -30,7 +30,7 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
             )}
 
             {/* Date Badge */}
-            <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-neutral-300">
+            <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/10 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-neutral-300">
               <Calendar size={12} />
               {formatDate(article.publishedDate)}
             </div>
@@ -39,10 +39,10 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
           {/* CONTENT SECTION - Flex column to push arrow to bottom */}
           <div className="p-6 flex flex-col flex-grow h-full">
             <div className="flex gap-2 mb-4 h-4 overflow-hidden">
-              {(article.tags || []).slice(0, 4).map((tag) => (
+              {(article.tags || []).slice(0, 3).map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] font-bold uppercase tracking-wider px-2 rounded bg-white/5 text-rpg-light border border-white/5 group-hover:border-purple-500/30 group-hover:text-purple-300 transition-colors"
+                  className="text-[10px] font-bold uppercase tracking-wider px-2 rounded bg-white/5 text-shadow-white border border-white/5 group-hover:border-purple-500/30 group-hover:text-purple-300 transition-colors"
                 >
                   {tag}
                 </span>
@@ -51,7 +51,7 @@ export default function ArticleCard({ article, index }: { article: ArticleMetada
             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors line-clamp-2 h-12 leading-tight">
               {article.title}
             </h3>
-            <p className="text-neutral-400 text-sm font-medium line-clamp-3 mb-6 leading-relaxed">
+            <p className="text-neutral-400 text-sm font-medium line-clamp-2 mb-6 leading-relaxed">
               {article.description}
             </p>
             <div className="mt-auto w-full flex justify-end">

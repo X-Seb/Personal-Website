@@ -6,10 +6,11 @@ import FadeUp from "@/components/animations/FadeUp";
 import { BookOpen } from "lucide-react";
 
 export default async function Articles() {
+  const FEATURED_SLUGS = ["cold-email-experiment-vibe", "how-i-got-my-first-clients", "all-in-2025-event-reflection"];
   const allArticles = await getAllArticles();
-
-  // Only show the 3 most recent posts on the homepage
-  const recentArticles = allArticles.filter((a) => a.visible === true).slice(0, 3);
+  const featuredArticles = allArticles
+    .filter((article) => FEATURED_SLUGS.includes(article.slug))
+    .sort((a, b) => FEATURED_SLUGS.indexOf(a.slug) - FEATURED_SLUGS.indexOf(b.slug));
 
   return (
     <section id="articles" className="py-32 relative bg-neutral-950 border-t border-white/5">
@@ -19,15 +20,15 @@ export default async function Articles() {
       <div className="px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         <SectionHeading
           title="Quest "
-          highlight="Logs"
-          subtitle="Notes, thoughts, and engineering breakdowns."
+          highlight="Log"
+          subtitle="Notes, thoughts, experiments, and engineering breakdowns."
           color="#a855f7"
           align="left"
         />
 
         {/* ARTICLES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {recentArticles.map((article, index) => (
+          {featuredArticles.map((article, index) => (
             <ArticleCard key={article.slug} article={article} index={index} />
           ))}
         </div>

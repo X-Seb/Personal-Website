@@ -1,10 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 import FadeUp from "@/components/animations/FadeUp";
 import { TypeAnimation } from "react-type-animation";
 import { FaArrowDown } from "react-icons/fa";
 
+const ROLES = ["Engineer.", "Builder.", "Founder."];
+
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isBlackout, setIsBlackout] = useState(false);
+
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -13,20 +19,37 @@ export default function Hero() {
     }
   };
 
+  const resetCycle = () => {
+    setIsBlackout(false); // Fade in
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0; // Hard reset to 0:00
+      videoRef.current.play();
+    }
+  };
+
+  const endCycle = () => {
+    setIsBlackout(true);
+  };
+
   return (
     <section
       id="hero"
       className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-neutral-950"
     >
       <video
-        autoPlay
-        loop
+        ref={videoRef}
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-50"
       >
-        <source src="/videos/hero-loop-v1.mp4" type="video/mp4" />
+        <source src="/videos/hero-loop-v3.mp4" type="video/mp4" />
       </video>
+
+      <div
+        className={`absolute inset-0 bg-neutral-950 z-0 transition-opacity duration-1000 ease-in-out ${
+          isBlackout ? "opacity-100" : "opacity-0"
+        }`}
+      />
 
       <div className="absolute inset-0 bg-purple-900/40 mix-blend-multiply z-10" />
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/50 via-black/20 to-neutral-950/90 z-10" />
@@ -38,7 +61,25 @@ export default function Hero() {
             I BUILD{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               <TypeAnimation
-                sequence={[600, "ROBOTS", 4000, "SOFTWARE", 4000, "GAMES", 4000, "SYSTEMS", 4000, "THE FUTURE", 6000]}
+                sequence={[
+                  500,
+                  () => resetCycle(),
+                  "ROBOTS",
+                  5000,
+                  "APPS",
+                  4900,
+                  "GAMES",
+                  4800,
+                  "HARDWARE",
+                  4800,
+                  "SYSTEMS",
+                  4800,
+                  "THE FUTURE",
+                  5000,
+                  () => endCycle(),
+                  "",
+                  1000,
+                ]}
                 wrapper="span"
                 speed={1}
                 repeat={Infinity}
@@ -49,29 +90,16 @@ export default function Hero() {
         </FadeUp>
 
         <div className="flex flex-row justify-center items-center gap-4 md:gap-8 mt-6">
-          <FadeUp
-            delay={0.8}
-            duration={0.8}
-            className="text-lg md:text-2xl font-bold text-neutral-300 hover:text-white transition-colors duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
-          >
-            Engineer.
-          </FadeUp>
-
-          <FadeUp
-            delay={1.1}
-            duration={0.8}
-            className="text-lg md:text-2xl font-bold text-neutral-300 hover:text-white transition-colors duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
-          >
-            Builder.
-          </FadeUp>
-
-          <FadeUp
-            delay={1.4}
-            duration={0.8}
-            className="text-lg md:text-2xl font-bold text-white drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]"
-          >
-            Founder.
-          </FadeUp>
+          {ROLES.map((role, index) => (
+            <FadeUp
+              key={role}
+              delay={0.8 + index * 0.3} // 0.8s, 1.1s, 1.4s
+              duration={0.8}
+              className="text-lg md:text-2xl font-bold text-neutral-300 hover:text-white transition-colors duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
+            >
+              {role}
+            </FadeUp>
+          ))}
         </div>
       </div>
 
@@ -90,3 +118,5 @@ export default function Hero() {
     </section>
   );
 }
+
+function videoEnd() {}
