@@ -29,21 +29,6 @@ export const INVENTORY: InventoryItem[] = [
     ]
   },
   {
-    id: "jetson",
-    name: "Nvidia Jetson Orin Nano",
-    image: "/images/inventory/nvidia-jetson.webp",
-    description: "A pocket-sized supercomputer for edge AI. Runs hot, runs fast.",
-    type: "Weapon",
-    rarity: "Epic",
-    level: 6,
-    effects: [
-      "+30 Machine Learning",
-      "Passive: Fan Noise",
-      "Grants 'Computer Vision' sight",
-      "+1 AI Girlfriend"
-    ]
-  },
-  {
     id: "arduino-mega",
     name: "Arduino Mega 2560",
     image: "/images/inventory/arduino-mega.webp",
@@ -55,21 +40,6 @@ export const INVENTORY: InventoryItem[] = [
       "+15 Prototyping Speed",
       "Memory: 256KB (Tiny)",
       "Pinout: Massive"
-    ]
-  },
-  {
-    id: "esp32",
-    name: "ESP32 Module",
-    image: "/images/inventory/esp32.webp",
-    description: "A tiny microcontroller with Wi-Fi and Bluetooth. Cheap, powerful, and slightly chaotic.",
-    type: "Weapon",
-    rarity: "Rare",
-    level: 25,
-    effects: [
-      "+20 Wireless Range",
-      "Dual Core processing",
-      "Grants 'IoT' ability",
-      "Boot time: Instant"
     ]
   },
   {
@@ -88,21 +58,6 @@ export const INVENTORY: InventoryItem[] = [
     ]
   },
   {
-    id: "stopwatch",
-    name: "Digital Stopwatch",
-    image: "/images/inventory/stopwatch.webp",
-    description: "A relic of simple timekeeping. No apps, no distractions, just pure pressure.",
-    type: "Tool",
-    rarity: "Common",
-    level: 43,
-    effects: [
-      "+10 Urgency",
-      "Grants 'Timeblocking' skill",
-      "-5 Procrastination",
-      "-10 Distractions"
-    ]
-  },
-  {
     id: "circuit-pack",
     name: "Component Scrapyard",
     image: "/images/inventory/hardware-pile.webp",
@@ -117,22 +72,6 @@ export const INVENTORY: InventoryItem[] = [
     ]
   },
   {
-    id: "notebook",
-    name: "Analog Notebook",
-    image: "/images/inventory/notebook-and-pencil.webp",
-    description: "Non-volatile memory storage. Immune to hackers and battery failure.",
-    type: "Tool",
-    rarity: "Common",
-    level: 67,
-    effects: [
-      "+30 Idea Retention",
-      "-5 Distraction",
-      "Latency: 0ms",
-      "Texture: Paper",
-      "Requires 'Pencil' ammo"
-    ]
-  },
-  {
     id: "whiteboard",
     name: "Simple Whiteboard",
     image: "/images/inventory/whiteboard.webp",
@@ -144,21 +83,6 @@ export const INVENTORY: InventoryItem[] = [
       "+25 Planning",
       "+10 Coolness",
       "Smell: Marker Fumes"
-    ]
-  },
-  {
-    id: "tripod",
-    name: "Versatile Tripod",
-    image: "/images/inventory/tripod.webp",
-    description: "Three legs are better than two. Essential for stable content creation.",
-    type: "Weapon",
-    rarity: "Rare",
-    level: 36,
-    effects: [
-      "+50 Stability",
-      "Hands-free mode",
-      "Setup time: 30s",
-      "Durability: Low"
     ]
   },
   {
@@ -193,36 +117,6 @@ export const INVENTORY: InventoryItem[] = [
     ]
   },
   {
-    id: "earplugs",
-    name: "Industrial Earplugs",
-    image: "/images/inventory/earplugs.webp",
-    description: "Small green cylinders that can blocks out the haters and the ambient noise.",
-    type: "Gear",
-    rarity: "Common",
-    level: 29,
-    effects: [
-      "+40 Silence",
-      "+10 Focus",
-      "Cost: Cheap",
-      "+12 Sleep Quality"
-    ]
-  },
-  {
-    id: "mouth-tape",
-    name: "Sleep Tape",
-    image: "/images/inventory/mouth-tape.webp",
-    description: "Prevents mouth-breathing during sleep mode. Looks weird, works wonders.",
-    type: "Consumable",
-    rarity: "Uncommon",
-    level: 24,
-    effects: [
-      "+20 Oxygen Efficiency",
-      "Prevents 'Snoring' debuff",
-      "Social Weirdness: High",
-      "Stamina Regen: +5%"
-    ]
-  },
-  {
     id: "water-bottle",
     name: "Hydration Vessel",
     image: "/images/inventory/water-bottle.webp",
@@ -253,7 +147,7 @@ export const INVENTORY: InventoryItem[] = [
     ]
   },
   {
-    id: "smoothie",
+    id: "purple-smoothie",
     name: "Mixed Berry Smoothie",
     image: "/images/inventory/mixed-berry-smoothie.webp",
     description: "A blended concoction of frozen fruits. High viscosity, high nutrition.",
@@ -297,6 +191,112 @@ const HIDDEN_ITEMS = [
       "Camera Quality: 4K",
       "Summons 'Uber' mount",
       "10% Chance to dissapear"
+    ]
+  },
+  {
+    id: "jetson",
+    name: "Nvidia Jetson Orin Nano",
+    image: "/images/inventory/nvidia-jetson.webp",
+    description: "A pocket-sized supercomputer for edge AI. Runs hot, runs fast.",
+    type: "Weapon",
+    rarity: "Epic",
+    level: 6,
+    effects: [
+      "+30 Machine Learning",
+      "Passive: Fan Noise",
+      "Grants 'Computer Vision' sight",
+      "+1 AI Girlfriend"
+    ]
+  },
+  {
+    id: "earplugs",
+    name: "Industrial Earplugs",
+    image: "/images/inventory/earplugs.webp",
+    description: "Small green cylinders that can blocks out the haters and the ambient noise.",
+    type: "Gear",
+    rarity: "Common",
+    level: 29,
+    effects: [
+      "+40 Silence",
+      "+10 Focus",
+      "Cost: Cheap",
+      "+12 Sleep Quality"
+    ]
+  },
+  {
+    id: "mouth-tape",
+    name: "Sleep Tape",
+    image: "/images/inventory/mouth-tape.webp",
+    description: "Prevents mouth-breathing during sleep mode. Looks weird, works wonders.",
+    type: "Consumable",
+    rarity: "Uncommon",
+    level: 24,
+    effects: [
+      "+20 Oxygen Efficiency",
+      "Prevents 'Snoring' debuff",
+      "Social Weirdness: High",
+      "Stamina Regen: +5%"
+    ]
+  },
+  {
+    id: "tripod",
+    name: "Versatile Tripod",
+    image: "/images/inventory/tripod.webp",
+    description: "Three legs are better than two. Essential for stable content creation.",
+    type: "Weapon",
+    rarity: "Rare",
+    level: 36,
+    effects: [
+      "+50 Stability",
+      "Hands-free mode",
+      "Setup time: 30s",
+      "Durability: Low"
+    ]
+  },
+  {
+    id: "notebook",
+    name: "Analog Notebook",
+    image: "/images/inventory/notebook-and-pencil.webp",
+    description: "Non-volatile memory storage. Immune to hackers and battery failure.",
+    type: "Tool",
+    rarity: "Common",
+    level: 67,
+    effects: [
+      "+30 Idea Retention",
+      "-5 Distraction",
+      "Latency: 0ms",
+      "Texture: Paper",
+      "Requires 'Pencil' ammo"
+    ]
+  },
+  {
+    id: "stopwatch",
+    name: "Digital Stopwatch",
+    image: "/images/inventory/stopwatch.webp",
+    description: "A relic of simple timekeeping. No apps, no distractions, just pure pressure.",
+    type: "Tool",
+    rarity: "Common",
+    level: 43,
+    effects: [
+      "+10 Urgency",
+      "Grants 'Timeblocking' skill",
+      "-5 Procrastination",
+      "-10 Distractions"
+    ]
+  },
+  {
+    id: "esp32",
+    name: "ESP32 Module",
+    image: "/images/inventory/esp32.webp",
+    description: "A tiny microcontroller with Wi-Fi and Bluetooth. Cheap, powerful, and slightly chaotic.",
+    type: "Weapon",
+    rarity: "Rare",
+    level: 25,
+    effects: [
+      "+20 Wireless Range",
+      "Dual Core processing",
+      "Grants 'IoT' ability",
+      "Boot time: Instant"
     ]
   },
 ]
