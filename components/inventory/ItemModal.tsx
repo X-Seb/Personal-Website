@@ -32,7 +32,7 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
-        className={`relative w-full max-w-4xl bg-neutral-950 rounded-3xl overflow-hidden shadow-2xl border-2 ${themeClasses}`}
+        className={`relative w-full max-w-4xl bg-neutral-950 rounded-3xl shadow-2xl border-2 flex flex-col max-h-[85vh] overflow-y-auto scrollbar-hide ${themeClasses}`}
       >
         <button
           onClick={onClose}
@@ -41,9 +41,9 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
           ✕
         </button>
 
-        <div className="flex flex-col md:flex-row h-full min-h-[500px]">
+        <div className="flex flex-col md:flex-row h-full">
           {/* LEFT: Info */}
-          <div className="p-8 md:w-3/5 flex flex-col justify-center order-2 md:order-1 relative z-10">
+          <div className="p-6 md:w-3/5 flex flex-col justify-center order-2 md:order-1 relative z-10">
             <div className="mb-8">
               <div className="flex justify-between items-center mb-4">
                 <span
@@ -61,7 +61,7 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
               <p className="text-neutral-300 text-m md:text-xl leading-relaxed">{item.description}</p>
             </div>
 
-            <div className={`space-y-3 bg-neutral-900/50 p-6 rounded-2xl border border-white/5`}>
+            <div className={`space-y-3 bg-neutral-900/50 p-4 md:p-6 rounded-2xl border border-white/5`}>
               <h4 className="text-xs uppercase text-neutral-500 font-bold mb-2 tracking-wider">Passive Effects</h4>
               {(item.effects || []).map((effect, i) => (
                 <div key={i} className="flex items-center text-[10px] md:text-sm gap-3 text-neutral-200 font-medium">
@@ -77,7 +77,7 @@ export default function ItemModal({ item, onClose }: { item: InventoryItem | nul
             {/* SQUARE BOX */}
             <div
               className={`
-              relative aspect-square w-full max-w-[320px] 
+              relative aspect-square w-full max-w-[260px] md:max-w-[320px]
               rounded-2xl border-4 
               flex items-center justify-center 
               bg-black/40
