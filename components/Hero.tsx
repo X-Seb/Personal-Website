@@ -57,7 +57,7 @@ export default function Hero() {
       {/* CONTENT */}
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-10">
         <FadeUp delay={0.2} duration={0.8}>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white mb-2 font-pixel text-shadow-lg leading-tight cursor-default drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] transition-all duration-500 hover:text-purple-200 hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]">
+          <h1 className="text-3xl md:text-8xl font-bold tracking-tight text-white mb-2 font-pixel text-shadow-lg leading-tight cursor-default drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] transition-all duration-500 hover:text-purple-200 hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]">
             I BUILD{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-600">
               <TypeAnimation

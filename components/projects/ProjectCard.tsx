@@ -48,11 +48,11 @@ export default function ProjectCard({
             >
               {project.title}
             </h3>
-            <div className="flex flex-wrap gap-2 mb-4 overflow-hidden">
+            <div className="flex flex-wrap gap-2 mb-2 md:mb-4 overflow-hidden">
               {project.tags?.slice(0, 6).map((tag, i) => (
                 <span
                   key={i}
-                  className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-white/10 text-neutral-300 border border-white/10 backdrop-blur-sm ${
+                  className={`px-2 py-1 text-[8px] md:text-sm font-bold uppercase tracking-wider rounded-md bg-white/10 text-neutral-300 border border-white/10 backdrop-blur-sm ${
                     i >= 3 ? (isWide ? "hidden md:inline-block" : "hidden") : ""
                   }`}
                 >
