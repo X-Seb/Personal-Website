@@ -5,8 +5,8 @@ import { SiYoutube, SiGithub, SiItchdotio, SiLinkedin, SiX } from "react-icons/s
 export default function Socials() {
   return (
     <div className="flex gap-3 justify-evenly bg-neutral-900/50 p-1.5 rounded-xl border border-white/5">
-      <SocialLink href="https://youtube.com/@SebMakesGames" icon={<SiYoutube size={18} />} />
-      <SocialLink href="https://x.com/SebMakesGames" icon={<SiX size={18} />} />
+      <SocialLink href="https://youtube.com/@Seb-Builds" icon={<SiYoutube size={18} />} />
+      <SocialLink href="https://x.com/SebBuildsStuff" icon={<SiX size={18} />} />
       <SocialLink href="https://sebgame.itch.io" icon={<SiItchdotio size={18} />} />
       <SocialLink href="https://github.com/X-Seb" icon={<SiGithub size={18} />} />
       <SocialLink href="https://www.linkedin.com/in/sebastientherriault/" icon={<SiLinkedin size={18} />} />

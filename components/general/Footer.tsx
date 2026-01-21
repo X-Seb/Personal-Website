@@ -1,10 +1,10 @@
 import { SiYoutube, SiGithub, SiItchdotio, SiLinkedin, SiX, SiGmail } from "react-icons/si";
 
 const SOCIALS = [
-  { icon: SiYoutube, href: "https://youtube.com/@SebMakesGames", label: "YouTube" },
+  { icon: SiYoutube, href: "https://youtube.com/@Seb-Builds", label: "YouTube" },
   { icon: SiLinkedin, href: "https://www.linkedin.com/in/sebastientherriault/", label: "LinkedIn" },
   { icon: SiGithub, href: "https://github.com/X-Seb", label: "GitHub" },
-  { icon: SiX, href: "https://x.com/SebMakesGames", label: "X (Twitter)" },
+  { icon: SiX, href: "https://x.com/SebBuildsStuff", label: "X (Twitter)" },
   { icon: SiItchdotio, href: "https://sebgame.itch.io", label: "Itch.io" },
   { icon: SiGmail, href: "mailto:contact@sebastien.therriault1@gmail.com", label: "Email" },
 ];
