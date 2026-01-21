@@ -50,7 +50,7 @@ export default function VideoGameCarousel() {
           <ChevronLeft size={32} />
         </button>
       )}
-      
+
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
@@ -64,7 +64,7 @@ export default function VideoGameCarousel() {
       <div
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-2 md:px-6 pb-4 scrollbar-hide"
+        className="flex gap-6 overflow-x-auto overflow-y-hidden touch-pan-y snap-x snap-mandatory px-2 md:px-6 pb-4 scrollbar-hide"
         style={{ scrollbarWidth: "none" }}
       >
         {GAMES.map((game, index) => (

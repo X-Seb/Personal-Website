@@ -28,7 +28,7 @@ export default function VideoCarousel({ videos }: { videos: YouTubeVideo[] }) {
       const { current } = scrollRef;
       // Get exact width of first child card + gap (24px)
       const cardWidth = current.children[0]?.clientWidth || current.clientWidth * 0.85;
-      const gap = 24; 
+      const gap = 24;
       const scrollAmount = cardWidth + gap;
 
       current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
@@ -59,7 +59,7 @@ export default function VideoCarousel({ videos }: { videos: YouTubeVideo[] }) {
       <div
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-2 md:px-6 pb-4 scrollbar-hide"
+        className="flex gap-6 overflow-x-auto overflow-y-hidden touch-pan-y snap-x snap-mandatory px-2 md:px-6 pb-4 scrollbar-hide"
         style={{ scrollbarWidth: "none" }}
       >
         {videos.map((video, index) => (
