@@ -46,7 +46,7 @@ export default function Mission() {
                   </div>
                   <div>
                     <p className="text-[12px] uppercase text-neutral-400 font-bold tracking-wider">Current Quest</p>
-                    <p className="text-sm font-bold text-white">In-between projects</p>
+                    <p className="text-sm font-bold text-white">Learning DSA</p>
                   </div>
                 </div>
 
