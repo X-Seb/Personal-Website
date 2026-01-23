@@ -27,6 +27,7 @@ import { BiRocket, BiPalette, BiWorld, BiCodeBlock, BiTerminal } from "react-ico
 import { IoMdMail } from "react-icons/io";
 import { FaRobot, FaLanguage, FaWrench, FaFunnelDollar, FaMusic, FaHandshake } from "react-icons/fa";
 import { GiSolderingIron } from "react-icons/gi";
+import { PiTreeStructureBold } from "react-icons/pi";
 
 export type SkillLevelLabel = "Basic" | "Intermediate" | "Advanced" | "Expert";
 
@@ -62,8 +63,9 @@ export const SKILL_DATA: SkillCategory[] = [
       { name: "C# / Unity", icon: SiUnity, level: 90, levelLabel: "Advanced" },
       { name: "Git / GitHub", icon: SiGit, level: 80, levelLabel: "Advanced" },
       { name: "Docker", icon: SiDocker, level: 20, levelLabel: "Basic" },
-      { name: "Linux", icon: SiLinux, level: 50, levelLabel: "Intermediate" },
+      { name: "Linux", icon: SiLinux, level: 45, levelLabel: "Intermediate" },
       { name: "Automation (n8n)", icon: SiN8N, level: 90, levelLabel: "Expert" },
+      { name: "Data Structures & Algorithms", icon: PiTreeStructureBold, level: 22, levelLabel: "Basic" },
     ],
   },
   {
